@@ -72,22 +72,48 @@
 
     .sacred-bg-frame {
       position: absolute;
-      width: min(44vw, 560px);
-      height: min(44vw, 560px);
+      width: min(32vw, 420px);
+      height: min(32vw, 420px);
       border: 0;
-      opacity: 0.12;
-      filter: blur(0.15px);
+      opacity: 0.13;
+      filter: blur(0.1px) saturate(1.15);
+    }
+
+    .sacred-bg-frame.top-left {
+      top: 24px;
+      left: -72px;
+      opacity: 0.08;
+      filter: blur(0.1px) saturate(1.1) hue-rotate(-18deg);
     }
 
     .sacred-bg-frame.top-right {
-      top: -96px;
-      right: -112px;
+      top: 24px;
+      right: -72px;
+      filter: blur(0.1px) saturate(1.15) hue-rotate(8deg);
     }
 
     .sacred-bg-frame.bottom-left {
-      left: -120px;
-      bottom: -130px;
+      left: -72px;
+      bottom: 34px;
       opacity: 0.1;
+      filter: blur(0.1px) saturate(1.1) hue-rotate(28deg);
+    }
+
+    .sacred-bg-frame.bottom-right {
+      right: -72px;
+      bottom: 34px;
+      opacity: 0.09;
+      filter: blur(0.1px) saturate(1.12) hue-rotate(-32deg);
+    }
+
+    .sacred-bg-frame.center {
+      top: 50%;
+      left: 50%;
+      width: min(54vw, 720px);
+      height: min(54vw, 720px);
+      opacity: 0.18;
+      transform: translate(-50%, -50%);
+      filter: blur(0.08px) saturate(1.22) hue-rotate(14deg);
     }
 
     .site-header,
@@ -213,15 +239,19 @@
       cursor: pointer;
     }
 
+    .mobile-menu.is-open {
+      background: var(--maroon);
+      color: #fff;
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
       min-height: calc(100vh - 91px);
-      padding: 42px 0 50px;
+      padding: 96px 0 104px;
       display: flex;
       align-items: stretch;
-      background:
-        linear-gradient(135deg, rgba(247, 243, 234, 0.78) 0%, rgba(242, 239, 228, 0.66) 48%, rgba(238, 247, 232, 0.76) 100%);
+      background: transparent;
     }
 
     .hero-grid {
@@ -319,11 +349,11 @@
       overflow: hidden;
       height: 100%;
       border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      background: rgba(255, 255, 255, 0.18);
-      padding: 7px;
-      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.13);
-      backdrop-filter: blur(5px);
+      border: 0;
+      background: transparent;
+      padding: 0;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+      backdrop-filter: none;
     }
 
     .slider-stage {
@@ -332,7 +362,7 @@
       min-height: clamp(506px, calc(70vh - 14px), 636px);
       overflow: hidden;
       border-radius: 21px;
-      background: rgba(2, 6, 23, 0.2);
+      background: transparent;
     }
 
     .slide {
@@ -419,7 +449,7 @@
     }
 
     .section {
-      padding: 72px 0;
+      padding: 112px 0;
     }
 
     .section-label {
@@ -455,7 +485,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      padding: 34px 0 18px;
+      padding: 52px 0 36px;
     }
 
     .stat-card,
@@ -626,11 +656,8 @@
     .championship-section {
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(187, 247, 208, 0.2), transparent 28%),
-        radial-gradient(circle at 88% 18%, rgba(254, 215, 170, 0.22), transparent 30%),
-        linear-gradient(135deg, rgba(247, 243, 234, 0.42) 0%, rgba(255, 248, 236, 0.28) 48%, rgba(238, 247, 232, 0.4) 100%);
-      backdrop-filter: blur(2px);
+      background: transparent;
+      backdrop-filter: none;
     }
 
     .section-head {
@@ -767,8 +794,8 @@
     }
 
     .gallery-section {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(2px);
+      background: transparent;
+      backdrop-filter: none;
     }
 
     .gallery-grid {
@@ -816,14 +843,11 @@
     .contact-wrap {
       border: 1px solid rgba(22, 101, 52, 0.12);
       border-radius: 34px;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(220, 252, 231, 0.52), transparent 32%),
-        radial-gradient(circle at 88% 10%, rgba(255, 237, 213, 0.56), transparent 34%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(247, 255, 244, 0.58));
+      background: rgba(255, 255, 255, 0.34);
       color: var(--text);
       padding: 42px;
       box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(4px);
     }
 
     .contact-wrap .section-copy {
@@ -893,6 +917,10 @@
       color: #fff;
       padding: 0;
       border-top: 4px solid var(--maroon);
+    }
+
+    #contact {
+      padding-bottom: 128px;
     }
 
     .footer-widgets-wrapper {
@@ -1063,13 +1091,46 @@
 
     @media (max-width: 1100px) {
       .sacred-bg-frame {
-        width: 480px;
-        height: 480px;
+        width: 330px;
+        height: 330px;
       }
 
-      .nav,
       .header-cta {
         display: none;
+      }
+
+      .header-inner {
+        position: relative;
+      }
+
+      .nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        display: grid;
+        gap: 6px;
+        border: 1px solid rgba(22, 101, 52, 0.12);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.94);
+        padding: 12px;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
+        backdrop-filter: blur(18px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: 0.22s ease;
+      }
+
+      .nav.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav a {
+        border-radius: 14px;
+        padding: 13px 14px;
       }
 
       .mobile-menu {
@@ -1079,7 +1140,7 @@
 
       .hero {
         min-height: 640px;
-        padding: 22px 0;
+        padding: 64px 0 78px;
         display: block;
       }
 
@@ -1125,25 +1186,43 @@
       }
 
       .sacred-bg-frame {
-        width: min(92vw, 430px);
-        height: min(92vw, 430px);
-        opacity: 0.075;
+        width: 190px;
+        height: 190px;
+        opacity: 0.065;
+      }
+
+      .sacred-bg-frame.top-left {
+        top: 18px;
+        left: -52px;
       }
 
       .sacred-bg-frame.top-right {
-        top: 50%;
-        left: 50%;
-        right: auto;
-        transform: translate(-50%, -50%);
+        top: 18px;
+        right: -52px;
+        left: auto;
+        transform: none;
       }
 
       .sacred-bg-frame.bottom-left {
-        display: none;
+        left: -52px;
+        bottom: 18px;
+        display: block;
+      }
+
+      .sacred-bg-frame.bottom-right {
+        right: -52px;
+        bottom: 18px;
+      }
+
+      .sacred-bg-frame.center {
+        width: min(78vw, 380px);
+        height: min(78vw, 380px);
+        opacity: 0.13;
       }
 
       .hero {
         min-height: 560px;
-        padding: 16px 0;
+        padding: 54px 0 72px;
       }
 
       .hero-grid {
@@ -1186,9 +1265,9 @@
       }
 
       .slider-shell {
-        padding: 3px;
+        padding: 0;
         border-radius: 22px;
-        background: rgba(255, 255, 255, 0.08);
+        background: transparent;
         backdrop-filter: none;
       }
 
@@ -1235,7 +1314,7 @@
       .section,
       .championship-section,
       .gallery-section {
-        padding: 58px 0;
+        padding: 90px 0;
       }
 
       .section-head {
@@ -1244,7 +1323,7 @@
       }
 
       .contact-wrap {
-        padding: 26px;
+        padding: 30px 22px 42px;
         border-radius: 30px;
       }
     }
@@ -1252,8 +1331,11 @@
 </head>
 <body>
   <div class="sacred-page-bg" aria-hidden="true">
+    <iframe class="sacred-bg-frame top-left" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
     <iframe class="sacred-bg-frame top-right" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
     <iframe class="sacred-bg-frame bottom-left" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
+    <iframe class="sacred-bg-frame bottom-right" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
+    <iframe class="sacred-bg-frame center" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
   </div>
 
   <header class="site-header">
@@ -1266,7 +1348,7 @@
         </div>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav" id="primaryNav" aria-label="Primary navigation">
         <a href="#">Home</a>
         <a href="#about">About</a>
         <a href="#members">Members</a>
@@ -1277,7 +1359,7 @@
       </nav>
 
       <a class="btn header-cta" href="#contact">Member Login</a>
-      <button class="mobile-menu" aria-label="Open menu">☰</button>
+      <button class="mobile-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
     </div>
   </header>
 
@@ -1611,6 +1693,8 @@
     const heroEyebrow = document.getElementById("heroEyebrow");
     const heroTitle = document.getElementById("heroTitle");
     const heroDescription = document.getElementById("heroDescription");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const primaryNav = document.getElementById("primaryNav");
     let currentSlide = 0;
     let timer;
 
@@ -1662,6 +1746,30 @@
       window.clearInterval(timer);
       startSlider();
     }
+
+    function closeMobileMenu() {
+      primaryNav.classList.remove("is-open");
+      mobileMenu.classList.remove("is-open");
+      mobileMenu.setAttribute("aria-expanded", "false");
+      mobileMenu.textContent = "☰";
+    }
+
+    mobileMenu.addEventListener("click", () => {
+      const isOpen = primaryNav.classList.toggle("is-open");
+      mobileMenu.classList.toggle("is-open", isOpen);
+      mobileMenu.setAttribute("aria-expanded", String(isOpen));
+      mobileMenu.textContent = isOpen ? "×" : "☰";
+    });
+
+    primaryNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1100) {
+        closeMobileMenu();
+      }
+    });
 
     startSlider();
   </script>
