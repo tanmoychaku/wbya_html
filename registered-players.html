@@ -10,6 +10,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Registered Players table styles – light theme */
+    .table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: var(--surface, #fff);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .players-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .players-table thead th {
+      background: var(--orange-soft, #ffedd5);
+      color: var(--maroon, #ab263d);
+      font-weight: 700;
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 2px solid var(--maroon, #ab263d);
+      white-space: nowrap;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .players-table tbody td {
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      color: var(--text, #111827);
+    }
+    .players-table tbody tr:hover {
+      background: var(--green-soft, #dcfce7);
+    }
+    .players-table tbody tr.alt {
+      background: rgba(0,0,0,0.02);
+    }
+    .players-table tbody tr.alt:hover {
+      background: var(--green-soft, #dcfce7);
+    }
+    .col-reg {
+      font-family: 'Inter', monospace;
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--maroon, #ab263d) !important;
+    }
+    .col-name {
+      font-weight: 500;
+      color: var(--text, #111827) !important;
+    }
+    .col-dob {
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted, #64748b) !important;
+    }
+    .ayf-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: linear-gradient(135deg, hsl(45, 80%, 45%), hsl(35, 90%, 50%));
+      color: #fff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 600;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+    .jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .jump-nav a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: var(--surface, #fff);
+      color: var(--text, #111827);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .jump-nav a:hover {
+      background: var(--green, #166534);
+      color: #fff;
+      border-color: var(--green, #166534);
+    }
+    @media (max-width: 600px) {
+      .players-table thead th,
+      .players-table tbody td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+      .ayf-badge {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+        width: fit-content;
+      }
+    }
+  </style>
 </head>
 <body>
   <div data-layout-slot="background"></div>
@@ -20,29 +125,1027 @@
       <div class="container hero-card">
         <span class="section-label">Members</span>
         <h1 class="page-title">Registered Players</h1>
-        <p class="page-copy">Registered player information will be listed here as a clear player directory.</p>
+        <p class="page-copy">Official registry of players registered with the West Bengal Yoga Association for State, National, and International Yoga Sports Championships.</p>
       </div>
     </section>
 
-    <section class="section member-shell-section">
-      <div class="container content-grid">
-        <article class="content-card member-shell-card">
-          <h3>Registered Players</h3>
-          <p>Player records, registration references and competition categories can be organized here.</p>
-          <a class="btn member-page-action" href="office-bearers.html">View Office Bearers</a>
-        </article>
+    <section class="container stats-strip members-stats" aria-label="Player highlights">
+      <div class="stat-card"><div class="stat-value">171</div><div class="stat-label">Registered Players</div></div>
+      <div class="stat-card"><div class="stat-value">22</div><div class="stat-label">AYF Registered</div></div>
+      <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Registration Years</div></div>
+    </section>
 
-        <article class="content-card member-shell-card">
-          <h3>Member Pages</h3>
-          <div class="member-page-links">
-            <a href="office-bearers.html">Office Bearers</a>
-            <a href="affiliated-units.html">Affiliated Units</a>
-            <a href="associate-members.html">Associate Members</a>
-            <a href="life-members.html">Life Members</a>
-            <a class="is-active" href="registered-players.html">Registered Players</a>
-            <a href="our-pride.html">Our Pride</a>
+    <section class="section members-directory-section">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 20px;">
+          <div>
+            <span class="section-label">Directory</span>
+            <h2 class="section-title">Player Registry</h2>
           </div>
-        </article>
+        </div>
+
+        <nav class="jump-nav" aria-label="Jump to year">
+          <a href="#year-2010">2010</a>
+          <a href="#year-2011">2011</a>
+          <a href="#year-2013">2013</a>
+          <a href="#year-2014">2014</a>
+          <a href="#year-2015">2015</a>
+          <a href="#year-2016">2016</a>
+          <a href="#year-2017">2017</a>
+          <a href="#year-2018">2018</a>
+        </nav>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2010 (72 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/01/2010</td>
+                <td class="col-name">Aniraban Laha</td>
+                <td class="col-dob">29-01-1999</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/02/2010</td>
+                <td class="col-name">Priyobratta Pal</td>
+                <td class="col-dob">14-04-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/03/2010</td>
+                <td class="col-name">Sunita Nandy</td>
+                <td class="col-dob">05-12-1999</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/04/2010</td>
+                <td class="col-name">Debasmita Chandra</td>
+                <td class="col-dob">14-07-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/05/2010</td>
+                <td class="col-name">Shreyasi Biswas</td>
+                <td class="col-dob">23-09-1999</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/06/2010</td>
+                <td class="col-name">Sayan Banerjee</td>
+                <td class="col-dob">16-09-1997</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/07/2010</td>
+                <td class="col-name">Sipriti Pal</td>
+                <td class="col-dob">10-11-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/08/2010</td>
+                <td class="col-name">Sayani Mallick</td>
+                <td class="col-dob">04-12-1996</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/09/2010</td>
+                <td class="col-name">Soumojit Ghosh</td>
+                <td class="col-dob">20-01-1994</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/10/2010</td>
+                <td class="col-name">Alokesh Dey</td>
+                <td class="col-dob">17-03-1993</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/11/2010</td>
+                <td class="col-name">Sayona Das</td>
+                <td class="col-dob">21-03-1993</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/12/2010</td>
+                <td class="col-name">Doli Panda</td>
+                <td class="col-dob">19-04-1994</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/13/2010</td>
+                <td class="col-name">Rayanka Das</td>
+                <td class="col-dob">15-12-1993</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/14/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/079/2018</span></td>
+                <td class="col-name">Raakhi Chatterjee</td>
+                <td class="col-dob">07-08-1990</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/15/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/076/2018</span></td>
+                <td class="col-name">Madhubanty Dey</td>
+                <td class="col-dob">15-05-1990</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/16/2010</td>
+                <td class="col-name">Dolon Manna</td>
+                <td class="col-dob">23-03-1989</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/17/2010</td>
+                <td class="col-name">Soumit Biseas</td>
+                <td class="col-dob">27-01-1992</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/18/2010</td>
+                <td class="col-name">Shibanath Basak</td>
+                <td class="col-dob">16-06-1989</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/19/2010</td>
+                <td class="col-name">Brajnath Basak</td>
+                <td class="col-dob">06-11-1986</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/20/2010</td>
+                <td class="col-name">Sanat Halder</td>
+                <td class="col-dob">12-05-1984</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/21/2010</td>
+                <td class="col-name">Ranjit Chakraborty</td>
+                <td class="col-dob">30-06-1984</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/22/2010</td>
+                <td class="col-name">Manasi Manna</td>
+                <td class="col-dob">03-05-1986</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/23/2010</td>
+                <td class="col-name">Tapashi Modak</td>
+                <td class="col-dob">14-08-1987</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/24/2010</td>
+                <td class="col-name">Saurav Sekhar Kundu</td>
+                <td class="col-dob">01-07-1978</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/25/2010</td>
+                <td class="col-name">Laxamikant Adak</td>
+                <td class="col-dob">25-02-1979</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/26/2010</td>
+                <td class="col-name">Abijit Sil</td>
+                <td class="col-dob">12-09-1981</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/27/2010</td>
+                <td class="col-name">Soma Nandy</td>
+                <td class="col-dob">05-01-1979</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/28/2010</td>
+                <td class="col-name">Papia Ganguly</td>
+                <td class="col-dob">09-08-1978</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/29/2010</td>
+                <td class="col-name">Jhumki Ghosh</td>
+                <td class="col-dob">12-12-1977</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/30/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/124/2018</span></td>
+                <td class="col-name">Manash Mukherjee</td>
+                <td class="col-dob">29-11-1972</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/31/2010</td>
+                <td class="col-name">Madhab Ghosh</td>
+                <td class="col-dob">07-12-1972</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/32/2010</td>
+                <td class="col-name">Anjan Banerjee</td>
+                <td class="col-dob">02-02-1966</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/33/2010</td>
+                <td class="col-name">Monika Dutta</td>
+                <td class="col-dob">28-10-1972</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/34/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/085/2018</span></td>
+                <td class="col-name">Chitra Banerjee</td>
+                <td class="col-dob">06-10-1964</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/35/2010</td>
+                <td class="col-name">Shobhana Paul</td>
+                <td class="col-dob">15-01-1971</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/36/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/125/2018</span></td>
+                <td class="col-name">Pijush Kanti Pan</td>
+                <td class="col-dob">01-08-1953</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/37/2010</td>
+                <td class="col-name">Tapan Kumar</td>
+                <td class="col-dob">27-06-1956</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/38/2010</td>
+                <td class="col-name">Baswaprasad Dhar Chowdhary</td>
+                <td class="col-dob">26-02-1943</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/39/2010</td>
+                <td class="col-name">Aruna Chowdhary</td>
+                <td class="col-dob">02-01-1954</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/40/2010</td>
+                <td class="col-name">Jharma Mitra (Das)</td>
+                <td class="col-dob">28-08-1959</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/41/2010</td>
+                <td class="col-name">Saurav Rudra</td>
+                <td class="col-dob">04-03-1993</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/42/2010</td>
+                <td class="col-name">Anwesha Sinha</td>
+                <td class="col-dob">07-11-1987</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/43/2010</td>
+                <td class="col-name">Sulochana Das</td>
+                <td class="col-dob">18-06-1994</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/44/2010</td>
+                <td class="col-name">Shreyashi Das Chowdhary</td>
+                <td class="col-dob">13-04-1997</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/45/2010</td>
+                <td class="col-name">Sanjoy Majhi</td>
+                <td class="col-dob">05-06-1991</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/46/2010</td>
+                <td class="col-name">Koushik Kanji</td>
+                <td class="col-dob">24-04-1983</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/47/2010</td>
+                <td class="col-name">Akshay Kumar Goswami</td>
+                <td class="col-dob">29-04-1998</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/48/2010</td>
+                <td class="col-name">Subhasis Mondal</td>
+                <td class="col-dob">29-01-2000</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/49/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/135/2018</span></td>
+                <td class="col-name">Anusha Majumdar</td>
+                <td class="col-dob">24-03-2000</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/50/2010</td>
+                <td class="col-name">Subhashree Basu</td>
+                <td class="col-dob">01-08-2000</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/51/2010 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/075/2018</span></td>
+                <td class="col-name">Dayeta Sarkar</td>
+                <td class="col-dob">17-12-1999</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/52/2010</td>
+                <td class="col-name">Raju Kumar Das</td>
+                <td class="col-dob">06-11-1996</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/53/2010</td>
+                <td class="col-name">Sourin Pramanick</td>
+                <td class="col-dob">21-09-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/54/2010</td>
+                <td class="col-name">Sreya Das</td>
+                <td class="col-dob">02-12-1995</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/55/2010</td>
+                <td class="col-name">Madhumita Pramanick</td>
+                <td class="col-dob">07-02-1997</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/56/2010</td>
+                <td class="col-name">Debangana Das</td>
+                <td class="col-dob">12-11-1996</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/57/2010</td>
+                <td class="col-name">Snehasis Malo Das</td>
+                <td class="col-dob">11-10-1993</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/58/2010</td>
+                <td class="col-name">Tania Nag</td>
+                <td class="col-dob">15-12-1991</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/59/2010</td>
+                <td class="col-name">Tapas Paul</td>
+                <td class="col-dob">03-05-1986</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/60/2010</td>
+                <td class="col-name">Binay Paul</td>
+                <td class="col-dob">17-11-1988</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/61/2010</td>
+                <td class="col-name">Mamta Rajak</td>
+                <td class="col-dob">24-01-1987</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/62/2010</td>
+                <td class="col-name">Priyanka Koley</td>
+                <td class="col-dob">07-12-1988</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/63/2010</td>
+                <td class="col-name">Kabita Dam</td>
+                <td class="col-dob">26-10-1982</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/64/2010</td>
+                <td class="col-name">Tapan Nath</td>
+                <td class="col-dob">24-01-1970</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/65/2010</td>
+                <td class="col-name">Namita Saha</td>
+                <td class="col-dob">02-07-1965</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/66/2010</td>
+                <td class="col-name">Debasmita Das</td>
+                <td class="col-dob">12-11-1996</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/67/2010</td>
+                <td class="col-name">Prakriti Barua</td>
+                <td class="col-dob">03-11-1997</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/68/2010</td>
+                <td class="col-name">Madhabi Seth</td>
+                <td class="col-dob">30-11-1989</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/69/2010</td>
+                <td class="col-name">Bhagya Shree Maity</td>
+                <td class="col-dob">02-11-1992</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/70/2010</td>
+                <td class="col-name">Rohit Das</td>
+                <td class="col-dob">27-11-1994</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/71/2010</td>
+                <td class="col-name">Hriday Pal</td>
+                <td class="col-dob">04-04-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/72/2010</td>
+                <td class="col-name">Aditi Paul</td>
+                <td class="col-dob">16-09-1992</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2011 (10 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/73/2011</td>
+                <td class="col-name">Rohan Karmakar</td>
+                <td class="col-dob">01-02-2002</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/74/2011</td>
+                <td class="col-name">Subhrajoti Banik</td>
+                <td class="col-dob">19-11-2001</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/75/2011</td>
+                <td class="col-name">Nabomitadas Gupta</td>
+                <td class="col-dob">13-11-2002</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/76/2011</td>
+                <td class="col-name">Arnab Kumar Mallick</td>
+                <td class="col-dob">04-10-1995</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/77/2011</td>
+                <td class="col-name">Promita Pallab</td>
+                <td class="col-dob">06-01-1996</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/78/2011</td>
+                <td class="col-name">Deepak Gond</td>
+                <td class="col-dob">03-10-1993</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/79/2011</td>
+                <td class="col-name">Mohan Kumar Singh</td>
+                <td class="col-dob">09-06-1962</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/80/2011</td>
+                <td class="col-name">Tapati Bhattacharya</td>
+                <td class="col-dob">23-07-1982</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/81/2011</td>
+                <td class="col-name">Gita Das</td>
+                <td class="col-dob">05-04-1955</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/82/2011</td>
+                <td class="col-name">Aloka Biswas</td>
+                <td class="col-dob">15-08-1957</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2013 (25 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/83/2013 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/126/2018</span></td>
+                <td class="col-name">Prabuddha Dutta</td>
+                <td class="col-dob">29-12-2003</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/84/2013</td>
+                <td class="col-name">Akhilesh Umar Jha</td>
+                <td class="col-dob">02-05-2002</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/85/2013</td>
+                <td class="col-name">Sakshi Dutta</td>
+                <td class="col-dob">08-10-2002</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/86/2013</td>
+                <td class="col-name">Asmita Banerjee</td>
+                <td class="col-dob">06-10-2002</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/87/2013</td>
+                <td class="col-name">Abhijit Daw</td>
+                <td class="col-dob">29-08-2000</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/88/2013</td>
+                <td class="col-name">Debabrata Ghosh</td>
+                <td class="col-dob">22-09-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/89/2013</td>
+                <td class="col-name">Biplab Suroi</td>
+                <td class="col-dob">17-01-1996</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/90/2013</td>
+                <td class="col-name">Aditi Das</td>
+                <td class="col-dob">29-09-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/91/2013</td>
+                <td class="col-name">Amrita Pathak</td>
+                <td class="col-dob">16-08-1997</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/92/2013</td>
+                <td class="col-name">Sutanu Chatterjee</td>
+                <td class="col-dob">28-04-1990</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/93/2013</td>
+                <td class="col-name">Mir Azharuddin</td>
+                <td class="col-dob">20-03-1989</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/94/2013</td>
+                <td class="col-name">Jhumpa Dey</td>
+                <td class="col-dob">06-03-1985</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/95/2013</td>
+                <td class="col-name">Bula Samanta</td>
+                <td class="col-dob">27-12-1976</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/96/2013</td>
+                <td class="col-name">Abhirup Bose</td>
+                <td class="col-dob">20-11-2003</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/97/2013</td>
+                <td class="col-name">Sayan Debnath</td>
+                <td class="col-dob">28-07-2003</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/98/2013</td>
+                <td class="col-name">Punam Karmakar</td>
+                <td class="col-dob">14-05-2003</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/99/2013</td>
+                <td class="col-name">Amisha Khan</td>
+                <td class="col-dob">15-04-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/100/2013</td>
+                <td class="col-name">Riya Pal</td>
+                <td class="col-dob">01-07-2004</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/101/2013</td>
+                <td class="col-name">Saibal Guchait</td>
+                <td class="col-dob">13-12-2001</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/102/2013</td>
+                <td class="col-name">Ujjwal Pal</td>
+                <td class="col-dob">21-08-1999</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/103/2013</td>
+                <td class="col-name">Subrata Mondal</td>
+                <td class="col-dob">11-08-1999</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/104/2013 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/077/2018</span></td>
+                <td class="col-name">Neha Shaw</td>
+                <td class="col-dob">23-05-1997</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/105/2013</td>
+                <td class="col-name">Sudeshna Mukherjee</td>
+                <td class="col-dob">21-11-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/106/2013</td>
+                <td class="col-name">Sima Debnath (Sarkar)</td>
+                <td class="col-dob">02-01-1983</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/107/2013 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/082/2018</span></td>
+                <td class="col-name">Sonali Ghosh (Dutta)</td>
+                <td class="col-dob">25-11-1997</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2014 (15 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/108/2014</td>
+                <td class="col-name">Sayan Ghosh</td>
+                <td class="col-dob">17-12-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/109/2014</td>
+                <td class="col-name">Promita Mandal</td>
+                <td class="col-dob">23-08-2005</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/110/2014</td>
+                <td class="col-name">Piyasy Sarkar</td>
+                <td class="col-dob">28-09-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/111/2014 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/128/2018</span></td>
+                <td class="col-name">Vivekananda Pal</td>
+                <td class="col-dob">22-09-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/112/2014</td>
+                <td class="col-name">Namita Das</td>
+                <td class="col-dob">02-04-1962</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/113/2014</td>
+                <td class="col-name">Samapti Pal</td>
+                <td class="col-dob">23-06-2000</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/114/2014</td>
+                <td class="col-name">Tanishq Dey</td>
+                <td class="col-dob">11-10-2005</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/115/2014</td>
+                <td class="col-name">Arkaprova Bannerjee</td>
+                <td class="col-dob">01-05-2005</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/128/2014</td>
+                <td class="col-name">Prerna Kumari</td>
+                <td class="col-dob">25-03-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/129/2014</td>
+                <td class="col-name">Sumit Kumar</td>
+                <td class="col-dob">02-01-1996</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/130/2014</td>
+                <td class="col-name">Neeraj Mandrawal</td>
+                <td class="col-dob">28-03-1990</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/131/2014</td>
+                <td class="col-name">Savita</td>
+                <td class="col-dob">16-08-1998</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/132/2014</td>
+                <td class="col-name">Abhijeet Vinayak</td>
+                <td class="col-dob">26-01-1992</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/133/2014</td>
+                <td class="col-name">Vipin Kumar</td>
+                <td class="col-dob">07-03-2001</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/134/2014</td>
+                <td class="col-name">Anit</td>
+                <td class="col-dob">26-08-1998</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2015 (13 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/135/2015</td>
+                <td class="col-name">Debojyoti Dey</td>
+                <td class="col-dob">18-07-2005</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/136/2015</td>
+                <td class="col-name">Ankur Saha</td>
+                <td class="col-dob">17-02-2006</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/137/2015</td>
+                <td class="col-name">Ritu Mondal</td>
+                <td class="col-dob">09-11-2005</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/138/2015</td>
+                <td class="col-name">Diya Karmakar</td>
+                <td class="col-dob">23-05-2005</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/139/2015</td>
+                <td class="col-name">Sania Mukherjee</td>
+                <td class="col-dob">10-08-2005</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/140/2015</td>
+                <td class="col-name">Rohan Biswas</td>
+                <td class="col-dob">20-06-2002</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/141/2015</td>
+                <td class="col-name">Tamalika Dutta</td>
+                <td class="col-dob">18-10-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/142/2015</td>
+                <td class="col-name">Sanaskriti Dutta</td>
+                <td class="col-dob">04-06-2001</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/143/2015</td>
+                <td class="col-name">Sulagna Sen</td>
+                <td class="col-dob">26-10-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/144/2015</td>
+                <td class="col-name">Chiranjit Mal</td>
+                <td class="col-dob">24-04-1994</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/145/2015 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/018/2017</span></td>
+                <td class="col-name">Sanchaita Chakraborty</td>
+                <td class="col-dob">23-01-1993</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/146/2015 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/030/2017</span></td>
+                <td class="col-name">Pallab Das Gupta</td>
+                <td class="col-dob">22-02-1962</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/147/2015</td>
+                <td class="col-name">Amita Majumdar</td>
+                <td class="col-dob">01-01-1962</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2016 (14 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/148/2016</td>
+                <td class="col-name">Debraj Shaw</td>
+                <td class="col-dob">10-03-2006</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/149/2016</td>
+                <td class="col-name">Debojit Mondal</td>
+                <td class="col-dob">02-05-2006</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/150/2016</td>
+                <td class="col-name">Ajoy Saren</td>
+                <td class="col-dob">23-09-2006</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/151/2016</td>
+                <td class="col-name">Prerana Mallick</td>
+                <td class="col-dob">03-12-2006</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/152/2016</td>
+                <td class="col-name">Pramita Das</td>
+                <td class="col-dob">02-02-2008</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/153/2016</td>
+                <td class="col-name">Ishani Dey</td>
+                <td class="col-dob">29-10-2006</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/154/2016 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/127/2018</span></td>
+                <td class="col-name">Sowel Ahmed Gazi</td>
+                <td class="col-dob">10-01-2005</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/155/2016</td>
+                <td class="col-name">Avay Sarkar</td>
+                <td class="col-dob">18-11-2004</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/156/2016</td>
+                <td class="col-name">Shuvrajyoti Mahaldar</td>
+                <td class="col-dob">13-07-2004</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/157/2016</td>
+                <td class="col-name">Rupsa Dutta</td>
+                <td class="col-dob">12-09-2005</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/158/2016</td>
+                <td class="col-name">Antara Dutta</td>
+                <td class="col-dob">27-10-1997</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/159/2016 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/083/2018</span></td>
+                <td class="col-name">Supriya Panda</td>
+                <td class="col-dob">20-12-1995</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/160/2016</td>
+                <td class="col-name">Nupur Debnath</td>
+                <td class="col-dob">30-10-1988</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/161/2016</td>
+                <td class="col-name">Debjani Biswas Mondal</td>
+                <td class="col-dob">13-01-1973</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2017 (12 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/162/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/122/2018</span></td>
+                <td class="col-name">Debo Jyoti Pramanik</td>
+                <td class="col-dob">24-01-2007</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/163/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/123/2018</span></td>
+                <td class="col-name">Manash Karmakar</td>
+                <td class="col-dob">05-11-2007</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/164/2017</td>
+                <td class="col-name">Sougata Paul</td>
+                <td class="col-dob">01-02-2008</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/165/2017</td>
+                <td class="col-name">Srija Saha</td>
+                <td class="col-dob">08-08-2009</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/166/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/084/2018</span></td>
+                <td class="col-name">Tanisha Das</td>
+                <td class="col-dob">12-11-2007</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/167/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/078/2018</span></td>
+                <td class="col-name">Payel Saha</td>
+                <td class="col-dob">07-02-2007</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/168/2017</td>
+                <td class="col-name">Pratyusha Banerjee</td>
+                <td class="col-dob">10-05-2006</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/169/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/121/2018</span></td>
+                <td class="col-name">Avikho Hazra</td>
+                <td class="col-dob">26-03-2003</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/170/2017</td>
+                <td class="col-name">Nikhat Parveen</td>
+                <td class="col-dob">16-10-2002</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/171/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/081/2018</span></td>
+                <td class="col-name">Sneha Sinha</td>
+                <td class="col-dob">12-03-2001</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/172/2017</td>
+                <td class="col-name">Arunava Debnath</td>
+                <td class="col-dob">05-05-1996</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/173/2017 <span class="ayf-badge" title="Asian Yoga Federation">AYF/IND/080/2018</span></td>
+                <td class="col-name">Shampa Malakar</td>
+                <td class="col-dob">04-12-1979</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bearer-group">
+          <h3 class="bearer-group-title">Registered in 2018 (10 Players)</h3>
+          <div class="table-responsive">
+            <table class="players-table">
+              <thead>
+                <tr>
+                  <th class="col-reg">Reg. No.</th>
+                  <th class="col-name">Name</th>
+                  <th class="col-dob">Date of Birth</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr class="alt">
+                <td class="col-reg">WB/174/2018</td>
+                <td class="col-name">Amit Shaw</td>
+                <td class="col-dob">23-06-2008</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/175/2018</td>
+                <td class="col-name">Ritam Das</td>
+                <td class="col-dob">28-04-2009</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/176/2018</td>
+                <td class="col-name">Puspita Debnath</td>
+                <td class="col-dob">26-11-2009</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/177/2018</td>
+                <td class="col-name">Binod Chowdhury</td>
+                <td class="col-dob">14-10-2005</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/178/2018</td>
+                <td class="col-name">Mrittika Bhattacharya</td>
+                <td class="col-dob">28-05-2006</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/179/2018</td>
+                <td class="col-name">Prasun Biswas</td>
+                <td class="col-dob">28-08-2003</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/180/2018</td>
+                <td class="col-name">Rajanya Das</td>
+                <td class="col-dob">04-08-2002</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/181/2018</td>
+                <td class="col-name">Pronoy Mondal</td>
+                <td class="col-dob">03-05-2001</td>
+              </tr>
+              <tr class="alt">
+                <td class="col-reg">WB/182/2018</td>
+                <td class="col-name">Sarmistha Das</td>
+                <td class="col-dob">05-06-1995</td>
+              </tr>
+              <tr>
+                <td class="col-reg">WB/183/2018</td>
+                <td class="col-name">Asha Sarkar</td>
+                <td class="col-dob">23-07-1982</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -50,5 +1153,12 @@
   <div data-layout-slot="footer"></div>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    // Add IDs for jump navigation
+    document.querySelectorAll('.bearer-group-title').forEach(function(el) {
+      var m = el.textContent.match(/\d{4}/);
+      if (m) el.id = 'year-' + m[0];
+    });
+  </script>
 </body>
 </html>

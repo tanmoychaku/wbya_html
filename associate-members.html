@@ -10,6 +10,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Styling for Jump Links */
+    .district-links-wrapper {
+      border: 1px solid rgba(22, 101, 52, 0.1);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.78);
+      padding: 24px;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.07);
+      backdrop-filter: blur(8px);
+      margin-bottom: 40px;
+    }
+    .district-links-wrapper h3 {
+      margin-bottom: 16px;
+      color: var(--green);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .district-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .district-link-btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border: 1px solid rgba(22, 101, 52, 0.15);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 16px;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      text-decoration: none;
+    }
+    .district-link-btn:hover {
+      border-color: var(--maroon);
+      background: var(--maroon);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <div data-layout-slot="background"></div>
@@ -20,29 +65,284 @@
       <div class="container hero-card">
         <span class="section-label">Members</span>
         <h1 class="page-title">Associate Members</h1>
-        <p class="page-copy">Associate member details are collected here as a dedicated directory within the Members section.</p>
+        <p class="page-copy">State Yoga Judges and Referees registered with the West Bengal Yoga Association, organized by district.</p>
       </div>
     </section>
 
-    <section class="section member-shell-section">
-      <div class="container content-grid">
-        <article class="content-card member-shell-card">
-          <h3>Associate Members</h3>
-          <p>Associate member records from the Office Bearers listing are also shown on the Office Bearers page.</p>
-          <a class="btn member-page-action" href="office-bearers.html">View Office Bearers</a>
-        </article>
+    <section class="container stats-strip members-stats" aria-label="Associate member highlights">
+      <div class="stat-card"><div class="stat-value">154</div><div class="stat-label">Listed Judges</div></div>
+      <div class="stat-card"><div class="stat-value">12</div><div class="stat-label">Districts</div></div>
+      <div class="stat-card"><div class="stat-value">State-Wide</div><div class="stat-label">Coverage</div></div>
+      <div class="stat-card"><div class="stat-value">WBYA</div><div class="stat-label">Judges Directory</div></div>
+    </section>
 
-        <article class="content-card member-shell-card">
-          <h3>Member Pages</h3>
-          <div class="member-page-links">
-            <a href="office-bearers.html">Office Bearers</a>
-            <a href="affiliated-units.html">Affiliated Units</a>
-            <a class="is-active" href="associate-members.html">Associate Members</a>
-            <a href="life-members.html">Life Members</a>
-            <a href="registered-players.html">Registered Players</a>
-            <a href="our-pride.html">Our Pride</a>
+    <section class="section members-directory-section">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 30px;">
+          <div>
+            <span class="section-label">State Directory</span>
+            <h2 class="section-title">Registered State Yoga Judges & Referees</h2>
           </div>
-        </article>
+        </div>
+
+        <div class="district-links-wrapper">
+          <h3>Jump to District</h3>
+          <div class="district-links-container">
+            <a href="#bankura" class="district-link-btn">Bankura</a>
+<a href="#chandannagar" class="district-link-btn">Chandannagar</a>
+<a href="#hooghly" class="district-link-btn">Hooghly</a>
+<a href="#howrah" class="district-link-btn">Howrah</a>
+<a href="#jalpaiguri" class="district-link-btn">Jalpaiguri</a>
+<a href="#kolkata" class="district-link-btn">Kolkata</a>
+<a href="#nadia" class="district-link-btn">Nadia</a>
+<a href="#north-24-parganas" class="district-link-btn">North 24 Parganas</a>
+<a href="#paschim-bardhaman" class="district-link-btn">Paschim Bardhaman</a>
+<a href="#paschim-medinipur" class="district-link-btn">Paschim Medinipur</a>
+<a href="#purba-bardhaman" class="district-link-btn">Purba Bardhaman</a>
+<a href="#south-24-parganas" class="district-link-btn">South 24 Parganas</a>
+
+          </div>
+        </div>
+
+        
+        <div class="bearer-group" id="bankura">
+          <h3 class="bearer-group-title">Bankura District (5 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Amaresh Gayen</h3><p>Rampur Monakatfab, Bankura, Pin - 722101</p><p><strong>Phone : +91-9434480572</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-323-2016-C-979.jpg" alt="Sh. Nirup Dey" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/323/2016)</div><h3>Sh. Nirup Dey</h3><p>PO Sonamukhi (Krishanakalitala), Dist. Bankura (WB) 722207</p><p><strong>Mobile: 08372928891</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Achinta Roy</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Amar Rakshit</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Asim Kumar Guin</h3></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="chandannagar">
+          <h3 class="bearer-group-title">Chandannagar District (9 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Giridhari-sir.jpg" alt="Sri Giridhari Chowdhury" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sri Giridhari Chowdhury</h3><p>15 Sreepally, Chandernagar, Hooghly -712136</p><p><strong>Ph. 9331087602</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AK</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/892/2018)</div><h3>Sh. Amit Kr. Das</h3><p>Rather Sarak, Chandernagar, Dist. Hooghly, West Bengal</p><p><strong>Ph-09239246449</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Amitava Ganguly</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. YFI/NYR/1506/2021)</div><h3>Sh. Debiprasanna Sil</h3><p><strong>Phone:</strong> 34, Hatkhola, Garpara, Chandannagar, Hooghly - 712136  Ph. - 8961491649</p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AP</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Arindam Paul</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Somnath Mitra</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Anup Kr. Rakshit</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SP</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Subhadip Paul</h3><p>Hatkhola, Muktarpara, Chandannagar, hooghly</p><p><strong>Ph. 9163875799</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Anup Kumar Das</h3></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="hooghly">
+          <h3 class="bearer-group-title">Hooghly District (25 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-891-2018-C-1006.jpg" alt="Smt. Soma Paul" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Soma Paul</h3><p>Village Pandua Telipara, Post & PS Pandua, Dist. Hooghly</p><p><strong>Mobile no: 85094-45411</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Atanu Dutta</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-103-2011-C-959.jpg" alt="Sh. Shyamal Kr. Dutta" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/103/2011)</div><h3>Sh. Shyamal Kr. Dutta</h3><p>ISC Chatterjee Street, PO Kannagar, PS Uttarpara, Hoogly, West Bengal</p><p><strong>Mobile- +91-94333-57465</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CN</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Chandra Nath Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sima Roy</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Mr. Madhab Ghosh</h3><p>208, B.B. Street, P.O. Bhadrakali, Dist. - Hooghly, Pin. - 712232</p><p><strong>Mobile No. +91-9432050661</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-189-2013-B-966.jpg" alt="Sh. Manik Pradhan" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/189/2013)</div><h3>Sh. Manik Pradhan</h3><p>32/7 Kotrug Baidak Para, Hindmotor Distt Hooghly</p><p><strong>Mobile No. +919804333444</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SC</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/890/2018)</div><h3>Sh. Saibal Ch. Mondal</h3><p>VPO Dumurdaha, PS Balagarh, Dist. Hooghly 712515</p><p><strong>Mobile no: 86706-58332</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Amitava.jpg" alt="Sh. Amitava Sengupta" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/619/2017)</div><h3>Sh. Amitava Sengupta</h3><p>28/2, Udayan Pally, Hindmotor, Hooghly, PIN. - 712233</p><p><strong>Mobile-8013774270</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Mr. Subhasish Banerjee</h3><p>126, N. K. Banerjee Street, P.O. - Rishra, Dist. - Hooghly, Pin. - 712248</p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>JN</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Jolly Nag</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/191/2013)</div><h3>Sh. Biswajit Saha</h3><p>321, Ashwini Dutta Nagar, Hind Motor, Hooghly WB</p><p><strong>Mobile No. 9903902183</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>GD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Gopal Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>RM</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/77/2010)</div><h3>Sh. Romya Mitra</h3><p>12/23, Panchanantala, 3rd Bye Lane, P.O. Rishra, Distt. Hoogly, W.B., 098366-99907</p><p><strong>Mobile No: 033-26720953,</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Champa Maji</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SG</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/428/2016)</div><h3>Sh. Surajit Ghosh</h3><p>41, Mukherjeepara Lane, Mukti Appt. 4, PO Serampore, Hooghly (WB) 712201</p><p><strong>Mobile: 07278820273</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/shampasarkar.gif" alt="Smt. Shampa Sarkar" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/269/2014)</div><h3>Smt. Shampa Sarkar</h3><p>11, Sarada Mata Lane, PO Rishra, Dist. Hooghly - 712248</p><p><strong>Mobile no. 8013283158</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>KS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/270/2014)</div><h3>Sh. Koustav Sengupta</h3><p>16, Dharmatala Lane, Kotrung, PO Hindmotor, Dist. Hooghly - 712233</p><p><strong>Mobile no. 9038634604</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-327-2016-C-981.jpg" alt="Sh. Soumen Das" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/327/2016)</div><h3>Sh. Soumen Das</h3><p>26/1, Kotrung Jayanta Nagar, Hindmotor, Hooghly (WB) 712233</p><p><strong>Mobile: 08296999718</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DB</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. YFI/NYR/1401/2020)</div><h3>Sh. Debashis Barat</h3><p>15, Auddy Lane, Serampore, Hooghly, Pin- 712201</p><p><strong>Phone: 9903727366</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Sourav Rudra</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sudeshna Mukherjee</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Piyali Banerjee</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Biplab Karmakar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>KA</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Krishna Ash</h3></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="howrah">
+          <h3 class="bearer-group-title">Howrah District (23 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Kanak-di.jpg" alt="Mrs. Kanak Dolui" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/230/2013)</div><h3>Mrs. Kanak Dolui</h3><p>K, 169, Benaras Road, Kona Bazar, Kona, Howrah - 114.</p><p><strong>Phone: +01-9836613189</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/17/2010)</div><h3>Sh. Prasanta Samanta</h3><p>161, Dewangazi Road, P.O. Bally, Distt. Howrah - 711201</p><p><strong>Phone-+33-26548003</strong></p><p><strong>Mobile-+91-94339-79911</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/balai-chandra.gif" alt="Sh. Balai Chandra Shaw" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/61/2010)</div><h3>Sh. Balai Chandra Shaw</h3><p>65, Nandi Bagan Bye Lane, Salkia, Howrah</p><p><strong>Contact No: 098319-47030</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Debnath Das</h3><p>21, Sarkhel Para Lane, Bally, Howrah - 711201</p><p><strong>Ph. +91-9903208243</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-21-2010-A-949.jpg" alt="Sh. Rabindranath Das" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/21/2010)</div><h3>Sh. Rabindranath Das</h3><p>53, D.C. Neogi Road, P.O. Ghoshpara, P.S. Bally, Dist. Howrah - 711227</p><p><strong>Mobile- +91-98831-81203</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>US</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/26/2013)</div><h3>Sh. Uday Shankar Chatterjee</h3><p>2, G Road, Kunjapara, Belgachia, P.O. Netajigarh, P.S. Liluah, Distt. Howrah - 711108</p><p><strong>Mobile- +91-98839-08518, 96815-93443</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/chandandutta.gif" alt="Sh. Chandan Dutta" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/276/2014)</div><h3>Sh. Chandan Dutta</h3><p>12, Shibtaala Lane, Shibpur, Howrah, West Bengal 711102</p><p><strong>Mobile no. 9433504357</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Mithu Ganguly</h3><p>12, Tara Chand Ganguly Street, Belur Math, Howrah, Pin. - 711202</p><p><strong>Mobile No. 9674070962</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/brajnath.jpg" alt="Sh. Brajanath Basak" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/188/2013)</div><h3>Sh. Brajanath Basak</h3><p>30/4, Girish Ghosh Road, P.O. Belurmath P.S Belur, Distt Howrah</p><p><strong>Mobile No. 09903855362</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SL</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/620/2017)</div><h3>Sh. Subhas Lal Harijon</h3><p>54/A, Lala Babu Shire Road, P.O. - Belur Math, P.S. - Bally, Dist. - Howrah - 711202</p><p><strong>Mobile No. 8697332405</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/papia.jpg" alt="Smt. Papia Ganguly" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/190/2013)</div><h3>Smt. Papia Ganguly</h3><p>Vill Nischinda Madhyapara P.O. Ghoshpara, Bally, Distt Howrah. WB</p><p><strong>Mobile No. 9883325609</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SD</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/431/2016)</div><h3>Sh. Soumasish Dutta</h3><p>12, Shibtala Lane, Shibpur, Howrah (WB) 711102</p><p><strong>Mobile: 09674392463</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/02/sanjay12.gif" alt="Sh. Sanjoy Adhikary" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/429/2016)</div><h3>Sh. Sanjoy Adhikary</h3><p>28, Ramnabamitala Lane, Block-A, 2nd Floor, Bally, Howrah (WB) 711201</p><p><strong>Mobile: 09874343113</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MD</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/623/2017)</div><h3>Smt. Mohua Dutta (Mallick)</h3><p>98/1 Tripura Roy Lane, Salkia, Howrah - 711106</p><p><strong>Phone: 7059792776</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-69-2010-C-956.jpg" alt="Sh. Sourav Sekhar Kundu" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/69/2010)</div><h3>Sh. Sourav Sekhar Kundu</h3><p>26, Nikamal Kundu Lane, P.O. & P.S. Shibpur, Distt. Howrah (West Bengal)</p><p><strong>Contact No: 033-6412 4970, 092313-76703</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PP</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/277/2014)</div><h3>Ms. Paromita Pallab</h3><p>North Ghoshparaa (Near Gas Grid), PO Ghoshpara, PS Nischind, Bally, dist. Howrah, West Bengal 711227</p><p><strong>Mobile no. 8272933620</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/priyapal.gif" alt="Ms. Priya Paul" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/271/2014)</div><h3>Ms. Priya Paul</h3><p>North Ghoshpara, Moti Nagar Colony, Napitpara, PO Ghoshpara, PS Nischinda, Dist. Howrah - 711227</p><p><strong>Mobile no. 8013422609</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PT</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Pankaj Tarafdar</h3><p>Nischinda (west), PO Ghoshpara, PS Nischinda, Howrah (WB) 711227</p><p><strong>Mobile: 82768-29232</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Snehasish Malodas</h3><p>Jagadish Basu Sarani, Paschimangsha, P.O. - Ghosh Para, P.S. - Nischinda, Bally, Howrah - 711227</p><p><strong>Phone: 7278116021</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>RC</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/131/2013)</div><h3>Ms. Rakhee Chatterjee</h3><p>53/2/2 Dharmatala Lane Shibpur, Howrah, West Bengal 711102</p><p><strong>Mobile- 08013355080</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/02/basudev.gif" alt="Sh. Basudev Maity" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/427/2016)</div><h3>Sh. Basudev Maity</h3><p>Village Barberia, PO surmur, PS Ulberia, Dist Howrah (WB) 711316</p><p><strong>Mobile: 08479994993</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AP</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/430/2016)</div><h3>Ms. Adity Paul</h3><p>18/19 A, Ananda Kumar Roychowdhary road, Shibpur, Howrah (WB) 711102</p><p><strong>Mobile: 09038051894</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Rupa-Boudi.jpg" alt="Smt. Rupa Shaw" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/233/2013)</div><h3>Smt. Rupa Shaw</h3><p>65, Nandi Bagan Bye Lane, Salkia, Howrah</p><p><strong>Contact No: 098319-47030</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="jalpaiguri">
+          <h3 class="bearer-group-title">Jalpaiguri District (1 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/sushil.gif" alt="Sh. Sushil Ghosh" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Regn. no. NYR/27/2010)</div><h3>Sh. Sushil Ghosh</h3><p>Bose Para, P.O. Kharia, Near Tarunadal Club, Distt. Jalpaiguri - 735101</p><p><strong>Phone- +91-3561-255400</strong></p><p><strong>Mobile- +91-94344-12339</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="kolkata">
+          <h3 class="bearer-group-title">Kolkata District (21 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Bhupal Sharma</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Chirantan Chakraborty</h3><p>19, Bamacharan Roy Road, Behala, Kolkata - 700034</p><p><strong>Ph. - 9433077679</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Snigdha Sen</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/16/2010)</div><h3>Ms. Sumitra Sengupta</h3><p># 5, REV. Kali Banerjee Row, Kolkata - 700006 (West Bengal)</p><p><strong>Phone-+91-33-23546260</strong></p><p><strong>Mobile-+91-94337-78354</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>NM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Namita Mitra</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>GC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Gouri Chakraborty</h3><p>19, Bamacharan Roy Road, Behala, Kolkata - 700034</p><p><strong>Ph. - 9433077679</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>ND</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Nupur Das (Dutta)</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Animesh Dutta</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sabita Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Dipika Sharma</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/amalendu.gif" alt="Sh. Amalendu Mondal" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/272/2014)</div><h3>Sh. Amalendu Mondal</h3><p>Village Tantiberia, PO Kushberia, PS Uluberia, Dist. howrah, West Bengal 711316</p><p><strong>Mobile no. 9836553303</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Meru Banik</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Aruna Saha Chowdhury</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SB</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/75/2010)</div><h3>Sh. Somnath Basu</h3><p>104/D, Karunamoyee Ghat Road, “Matri Mandir”, Michael Madhusudan Park, Haridevpur, Kolkata-700082</p><p><strong>Mobile No.+91-98744-05592</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Alpana Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Doly Singrodia (Nandi)</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/ranajit.gif" alt="Sh. Ranajit Chakraborty" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/133/2013)</div><h3>Sh. Ranajit Chakraborty</h3><p>VPO Mayapur, PS Nodakhali, Dist. 24 Pargana South, West Bengal 743318</p><p><strong>Mobile- 09230208435</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>RS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Radha Saha</h3><p>11/1, Baithak Khana 1st Lane, Kolkata - 700009</p><p><strong>Mobile - 9883194012</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2018/03/IMG-20171118-WA0018-1.jpg" alt="Sh. Kanchanmoy Halder" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Kanchanmoy Halder</h3><p>P-30, Ananda Pally, P.B. Road, Kolkata - 41</p><p><strong>Phone: +91-9831131050</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sampa Das</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/Sanat-Halder-Copy.jpg" alt="Sh. Sanat Halder" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/132/2013)</div><h3>Sh. Sanat Halder</h3><p>Flat # 06, Block # 02, Acharyapally, RKM Ashrama, Narendrapur, Kolkata - 700103.</p><p><strong>Mobile- +91-8443816838</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="nadia">
+          <h3 class="bearer-group-title">Nadia District (18 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/srimanash.gif" alt="Sh. Manas Mukherjee" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/28/2010)</div><h3>Sh. Manas Mukherjee</h3><p>Village Lalpur, Near Nabrun Play Ground, P.O. and P.S. Chakdaha, Distt. Nadia - 741222</p><p><strong>Mobile- +91-97325-57902</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sri Monoj Khan</h3><p>19/4, Shyam Bazer Nischintapur Lane, Santipur, Nadia - 741404</p><p><strong>Phone: +91-9641333549</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2018/09/Krishna.jpg" alt="Smt. Krishna Dey" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Krishna Dey</h3><p>Vill - Srinagar Jayanta, P.O. - Ranaghat, Dist. - Nadia, Pin - 741201</p><p><strong>Phone: +91-9433557978</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Monoj Mukherjee</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-893-2018-C-1008.jpg" alt="Anwesha Sinha" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/893/2020)</div><h3>Anwesha Sinha</h3><p>Village PO Fulia Colony, Nadia 741402</p><p><strong>Mobile no: 83709-47139</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>TK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sri Tapan Kumar Modak</h3><p>16/6, Baigachi Ostagar Para, P.O. + P.S. - Santipur, Dist. - Nadia, Pin - 741404</p><p><strong>Phone: +91-7908483345</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Asish Majumdar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Chinku Biswas</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Dibyajaya Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>TB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Tripti Biswas</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>GD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Gita Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Sonali Ghosh</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Aditya Roy</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Somnath Sarkar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Ms. Madhubanti Dey</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AR</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Arpita Roy</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Dulal Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AR</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/129/2011)</div><h3>Ms. Anindita Roy</h3><p>105/1 Mona Dutta, Surani (Daspara), PO Kanchrapara, Distt. 24 PGS (N) PS Bizpur</p><p><strong>Mobile No. +91-94338-80596</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="north-24-parganas">
+          <h3 class="bearer-group-title">North 24 Parganas District (20 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Dilip Kr. Ghosh</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BP</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Bishnu Prasad Dhar Chowdhury</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Mihir Bhattacharjee</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BA</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Biplab Aich</h3><p>Post Harba Praful Nagar, Dist. North 24 Parganas, Ps Harba</p><p><strong>Mobile no: 81453-77416</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Chitra Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Subrata Kr. Ghosh</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MG</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Minati Ghosh</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>KD</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/273/2014)</div><h3>Kabita Dam</h3><p>2 No., Debigarh, Madhyamgram, Kolkata 129</p><p><strong>Mobile no. 9163266406</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Amalesh Ch. Roy</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>IB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Ila Bhattacharya</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/chitra.gif" alt="Smt. Chitra Banerjee" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/134/2013)</div><h3>Smt. Chitra Banerjee</h3><p>Hemanta Bose, Sarani, Uday Rajpur, Madhyam Gram, Kolkata, West Bengal 700129</p><p><strong>Mobile- 09903808202</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>NC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Dr. Nidhir Chandra Seal</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BN</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Bithika Nath</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SR</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/624/2020)</div><h3>Smt. Soma Roy (Das)</h3><p>Duttapukur, Chandrapur, PO Digha, North 24 Parganas (Wb) 743248</p><p><strong>Mobile: 97325-21170</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/Reff154.gif" alt="Sri Subrata Chakraborty" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/886/2018)</div><h3>Sri Subrata Chakraborty</h3><p>2, Nalini Basu road, Mandhari Bazaar, QR-2, PO Kancharapara 743145</p><p><strong>Mobile no: 98315-05102</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Promita Chakraborty</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Swapna Bug (Dutta)</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>RD</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. YFI/NYR/1504/2021)</div><h3>Rishita Daw</h3><p>27, Nalini Basu Road, Kanchapara, North 24 Pargana - 743145</p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Priyanka Dharchowdhury</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>GD</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/621/2017)</div><h3>Gayatri Dhar Chowdhury</h3><p>VPO Udairajpur Via, Madhyamgram, North 24 Parganas (WB) 700129</p><p><strong>Mobile: 90510-23305</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="paschim-bardhaman">
+          <h3 class="bearer-group-title">Paschim Bardhaman District (2 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Karunamoy-Banerjee.jpg" alt="Sri Karunamay Banerjee" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sri Karunamay Banerjee</h3><p>“LORDS TOWER” (Near Khadim Showroom), Flat No. 2/B, 2nd Floor, Court More, Asansol, Dist. - Paschim Bardhaman, Pin - 713304</p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PN</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/889/2018)</div><h3>Sh. Paresh Nath Ghoshal</h3><p>Shantinagar Netaji road, Burnpur Asansol, Paschim Bardhaman</p><p><strong>Mobile no: 98321-48768</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="paschim-medinipur">
+          <h3 class="bearer-group-title">Paschim Medinipur District (6 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Arjun1.jpg" alt="Sh. Arjun Chandra Kundu" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Arjun Chandra Kundu</h3><p>Mirbaran, West Midnapore, Pin -721101</p><p><strong>Ph. 8348250568</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DS</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Debasish Sarkar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>RD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Ranajit Das Chowdhury</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SB</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/25/2010)</div><h3>Sh. Sasanka Banerjee</h3><p>Jhapetapur (Maity Para), P.O. Kharagpur, Distt. Paschim Medinipur - 721301</p><p><strong>Phone- +91-3222-224958</strong></p><p><strong>Mobile- +91-94345-08949</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Alok Kr. Banua</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>KK</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/325/2016)</div><h3>Sh. Koushik Kanji</h3><p>Village South India, PO Kharagpur, Dist. Mindapore (WB) 721301</p><p><strong>Mobile: 07602665124</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="purba-bardhaman">
+          <h3 class="bearer-group-title">Purba Bardhaman District (7 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-275-2014-C-975.jpg" alt="Dr. Subrata Sarkar" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/275/2014)</div><h3>Dr. Subrata Sarkar</h3><p>2 No. Sankari Pukur, Dipti Bag, PO Sripally, Dist. Burdwan, West Bengal 713103</p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Pijush Kanti Ghosh</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Swapan Kundu</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Sudin Dhara</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>ND</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Smt. Namita Das (Nandi)</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PK</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/274/2014)</div><h3>Sh. Pijush Kanti Pan</h3><p>Village Becherhat, Post Sripally, District Burdwan - 713103</p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/01/ref117.gif" alt="Sh. Shiben Mondal" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg. no. NYR/326/2016)</div><h3>Sh. Shiben Mondal</h3><p>VPO Bangaram, Dist. Burdwan (WB) 713407</p><p><strong>Mobile: 09732567389</strong></p></div></article>
+
+          </div>
+        </div>
+
+        <div class="bearer-group" id="south-24-parganas">
+          <h3 class="bearer-group-title">South 24 Parganas District (17 Judges)</h3>
+          <div class="bearer-grid">
+            <article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Apurba Bhattacharjee</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>AB</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sri Atin Bhattacharya</h3><p>J N Basu Road, Kodalia Kamala Park, Kolkata - 700146</p><p><strong>Phone: 8017997338</strong></p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/02/pradip.gif" alt="Sh. Pradip Kr. Sarkar" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/426/2016)</div><h3>Sh. Pradip Kr. Sarkar</h3><p>Sarkar para road, Pujali, Purba, Nischintapur, Budge Budge, south 24 Pargmas, West Bengal 700138</p><p><strong>Mobile: 07602665124</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SS</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/324/2016)</div><h3>Smt. Sankari Sanati</h3><p>VPO Purba Nischintapur, Budge Budge, 24 Parganas - south (WB) 700138</p></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2017/11/Nirmal-Da.jpg" alt="Sh. Nirmal Chakraborty" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">Member - Office Committee (Yoga Federation of India)</div><h3>Sh. Nirmal Chakraborty</h3><p>Village and P.O. Mayapore, P.S. Nodakhali, Dist. South 24 Parganas - 743318</p><p><strong>Phone-+91-7278530522</strong></p><p><strong>Mobile-+91-98839-95541</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>DK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Dilip Kr. Naskar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Soumen Das</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SA</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Sailen Adak</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>SC</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Sanjoy Chakraborty</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MC</span></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/857/2018)</div><h3>Sh. Manik Chatterjee</h3><p>Banstola Water tank, Pulin Behari Bose Road, P.O. - Rajpur, Kolkata - 700149</p><p><strong>Mobile-+91-9875333083</strong></p></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>PM</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Priya Mondal</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>MK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Mita Karmakar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>BN</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Bittu Naskar</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>CK</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Chinmoy Khanra</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>TP</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Sh. Tapas Paul</h3></div></article>
+<article class="bearer-card no-photo"><div class="bearer-photo" aria-hidden="true"><span>TD</span></div><div class="bearer-body"><div class="bearer-role">State Yoga Judge</div><h3>Tumpa Dalui</h3></div></article>
+<article class="bearer-card"><div class="bearer-photo"><img src="https://www.westbengalyogaassociation.org/wp-content/uploads/2022/05/NYR-888-2018-C-1003.jpg" alt="Smt. Manasi Manna (Halder)" loading="lazy" /></div><div class="bearer-body"><div class="bearer-role">National Yoga Referee (Reg no. NYR/888/2018)</div><h3>Smt. Manasi Manna (Halder)</h3><p>Flat no-06, Block no -02, Acharyapally, RKM Ashrama, Narendrapur - 700103, Dist. - South 24 Parganas</p><p><strong>Mobile -  9088032522</strong></p></div></article>
+
+          </div>
+        </div>
+
       </div>
     </section>
   </main>

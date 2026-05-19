@@ -10,6 +10,128 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Our Pride — wider cards for portrait photos */
+    .pride-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 8px;
+    }
+    .pride-card {
+      background: var(--surface, #fff);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .pride-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    .pride-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--green-soft, #dcfce7);
+      position: relative;
+    }
+    .pride-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .pride-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--green, #166534);
+      background: var(--green-soft, #dcfce7);
+    }
+    .pride-org-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.92);
+      border-radius: 10px;
+      padding: 6px 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .pride-org-badge img {
+      height: 40px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .pride-body {
+      padding: 22px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pride-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text, #111827);
+      margin: 0;
+      line-height: 1.3;
+    }
+    .pride-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--maroon, #ab263d);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .pride-positions {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .pride-positions li {
+      font-size: 0.875rem;
+      color: var(--muted, #64748b);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+    }
+    .pride-positions li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--green, #166534);
+      font-size: 0.75rem;
+      top: 1px;
+    }
+    .pride-positions strong {
+      color: var(--text, #111827);
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .pride-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .pride-photo {
+        aspect-ratio: 4 / 3;
+      }
+    }
+  </style>
 </head>
 <body>
   <div data-layout-slot="background"></div>
@@ -20,29 +142,94 @@
       <div class="container hero-card">
         <span class="section-label">Members</span>
         <h1 class="page-title">Our Pride</h1>
-        <p class="page-copy">Achievements, honorees and notable contributors can be collected here as a dedicated pride and recognition page.</p>
+        <p class="page-copy">Distinguished personalities of the West Bengal Yoga Association who have brought honour to the state through their leadership, dedication, and contributions to Yoga in India and beyond.</p>
       </div>
     </section>
 
-    <section class="section member-shell-section">
-      <div class="container content-grid">
-        <article class="content-card member-shell-card">
-          <h3>Our Pride</h3>
-          <p>Athlete achievements, honorees and notable contributors can be organized here as recognition content.</p>
-          <a class="btn member-page-action" href="office-bearers.html">View Office Bearers</a>
-        </article>
+    <section class="container stats-strip members-stats" aria-label="Pride highlights">
+      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Distinguished Members</div></div>
+      <div class="stat-card"><div class="stat-value">Est. 1974</div><div class="stat-label">Yoga Federation of India</div></div>
+      <div class="stat-card"><div class="stat-value">WBYA</div><div class="stat-label">Our Pride</div></div>
+    </section>
 
-        <article class="content-card member-shell-card">
-          <h3>Member Pages</h3>
-          <div class="member-page-links">
-            <a href="office-bearers.html">Office Bearers</a>
-            <a href="affiliated-units.html">Affiliated Units</a>
-            <a href="associate-members.html">Associate Members</a>
-            <a href="life-members.html">Life Members</a>
-            <a href="registered-players.html">Registered Players</a>
-            <a class="is-active" href="our-pride.html">Our Pride</a>
+    <section class="section members-directory-section">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 30px;">
+          <div>
+            <span class="section-label">Honoured Members</span>
+            <h2 class="section-title">Distinguished Personalities</h2>
           </div>
-        </article>
+        </div>
+
+        <div class="pride-grid">
+
+          <!-- Bharatshree Kamal Bhandari -->
+          <article class="pride-card">
+            <div class="pride-photo">
+              <img
+                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Kamal-Sir.jpg"
+                alt="Bharatshree Kamal Bhandari"
+                loading="lazy"
+              />
+              <div class="pride-org-badge">
+                <img
+                  src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/YFI.jpg"
+                  alt="Yoga Federation of India"
+                />
+              </div>
+            </div>
+            <div class="pride-body">
+              <div class="pride-role">Founder</div>
+              <h2 class="pride-name">Bharatshree Kamal Bhandari</h2>
+              <ul class="pride-positions">
+                <li><strong>Founder Secretary General</strong></li>
+                <li>Yoga Federation of India <em>(Estd. 1974)</em></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Mr. Gautam Sinha -->
+          <article class="pride-card">
+            <div class="pride-photo">
+              <img
+                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Gautam-sir-final.jpg"
+                alt="Mr. Gautam Sinha"
+                loading="lazy"
+              />
+            </div>
+            <div class="pride-body">
+              <div class="pride-role">Leadership</div>
+              <h2 class="pride-name">Mr. Gautam Sinha</h2>
+              <ul class="pride-positions">
+                <li><strong>Vice President</strong>, Bengal Olympic Association</li>
+                <li><strong>Joint Secretary &amp; Member</strong>, Technical Committee (East Zone)</li>
+                <li>Yoga Federation of India</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Dr. Asitkumar Aich -->
+          <article class="pride-card">
+            <div class="pride-photo">
+              <img
+                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Aich.jpg"
+                alt="Dr. Asitkumar Aich"
+                loading="lazy"
+              />
+            </div>
+            <div class="pride-body">
+              <div class="pride-role">Zonal Leadership</div>
+              <h2 class="pride-name">Dr. Asitkumar Aich</h2>
+              <ul class="pride-positions">
+                <li><strong>Zonal Secretary</strong> (East Zone)</li>
+                <li><strong>Convener</strong>, Technical Zonal Committee (East Zone)</li>
+                <li><strong>Convener</strong>, Yoga Seminar Organizing Committee</li>
+                <li>Yoga Federation of India</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
   </main>
