@@ -11,126 +11,37 @@
 
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Our Pride — wider cards for portrait photos */
-    .pride-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 8px;
+    /* Wider photo column for portrait photos */
+    .pride-bearer .bearer-card {
+      grid-template-columns: 160px minmax(0, 1fr);
+      min-height: 240px;
     }
-    .pride-card {
-      background: var(--surface, #fff);
-      border-radius: 20px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
+    .pride-bearer .bearer-photo {
+      min-height: 240px;
     }
-    .pride-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    }
-    .pride-photo {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      overflow: hidden;
-      background: var(--green-soft, #dcfce7);
-      position: relative;
-    }
-    .pride-photo img {
+    .pride-bearer .bearer-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
-      display: block;
     }
-    .pride-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      font-weight: 800;
-      color: var(--green, #166534);
-      background: var(--green-soft, #dcfce7);
-    }
-    .pride-org-badge {
+    /* YFI badge inside photo */
+    .pride-photo-badge {
       position: absolute;
-      bottom: 12px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255,255,255,0.92);
-      border-radius: 10px;
-      padding: 6px 10px;
-      text-align: center;
+      border-radius: 8px;
+      padding: 5px 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
-    .pride-org-badge img {
-      height: 40px;
+    .pride-photo-badge img {
+      height: 36px;
       width: auto;
       display: block;
-      margin: 0 auto;
     }
-    .pride-body {
-      padding: 22px 24px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .pride-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text, #111827);
-      margin: 0;
-      line-height: 1.3;
-    }
-    .pride-role {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--maroon, #ab263d);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .pride-positions {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .pride-positions li {
-      font-size: 0.875rem;
-      color: var(--muted, #64748b);
-      padding-left: 14px;
-      position: relative;
-      line-height: 1.45;
-    }
-    .pride-positions li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--green, #166534);
-      font-size: 0.75rem;
-      top: 1px;
-    }
-    .pride-positions strong {
-      color: var(--text, #111827);
-      font-weight: 600;
-    }
-    @media (max-width: 640px) {
-      .pride-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .pride-photo {
-        aspect-ratio: 4 / 3;
-      }
-    }
+    .bearer-photo { position: relative; }
   </style>
 </head>
 <body>
@@ -154,81 +65,74 @@
 
     <section class="section members-directory-section">
       <div class="container">
-        <div class="section-head" style="margin-bottom: 30px;">
+        <div class="section-head">
           <div>
             <span class="section-label">Honoured Members</span>
             <h2 class="section-title">Distinguished Personalities</h2>
           </div>
         </div>
 
-        <div class="pride-grid">
+        <div class="bearer-group pride-bearer">
+          <div class="bearer-grid featured-bearers">
 
-          <!-- Bharatshree Kamal Bhandari -->
-          <article class="pride-card">
-            <div class="pride-photo">
-              <img
-                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Kamal-Sir.jpg"
-                alt="Bharatshree Kamal Bhandari"
-                loading="lazy"
-              />
-              <div class="pride-org-badge">
+            <!-- Bharatshree Kamal Bhandari -->
+            <article class="bearer-card">
+              <div class="bearer-photo">
                 <img
-                  src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/YFI.jpg"
-                  alt="Yoga Federation of India"
+                  src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Kamal-Sir.jpg"
+                  alt="Bharatshree Kamal Bhandari"
+                />
+                <div class="pride-photo-badge">
+                  <img
+                    src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/YFI.jpg"
+                    alt="Yoga Federation of India"
+                  />
+                </div>
+              </div>
+              <div class="bearer-body">
+                <div class="bearer-role">Founder</div>
+                <h3>Bharatshree Kamal Bhandari</h3>
+                <p><strong>Founder Secretary General</strong></p>
+                <p>Yoga Federation of India <em>(Estd. 1974)</em></p>
+              </div>
+            </article>
+
+            <!-- Mr. Gautam Sinha -->
+            <article class="bearer-card">
+              <div class="bearer-photo">
+                <img
+                  src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Gautam-sir-final.jpg"
+                  alt="Mr. Gautam Sinha"
                 />
               </div>
-            </div>
-            <div class="pride-body">
-              <div class="pride-role">Founder</div>
-              <h2 class="pride-name">Bharatshree Kamal Bhandari</h2>
-              <ul class="pride-positions">
-                <li><strong>Founder Secretary General</strong></li>
-                <li>Yoga Federation of India <em>(Estd. 1974)</em></li>
-              </ul>
-            </div>
-          </article>
+              <div class="bearer-body">
+                <div class="bearer-role">Leadership</div>
+                <h3>Mr. Gautam Sinha</h3>
+                <p><strong>Vice President</strong>, Bengal Olympic Association</p>
+                <p><strong>Joint Secretary &amp; Member</strong>, Technical Committee (East Zone)</p>
+                <p>Yoga Federation of India</p>
+              </div>
+            </article>
 
-          <!-- Mr. Gautam Sinha -->
-          <article class="pride-card">
-            <div class="pride-photo">
-              <img
-                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Gautam-sir-final.jpg"
-                alt="Mr. Gautam Sinha"
-                loading="lazy"
-              />
-            </div>
-            <div class="pride-body">
-              <div class="pride-role">Leadership</div>
-              <h2 class="pride-name">Mr. Gautam Sinha</h2>
-              <ul class="pride-positions">
-                <li><strong>Vice President</strong>, Bengal Olympic Association</li>
-                <li><strong>Joint Secretary &amp; Member</strong>, Technical Committee (East Zone)</li>
-                <li>Yoga Federation of India</li>
-              </ul>
-            </div>
-          </article>
+            <!-- Dr. Asitkumar Aich -->
+            <article class="bearer-card">
+              <div class="bearer-photo">
+                <img
+                  src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Aich.jpg"
+                  alt="Dr. Asitkumar Aich"
+                />
+              </div>
+              <div class="bearer-body">
+                <div class="bearer-role">Zonal Leadership</div>
+                <h3>Dr. Asitkumar Aich</h3>
+                <p><strong>Zonal Secretary</strong> (East Zone)</p>
+                <p><strong>Convener</strong>, Technical Zonal Committee (East Zone)</p>
+                <p><strong>Convener</strong>, Yoga Seminar Organizing Committee</p>
+                <p>Yoga Federation of India</p>
+              </div>
+            </article>
 
-          <!-- Dr. Asitkumar Aich -->
-          <article class="pride-card">
-            <div class="pride-photo">
-              <img
-                src="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/09/Aich.jpg"
-                alt="Dr. Asitkumar Aich"
-                loading="lazy"
-              />
-            </div>
-            <div class="pride-body">
-              <div class="pride-role">Zonal Leadership</div>
-              <h2 class="pride-name">Dr. Asitkumar Aich</h2>
-              <ul class="pride-positions">
-                <li><strong>Zonal Secretary</strong> (East Zone)</li>
-                <li><strong>Convener</strong>, Technical Zonal Committee (East Zone)</li>
-                <li><strong>Convener</strong>, Yoga Seminar Organizing Committee</li>
-                <li>Yoga Federation of India</li>
-              </ul>
-            </div>
-          </article>
-
+          </div>
         </div>
       </div>
     </section>

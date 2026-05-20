@@ -61,6 +61,15 @@
       toggle.addEventListener("click", (event) => {
         event.stopPropagation();
         const navItem = toggle.closest(".nav-item");
+        
+        // Close other open menus that are not ancestors of the clicked item
+        primaryNav.querySelectorAll(".nav-item.is-open").forEach((openItem) => {
+          if (openItem !== navItem && !openItem.contains(navItem)) {
+            openItem.classList.remove("is-open");
+            openItem.querySelector(".submenu-toggle")?.setAttribute("aria-expanded", "false");
+          }
+        });
+
         const isOpen = navItem.classList.toggle("is-open");
         toggle.setAttribute("aria-expanded", String(isOpen));
       });

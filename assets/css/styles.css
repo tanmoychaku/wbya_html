@@ -234,11 +234,23 @@
       transition: opacity 0.22s ease, transform 0.22s ease;
     }
 
-    .nav-item:hover .sub-menu,
-    .nav-item.is-open .sub-menu {
+    .nav-item:hover > .sub-menu,
+    .nav-item.is-open > .sub-menu {
       opacity: 1;
       pointer-events: auto;
       transform: translate(-50%, 0) scale(1);
+    }
+
+    /* Nested sub-menus on desktop */
+    .sub-menu .sub-menu {
+      top: -10px;
+      left: calc(100% + 4px);
+      transform: translate(-8px, 0) scale(0.98);
+    }
+
+    .sub-menu .nav-item:hover > .sub-menu,
+    .sub-menu .nav-item.is-open > .sub-menu {
+      transform: translate(0, 0) scale(1);
     }
 
     .sub-menu a {
@@ -1270,12 +1282,12 @@
         transition: max-height 0.28s ease, padding 0.28s ease;
       }
 
-      .nav-item:hover .sub-menu {
+      .nav-item:hover > .sub-menu {
         transform: none;
       }
 
-      .nav-item.is-open .sub-menu {
-        max-height: 360px;
+      .nav-item.is-open > .sub-menu {
+        max-height: 1200px;
         padding: 8px;
         transform: none;
       }
@@ -2071,3 +2083,76 @@
     width: 92px;
   }
 }
+
+/* ============================================================
+   Affiliate Clubs Table  (used on district detail pages)
+   ============================================================ */
+.affiliate-table-wrap {
+  margin-top: 24px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(22, 101, 52, 0.1);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.affiliate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.affiliate-table thead th {
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.9), rgba(220, 252, 231, 0.8));
+  color: var(--maroon);
+  font-weight: 900;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 2px solid rgba(171, 38, 61, 0.2);
+}
+
+.affiliate-table tbody td {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(22, 101, 52, 0.07);
+  color: var(--text, #111827);
+  vertical-align: middle;
+}
+
+.affiliate-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.affiliate-table tbody tr:nth-child(even) {
+  background: rgba(220, 252, 231, 0.18);
+}
+
+.affiliate-table tbody tr:hover {
+  background: rgba(255, 237, 213, 0.35);
+}
+
+.affiliate-table .aff-num {
+  width: 48px;
+  font-weight: 700;
+  color: var(--muted, #64748b);
+  font-size: 13px;
+}
+
+.affiliate-table .aff-name {
+  font-weight: 600;
+  color: var(--text, #111827);
+}
+
+.affiliate-table .aff-location {
+  color: var(--muted, #64748b);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 540px) {
+  .affiliate-table .aff-location { display: none; }
+  .affiliate-table thead th:last-child { display: none; }
+}
+
