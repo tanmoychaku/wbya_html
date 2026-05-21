@@ -10,33 +10,87 @@
   <style>
     .videos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
       margin-top: 32px;
     }
     .video-card {
       background: rgba(255, 255, 255, 0.8);
       border: 1px solid rgba(22, 101, 52, 0.1);
       border-radius: 12px;
-      padding: 16px;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: all 0.2s ease;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.3s ease;
       text-decoration: none;
       color: var(--color-text);
+      cursor: pointer;
     }
     .video-card:hover {
       background: white;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
       border-color: rgba(22, 101, 52, 0.3);
+    }
+    .video-card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .video-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .video-card-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+      transition: background 0.3s ease;
+    }
+    .video-card-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .video-card:hover .video-card-thumb::after {
+      background: rgba(0,0,0,0.4);
+    }
+    .video-card:hover .video-card-thumb img {
+      transform: scale(1.05);
+    }
+    .video-card:hover .video-card-play {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .video-card-content {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .video-no {
       background: var(--color-primary);
       color: white;
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -46,17 +100,70 @@
       flex-shrink: 0;
     }
     .video-name {
-      font-weight: 500;
-      line-height: 1.4;
-      text-transform: capitalize;
+      font-weight: 600;
+      line-height: 1.3;
     }
-    .video-icon {
-      margin-left: auto;
-      color: var(--color-primary);
-      opacity: 0.5;
+
+    /* Modal Styles */
+    .video-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(12px);
     }
-    .video-card:hover .video-icon {
+    .video-modal.is-open {
       opacity: 1;
+      pointer-events: auto;
+    }
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      background: black;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+      transform: scale(0.95) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .video-modal.is-open .video-modal-content {
+      transform: scale(1) translateY(0);
+    }
+    .video-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.2s ease;
+    }
+    .video-modal-close:hover {
+      background: white;
+      color: black;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -73,460 +180,957 @@
         </header>
 
         <div class="videos-grid">
-          <a href="https://youtu.be/MsGAXpRNLtw" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">1</span>
-            <span class="video-name">Akarna Dhanurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/wmSdb84Kjzs" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">2</span>
-            <span class="video-name">Ardha Badha Padama Paschimottanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/j5U5yGNQA3Y" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">3</span>
-            <span class="video-name">Ardha Matsyendrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/NZQjn01PuDw" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">4</span>
-            <span class="video-name">Baddha Padmasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/8G0K_ljS9lE" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">5</span>
-            <span class="video-name">Bakasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/g9pK5EColSI" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">6</span>
-            <span class="video-name">Baghrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/VM4K91ZyvHY" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">7</span>
-            <span class="video-name">Chakrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/cCqktJkmWOM" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">8</span>
-            <span class="video-name">Chakra Bandhanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/Mi3SpRbs7ow" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">9</span>
-            <span class="video-name">Dandyaman Janusirshasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/vcLXpJ1o5-I" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">10</span>
-            <span class="video-name">Dhanurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/IZU5Sgz11e4" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">11</span>
-            <span class="video-name">Eka Pada Baddha Rajkapotasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/i6hbi4ATo2s" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">12</span>
-            <span class="video-name">Eka Pada Chakrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/i4vJb3b7yKQ" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">13</span>
-            <span class="video-name">Eka Pada Purna Dhanurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/o7FC6Ru3dfk" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">14</span>
-            <span class="video-name">Eka Pada Setu Bandha Sarvangasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/liWXxM4nyvg" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">15</span>
-            <span class="video-name">Eka Pada Sikandhasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/P_Yf8g4cxus" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">16</span>
-            <span class="video-name">Eka Pada Viparit Dandasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/sktMohuJnSc" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">17</span>
-            <span class="video-name">Garabhasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/O9BioPcEu58" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">18</span>
-            <span class="video-name">Garudasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/kePnesLmktU" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">19</span>
-            <span class="video-name">Halasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/SgHfSVZgb28" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">20</span>
-            <span class="video-name">Hanumana Asana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/fIiA2vW86cg" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">21</span>
-            <span class="video-name">Karan Pitthasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/D8yNOcwh85Q" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">22</span>
-            <span class="video-name">Koundinyasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/Nk_7vnJj68w" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">23</span>
-            <span class="video-name">Kukkutasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/7-mNgcIsXqQ" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">24</span>
-            <span class="video-name">Kurmasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/SV0ccrFPt80" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">25</span>
-            <span class="video-name">Marichyasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/458fot41U3U" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">26</span>
-            <span class="video-name">Matsyasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/ckiTlouLxmM" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">27</span>
-            <span class="video-name">Natrajasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/rkm-5sSIdQo" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">28</span>
-            <span class="video-name">Omkarasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/K5sCVd_27WI" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">29</span>
-            <span class="video-name">Padahastasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/XjwYpuk0CX8" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">30</span>
-            <span class="video-name">Padam Bakasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/bLsde1Nb48A" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">31</span>
-            <span class="video-name">Padam Mayurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/aKbts_yZwn8" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">32</span>
-            <span class="video-name">Padam Sarvangasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/dpbqaemfNFs" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">33</span>
-            <span class="video-name">Padam Sirshasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/pPvqg2L_o4s" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">34</span>
-            <span class="video-name">Padangushth Dhanurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/o33r2lGST9s" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">35</span>
-            <span class="video-name">Parivrtta Prasarita Padottanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/IQS8aueuL-8" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">36</span>
-            <span class="video-name">Parivartita Parsvakonasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/dV9d222OppY" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">37</span>
-            <span class="video-name">Parsvakonasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/6t-fITDKJ10" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">38</span>
-            <span class="video-name">Paschimotthanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/oVKwxtKlL4w" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">39</span>
-            <span class="video-name">Purna Chakrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/r2WAWOI6x_w" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">40</span>
-            <span class="video-name">Purna Dhanurasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/3HWA9cHzCSM" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">41</span>
-            <span class="video-name">Purna Matsyendrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/yIPWytGmzEQ" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">42</span>
-            <span class="video-name">Purna Shalabhasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/FI3lb9fEPwU" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">43</span>
-            <span class="video-name">Purna Supta Vajrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/maDC4VmK7qI" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">44</span>
-            <span class="video-name">Purna Ushtrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/GxowmIHVxMU" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">45</span>
-            <span class="video-name">Sarvangasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/L1FpbBQexEU" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">46</span>
-            <span class="video-name">Sasangasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/U5WgndtZe7s" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">47</span>
-            <span class="video-name">Setu Bandh Sarvangasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/xc3T9-8jt80" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">48</span>
-            <span class="video-name">Setu Bandha Chakrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/d_S-fV-jEig" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">49</span>
-            <span class="video-name">Sirsha Padangusthasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/rk4TBoK_dQs" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">50</span>
-            <span class="video-name">Sirshasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/vPik8YfFyPQ" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">51</span>
-            <span class="video-name">Supta Konasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/p6Q9mUdf6Fk" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">52</span>
-            <span class="video-name">Titibhasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/pKvU3jDZuWA" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">53</span>
-            <span class="video-name">Trikonasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/M7C8acj7IrY" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">54</span>
-            <span class="video-name">Trivikramasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/IZIRKJN_Q_E" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">55</span>
-            <span class="video-name">Ushtrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/R9azQgcSXrQ" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">56</span>
-            <span class="video-name">Utthit Eka Pada Sikandhasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/CZ3aKabZ0gw" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">57</span>
-            <span class="video-name">Vatayanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/IHVAQxJNUrE" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">58</span>
-            <span class="video-name">Vibhakta Paschimotthanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/9SGIQgmAZQ4" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">59</span>
-            <span class="video-name">Vibhakta Viparit Suptasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/p90GlWOLsGI" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">60</span>
-            <span class="video-name">Utthita Padmasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/hhzrBwwtf3o" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">61</span>
-            <span class="video-name">Utthita Paschimotthanasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtu.be/EqprvR9Ig1Q" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">62</span>
-            <span class="video-name">Virbhadrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/7MXV3un1YbY" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">63</span>
-            <span class="video-name">Vrikshasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
-          <a href="https://youtube.com/shorts/2F9yKhm1AZE" target="_blank" rel="noopener" class="video-card">
-            <span class="video-no">64</span>
-            <span class="video-name">Yoga Nidrasana</span>
-            <svg class="video-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </a>
+          <div class="video-card" data-video-id="MsGAXpRNLtw">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/MsGAXpRNLtw/hqdefault.jpg" alt="Akarna Dhanurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">1</span>
+              <span class="video-name">Akarna Dhanurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="wmSdb84Kjzs">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/wmSdb84Kjzs/hqdefault.jpg" alt="Ardha Badha Padama Paschimottanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">2</span>
+              <span class="video-name">Ardha Badha Padama Paschimottanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="j5U5yGNQA3Y">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/j5U5yGNQA3Y/hqdefault.jpg" alt="Ardha Matsyendrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">3</span>
+              <span class="video-name">Ardha Matsyendrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="NZQjn01PuDw">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/NZQjn01PuDw/hqdefault.jpg" alt="Baddha Padmasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">4</span>
+              <span class="video-name">Baddha Padmasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="8G0K_ljS9lE">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/8G0K_ljS9lE/hqdefault.jpg" alt="Bakasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">5</span>
+              <span class="video-name">Bakasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="g9pK5EColSI">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/g9pK5EColSI/hqdefault.jpg" alt="Baghrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">6</span>
+              <span class="video-name">Baghrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="VM4K91ZyvHY">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/VM4K91ZyvHY/hqdefault.jpg" alt="Chakrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">7</span>
+              <span class="video-name">Chakrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="cCqktJkmWOM">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/cCqktJkmWOM/hqdefault.jpg" alt="Chakra Bandhanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">8</span>
+              <span class="video-name">Chakra Bandhanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="Mi3SpRbs7ow">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/Mi3SpRbs7ow/hqdefault.jpg" alt="Dandyaman Janusirshasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">9</span>
+              <span class="video-name">Dandyaman Janusirshasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="vcLXpJ1o5-I">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/vcLXpJ1o5-I/hqdefault.jpg" alt="Dhanurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">10</span>
+              <span class="video-name">Dhanurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="IZU5Sgz11e4">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/IZU5Sgz11e4/hqdefault.jpg" alt="Eka Pada Baddha Rajkapotasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">11</span>
+              <span class="video-name">Eka Pada Baddha Rajkapotasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="i6hbi4ATo2s">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/i6hbi4ATo2s/hqdefault.jpg" alt="Eka Pada Chakrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">12</span>
+              <span class="video-name">Eka Pada Chakrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="i4vJb3b7yKQ">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/i4vJb3b7yKQ/hqdefault.jpg" alt="Eka Pada Purna Dhanurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">13</span>
+              <span class="video-name">Eka Pada Purna Dhanurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="o7FC6Ru3dfk">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/o7FC6Ru3dfk/hqdefault.jpg" alt="Eka Pada Setu Bandha Sarvangasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">14</span>
+              <span class="video-name">Eka Pada Setu Bandha Sarvangasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="liWXxM4nyvg">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/liWXxM4nyvg/hqdefault.jpg" alt="Eka Pada Sikandhasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">15</span>
+              <span class="video-name">Eka Pada Sikandhasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="P_Yf8g4cxus">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/P_Yf8g4cxus/hqdefault.jpg" alt="Eka Pada Viparit Dandasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">16</span>
+              <span class="video-name">Eka Pada Viparit Dandasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="sktMohuJnSc">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/sktMohuJnSc/hqdefault.jpg" alt="Garabhasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">17</span>
+              <span class="video-name">Garabhasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="O9BioPcEu58">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/O9BioPcEu58/hqdefault.jpg" alt="Garudasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">18</span>
+              <span class="video-name">Garudasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="kePnesLmktU">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/kePnesLmktU/hqdefault.jpg" alt="Halasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">19</span>
+              <span class="video-name">Halasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="SgHfSVZgb28">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/SgHfSVZgb28/hqdefault.jpg" alt="Hanumana Asana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">20</span>
+              <span class="video-name">Hanumana Asana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="fIiA2vW86cg">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/fIiA2vW86cg/hqdefault.jpg" alt="Karan Pitthasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">21</span>
+              <span class="video-name">Karan Pitthasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="D8yNOcwh85Q">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/D8yNOcwh85Q/hqdefault.jpg" alt="Koundinyasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">22</span>
+              <span class="video-name">Koundinyasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="Nk_7vnJj68w">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/Nk_7vnJj68w/hqdefault.jpg" alt="Kukkutasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">23</span>
+              <span class="video-name">Kukkutasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="7-mNgcIsXqQ">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/7-mNgcIsXqQ/hqdefault.jpg" alt="Kurmasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">24</span>
+              <span class="video-name">Kurmasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="SV0ccrFPt80">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/SV0ccrFPt80/hqdefault.jpg" alt="Marichyasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">25</span>
+              <span class="video-name">Marichyasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="458fot41U3U">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/458fot41U3U/hqdefault.jpg" alt="Matsyasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">26</span>
+              <span class="video-name">Matsyasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="ckiTlouLxmM">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/ckiTlouLxmM/hqdefault.jpg" alt="Natrajasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">27</span>
+              <span class="video-name">Natrajasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="rkm-5sSIdQo">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/rkm-5sSIdQo/hqdefault.jpg" alt="Omkarasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">28</span>
+              <span class="video-name">Omkarasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="K5sCVd_27WI">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/K5sCVd_27WI/hqdefault.jpg" alt="Padahastasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">29</span>
+              <span class="video-name">Padahastasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="XjwYpuk0CX8">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/XjwYpuk0CX8/hqdefault.jpg" alt="Padam Bakasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">30</span>
+              <span class="video-name">Padam Bakasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="bLsde1Nb48A">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/bLsde1Nb48A/hqdefault.jpg" alt="Padam Mayurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">31</span>
+              <span class="video-name">Padam Mayurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="aKbts_yZwn8">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/aKbts_yZwn8/hqdefault.jpg" alt="Padam Sarvangasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">32</span>
+              <span class="video-name">Padam Sarvangasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="dpbqaemfNFs">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/dpbqaemfNFs/hqdefault.jpg" alt="Padam Sirshasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">33</span>
+              <span class="video-name">Padam Sirshasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="pPvqg2L_o4s">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/pPvqg2L_o4s/hqdefault.jpg" alt="Padangushth Dhanurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">34</span>
+              <span class="video-name">Padangushth Dhanurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="o33r2lGST9s">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/o33r2lGST9s/hqdefault.jpg" alt="Parivrtta Prasarita Padottanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">35</span>
+              <span class="video-name">Parivrtta Prasarita Padottanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="IQS8aueuL-8">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/IQS8aueuL-8/hqdefault.jpg" alt="Parivartita Parsvakonasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">36</span>
+              <span class="video-name">Parivartita Parsvakonasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="dV9d222OppY">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/dV9d222OppY/hqdefault.jpg" alt="Parsvakonasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">37</span>
+              <span class="video-name">Parsvakonasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="6t-fITDKJ10">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/6t-fITDKJ10/hqdefault.jpg" alt="Paschimotthanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">38</span>
+              <span class="video-name">Paschimotthanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="oVKwxtKlL4w">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/oVKwxtKlL4w/hqdefault.jpg" alt="Purna Chakrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">39</span>
+              <span class="video-name">Purna Chakrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="r2WAWOI6x_w">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/r2WAWOI6x_w/hqdefault.jpg" alt="Purna Dhanurasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">40</span>
+              <span class="video-name">Purna Dhanurasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="3HWA9cHzCSM">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/3HWA9cHzCSM/hqdefault.jpg" alt="Purna Matsyendrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">41</span>
+              <span class="video-name">Purna Matsyendrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="yIPWytGmzEQ">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/yIPWytGmzEQ/hqdefault.jpg" alt="Purna Shalabhasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">42</span>
+              <span class="video-name">Purna Shalabhasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="FI3lb9fEPwU">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/FI3lb9fEPwU/hqdefault.jpg" alt="Purna Supta Vajrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">43</span>
+              <span class="video-name">Purna Supta Vajrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="maDC4VmK7qI">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/maDC4VmK7qI/hqdefault.jpg" alt="Purna Ushtrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">44</span>
+              <span class="video-name">Purna Ushtrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="GxowmIHVxMU">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/GxowmIHVxMU/hqdefault.jpg" alt="Sarvangasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">45</span>
+              <span class="video-name">Sarvangasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="L1FpbBQexEU">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/L1FpbBQexEU/hqdefault.jpg" alt="Sasangasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">46</span>
+              <span class="video-name">Sasangasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="U5WgndtZe7s">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/U5WgndtZe7s/hqdefault.jpg" alt="Setu Bandh Sarvangasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">47</span>
+              <span class="video-name">Setu Bandh Sarvangasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="xc3T9-8jt80">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/xc3T9-8jt80/hqdefault.jpg" alt="Setu Bandha Chakrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">48</span>
+              <span class="video-name">Setu Bandha Chakrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="d_S-fV-jEig">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/d_S-fV-jEig/hqdefault.jpg" alt="Sirsha Padangusthasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">49</span>
+              <span class="video-name">Sirsha Padangusthasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="rk4TBoK_dQs">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/rk4TBoK_dQs/hqdefault.jpg" alt="Sirshasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">50</span>
+              <span class="video-name">Sirshasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="vPik8YfFyPQ">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/vPik8YfFyPQ/hqdefault.jpg" alt="Supta Konasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">51</span>
+              <span class="video-name">Supta Konasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="p6Q9mUdf6Fk">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/p6Q9mUdf6Fk/hqdefault.jpg" alt="Titibhasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">52</span>
+              <span class="video-name">Titibhasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="pKvU3jDZuWA">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/pKvU3jDZuWA/hqdefault.jpg" alt="Trikonasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">53</span>
+              <span class="video-name">Trikonasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="M7C8acj7IrY">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/M7C8acj7IrY/hqdefault.jpg" alt="Trivikramasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">54</span>
+              <span class="video-name">Trivikramasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="IZIRKJN_Q_E">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/IZIRKJN_Q_E/hqdefault.jpg" alt="Ushtrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">55</span>
+              <span class="video-name">Ushtrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="R9azQgcSXrQ">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/R9azQgcSXrQ/hqdefault.jpg" alt="Utthit Eka Pada Sikandhasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">56</span>
+              <span class="video-name">Utthit Eka Pada Sikandhasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="CZ3aKabZ0gw">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/CZ3aKabZ0gw/hqdefault.jpg" alt="Vatayanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">57</span>
+              <span class="video-name">Vatayanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="IHVAQxJNUrE">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/IHVAQxJNUrE/hqdefault.jpg" alt="Vibhakta Paschimotthanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">58</span>
+              <span class="video-name">Vibhakta Paschimotthanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="9SGIQgmAZQ4">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/9SGIQgmAZQ4/hqdefault.jpg" alt="Vibhakta Viparit Suptasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">59</span>
+              <span class="video-name">Vibhakta Viparit Suptasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="p90GlWOLsGI">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/p90GlWOLsGI/hqdefault.jpg" alt="Utthita Padmasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">60</span>
+              <span class="video-name">Utthita Padmasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="hhzrBwwtf3o">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/hhzrBwwtf3o/hqdefault.jpg" alt="Utthita Paschimotthanasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">61</span>
+              <span class="video-name">Utthita Paschimotthanasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="EqprvR9Ig1Q">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/EqprvR9Ig1Q/hqdefault.jpg" alt="Virbhadrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">62</span>
+              <span class="video-name">Virbhadrasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="7MXV3un1YbY">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/7MXV3un1YbY/hqdefault.jpg" alt="Vrikshasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">63</span>
+              <span class="video-name">Vrikshasana</span>
+            </div>
+          </div>
+          <div class="video-card" data-video-id="2F9yKhm1AZE">
+            <div class="video-card-thumb">
+              <img src="https://img.youtube.com/vi/2F9yKhm1AZE/hqdefault.jpg" alt="Yoga Nidrasana" loading="lazy" />
+              <div class="video-card-play">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="video-card-content">
+              <span class="video-no">64</span>
+              <span class="video-name">Yoga Nidrasana</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <div class="video-modal" id="videoModal">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close video">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="video-modal-content" id="videoModalContent">
+      <!-- Iframe injected here via JS -->
+    </div>
+  </div>
+
   <div data-layout-slot="footer"></div>
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById('videoModal');
+      const modalContent = document.getElementById('videoModalContent');
+      const closeBtn = document.getElementById('videoModalClose');
+      const cards = document.querySelectorAll('.video-card');
+
+      function openModal(videoId) {
+        modalContent.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          modalContent.innerHTML = '';
+        }, 300);
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const videoId = card.getAttribute('data-video-id');
+          if (videoId) openModal(videoId);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    });
+  </script>
 </body>
 </html>
