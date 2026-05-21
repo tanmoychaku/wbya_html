@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="../" />
+  <title>48th State Yogasana Sports Championship 2021 | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .results-container {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+      margin-top: 32px;
+      overflow-x: auto;
+    }
+    
+    .results-container table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      border: none !important;
+      background: transparent !important;
+    }
+    
+    .results-container td, .results-container th {
+      border: 1px solid rgba(0,0,0,0.1) !important;
+      padding: 12px 16px !important;
+      background: transparent !important;
+      color: #334155 !important;
+      font-size: 0.95rem;
+    }
+    
+    /* Remove the inline styles that break our beautiful transparent design */
+    .results-container table, .results-container tr, .results-container td {
+      background-color: transparent !important;
+      border-color: rgba(0,0,0,0.1) !important;
+    }
+    
+    .results-container td span {
+      color: inherit !important;
+    }
+    
+    .results-container tr:nth-child(even) {
+      background: rgba(0,0,0,0.02) !important;
+    }
+    
+    .results-container strong {
+      color: #0f172a !important;
+      font-weight: 700 !important;
+    }
+    
+    /* Hide the very first few rows of the table since we extract them into the header */
+    .results-container tr:nth-child(1),
+    .results-container tr:nth-child(2),
+    .results-container tr:nth-child(3),
+    .results-container tr:nth-child(4),
+    .results-container tr:nth-child(5),
+    .results-container tr:nth-child(6) {
+      display: none !important;
+    }
+    
+    .results-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .results-header h2 {
+      font-size: 1.5rem;
+      color: #e11d48;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    
+    .results-header p {
+      color: #475569;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .winner-banner {
+      background: #f1f5f9;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 32px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .winner-stat {
+      text-align: center;
+    }
+    
+    .winner-label {
+      font-size: 0.85rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .winner-value {
+      font-size: 1.25rem;
+      color: #0f172a;
+      font-weight: 800;
+    }
+  
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .category-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.08);
+    }
+    
+    .category-title {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 16px 20px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      line-height: 1.4;
+      border-bottom: 3px solid #e11d48;
+    }
+    
+    .winners-list {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .winner-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: background 0.2s ease;
+    }
+    
+    .winner-item:hover {
+      background: #ffffff;
+    }
+    
+    .winner-rank {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    
+    .rank-1 { background: #fef08a; color: #854d0e; box-shadow: 0 0 15px rgba(234, 179, 8, 0.3); } /* Gold */
+    .rank-2 { background: #e2e8f0; color: #334155; } /* Silver */
+    .rank-3 { background: #ffedd5; color: #9a3412; } /* Bronze */
+    .rank-other { background: #f1f5f9; color: #64748b; font-size: 0.85rem; }
+    
+    .winner-info {
+      flex: 1;
+    }
+    
+    .winner-name {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+    
+    .winner-dist {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">Results</p>
+          <h1 class="section-title">48th State Yogasana Sports Championship</h1>
+        </header>
+        
+        <div class="results-container">
+          <div class="results-header">
+            <h2>Virtual-Live – Online</h2>
+            <p>27-28 November and 4-5 December, 2021</p>
+          </div>
+          
+          <div class="winner-banner">
+            <div class="winner-stat">
+              <div class="winner-label">Overall Winner</div>
+              <div class="winner-value">Hooghly</div>
+            </div>
+            <div class="winner-stat">
+              <div class="winner-label">Runners Up</div>
+              <div class="winner-value">North 24 Parganas</div>
+            </div>
+          </div>
+          
+          <div class="category-grid">
+
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-A (8-10 YEARS) BOYS</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Deeptanshu Sinha</div>
+            <div class="winner-dist">Paschim Midnapore</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Saikat Ghosh</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Prem Thaner</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Abhinay Barman</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Dhimangshu Mondal</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Debansu Mondal</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-A (8-10 YEARS) GIRLS</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Nitisha Patra</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Swastika Pal</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sampriti Chatterjee</div>
+            <div class="winner-dist">Paschim Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Debopriya Chatterjee</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Poushani Saha</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Olivia Nondal</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-B (10-12 Years, Boys)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Supriya Sarfkar</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Swattik Koley</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Shibam Debnath</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Rishav Maity</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Debashis Das</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Dyutimoy Jana</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-B (10-12 Years, Girls)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Pritha Karmakar</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Poushali Kangsabanik</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Shrestha Rana</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Anushree Das</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Anusha Ganguly</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sayanita Mukherjee</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-C (12-14 YEARS BOYS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Ritam Das</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Samrat Sen</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Priyanshu Das</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sayan Karmakar</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Amit Shaw</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sougata Paul</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SUB JUNIOR GROUP-C (12-14 YEARS GIRLS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Adrija Biswas</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Samprita Saha</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Aditi Yadav</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Pushpita Debnath</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Diya Dutta</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Ishani Kundu</div>
+            <div class="winner-dist">Dynamik</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">JUNIOR GROUP-A (14-16 YEARS, BOYS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Soumik Pan</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Bipratip Banerjee</div>
+            <div class="winner-dist">Bankura</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Ajoy Saren</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Samaresh Saren</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Ayush Kr. Samanta</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Subhojit Dhara</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">JUNIOR GROUP-A (14-16 YEARS, GIRLS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Tanisha Das</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Payel Saha</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Jhuma Dey</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Mrittika Bhattacharya</div>
+            <div class="winner-dist">Paschim Midnapur</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Soumi Polley</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Payel Talukder</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">JUNIOR GROUP-B (16 -18 YEARS BOYS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Jyotishka Bain</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Koushik Bairagi</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Avay Sarkar</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Souvik Das</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sawtik Bhattacharya</div>
+            <div class="winner-dist">Bankura</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Soumodeep Pal</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">JUNIOR GROUP-B (16 -18 YEARS GIRLS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Ritu Mondal</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sudeshna Golder</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Swarnali Ghosh</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Oliva Bhattacharya</div>
+            <div class="winner-dist">WBYA</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Rupsa Dutta</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Tania Dutta</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP -A (18-21 YEARS BOYS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Sourya Bagchi</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Saibal Guchait</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Piyush Pal</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sayan Roy</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Ratul Saha</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Arpan Bose</div>
+            <div class="winner-dist">South 24 Parganas</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP -A (18-21 YEARS GIRLS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Sakshi Dutta</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sneha Sinha</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sanchita Kar</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Rajanya Das</div>
+            <div class="winner-dist">South 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Nikhat Parveen</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Pallabi Pal</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP -B (21-25 YEARS BOYS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Vivekananda Pal</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Anik Dasgupta</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Loknath Das</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Subhankar Mondal</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Neha Shaw</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Piyasa Adhikary</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP -B (21-25 YEARS GIRLS)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Anusha Majumder</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Dayeta Sarkar</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sanchita Debnath</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Abhisikta Das</div>
+            <div class="winner-dist">Paschim Bardhaman</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (C BOYS 25-30)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Mohan Kr. Singh</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Shyam Sundar Goldar</div>
+            <div class="winner-dist">Bankura</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Binay Ranjan</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Josimuddin Molla</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Chittaranjan Mal</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Ijaz Ahamed</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (C GIRLS 25-30)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Sanchaita Chakraborty</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Sarmistha Das</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Suchitra Debnath</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Rupsa Nag</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Jhuma Pramanik</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Mamon Khatun</div>
+            <div class="winner-dist">Ananta Yoga, Kolkata</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (D BOYS 30-35)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Sambhuram Bar</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Biswaji Paul</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Ashis Majumder</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Somnath Mondal</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (D GIRLS 30-35)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Dolon Manna</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Tina Khatun</div>
+            <div class="winner-dist">Bankura</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Mili Sarkar</div>
+            <div class="winner-dist">Bowbazar Bayam Samity, Kolkata</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (E BOYS 35-45)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Laxmi Kanta Adak</div>
+            <div class="winner-dist">Paschim Midnapore</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Shyamal Banerjee</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Jayabrota Dutta</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sonali Ghosh</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Indrani Das</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Arpita Mukherjee</div>
+            <div class="winner-dist">Howrah</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (E GIRLS 35-45)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Shampa Malakar Das</div>
+            <div class="winner-dist">Murshidabad</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Rupma Ghosh</div>
+            <div class="winner-dist">Paschim Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Shrabani Sett</div>
+            <div class="winner-dist">W.B.Y.A.</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (F BOYS ABOVE 45)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Pijush Kanti Pan</div>
+            <div class="winner-dist">Purba Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Pallab Dasgupta</div>
+            <div class="winner-dist">Pallab’s Yoga Inst., Kolkata</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Partha Ghosh</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Swapan Kr. Das</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Biswanath Das</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Biswaprasad Dharchowdhury</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h3 class="category-title">SENIOR GROUP (F GIRLS ABOVE 45)</h3>
+      <div class="winners-list">
+    
+        <div class="winner-item">
+          <div class="winner-rank rank-1">1st</div>
+          <div class="winner-info">
+            <div class="winner-name">Debjani Biswas</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-2">2nd</div>
+          <div class="winner-info">
+            <div class="winner-name">Mousumi Manna</div>
+            <div class="winner-dist">Paschim Bardhaman</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-3">3rd</div>
+          <div class="winner-info">
+            <div class="winner-name">Amita Majumder</div>
+            <div class="winner-dist">North 24 Parganas</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">4th</div>
+          <div class="winner-info">
+            <div class="winner-name">Chaitali Biswas Nandy</div>
+            <div class="winner-dist">Hooghly</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">5th</div>
+          <div class="winner-info">
+            <div class="winner-name">Mithu Chakraborty</div>
+            <div class="winner-dist">Nadia</div>
+          </div>
+        </div>
+        
+        <div class="winner-item">
+          <div class="winner-rank rank-other">6th</div>
+          <div class="winner-info">
+            <div class="winner-name">Sabita Roy Karmakar</div>
+            <div class="winner-dist">Paschim Bardhaman</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
