@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>47th Senior National Yogasana Sports Championship | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .results-header { text-align: center; margin-bottom: 24px; }
+    .results-header h2 { font-size: 1.5rem; color: #e11d48; font-weight: 800; margin-bottom: 8px; }
+    .results-header p { color: #475569; font-size: 1.1rem; font-weight: 600; }
+    .standings-banner {
+      background: #192135;
+      border-radius: 16px; padding: 24px; margin-bottom: 32px; color: white;
+      display: flex; flex-wrap: wrap; justify-content: space-around; gap: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+    }
+    .standing-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .standing-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+    .standing-value { font-size: 1.25rem; font-weight: 800; color: #f8fafc; font-family: 'Signika', sans-serif; }
+    .standing-value.winner { color: #fef08a; font-size: 1.5rem; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; margin-top: 32px; }
+    .category-card { background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .category-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); }
+    .category-title { background: #111827; color: #ffffff; padding: 16px 20px; font-size: 1.05rem; font-weight: 700; text-align: center; margin: 0; line-height: 1.4; border-bottom: 3px solid #e11d48; font-family: 'Inter', sans-serif; text-transform: uppercase; }
+    .winners-list { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .winner-item { display: flex; align-items: center; gap: 16px; padding: 12px; background: #ffffff; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+    .winner-rank { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 800; font-size: 0.95rem; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+    .rank-1 { background: #fef08a; color: #854d0e; box-shadow: 0 0 15px rgba(234, 179, 8, 0.3); }
+    .rank-2 { background: #e2e8f0; color: #334155; }
+    .rank-3 { background: #ffedd5; color: #9a3412; }
+    .winner-info { flex: 1; }
+    .winner-name { font-family: 'Signika', sans-serif; font-weight: 700; color: #1e293b; font-size: 1.15rem; margin-bottom: 2px; text-transform: capitalize; }
+    .winner-desc { font-size: 0.85rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">47th Senior National Yogasana Sports Championship</h1>
+        <p class="page-copy">47th Senior National Yogasana Sports Championship Held at : Pali,  Rajasthan Date: 25th to 28th March, 2023</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <div class="standings-banner">
+          <div class="standing-item">
+            <span class="standing-label">Overall Winner</span>
+            <span class="standing-value winner">West Bengal    1st</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">1st Runners Up</span>
+            <span class="standing-value">Haryana    2nd Runners Up : Maharastra SENIOR GROUP-A (18-21 YEARS) FEMALE SENIOR</span>
+          </div></div>
+
+        <div class="category-grid">
+          
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-A (18-21 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sakshi Dutta</div>
+                  <div class='winner-desc'>Sakshi Dutta</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Taniya Dutta</div>
+                  <div class='winner-desc'>Taniya Dutta</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sudeshna Golder</div>
+                  <div class='winner-desc'>Sudeshna Golder</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-A (18-21 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Avay Sarkar</div>
+                  <div class='winner-desc'>Avay Sarkar</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-B (21-25 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sneha Sinha</div>
+                  <div class='winner-desc'>Sneha Sinha</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Anusha Majumder</div>
+                  <div class='winner-desc'>Anusha Majumder</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sanchita Kar</div>
+                  <div class='winner-desc'>Sanchita Kar</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-B (21-25 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sourya Bagchi</div>
+                  <div class='winner-desc'>Sourya Bagchi</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Saibal Guchait</div>
+                  <div class='winner-desc'>Saibal Guchait</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-C (25-30 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sanchaita Chakraborty</div>
+                  <div class='winner-desc'>Sanchaita Chakraborty</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Suchitra Debnath</div>
+                  <div class='winner-desc'>Suchitra Debnath</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Supriya Panda</div>
+                  <div class='winner-desc'>Supriya Panda</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-C (25-30 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sanat Pakhira</div>
+                  <div class='winner-desc'>Sanat Pakhira</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Binay Ranjan</div>
+                  <div class='winner-desc'>Binay Ranjan</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-D (30-35 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pallabi Ghar Sen</div>
+                  <div class='winner-desc'>Pallabi Ghar Sen</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Dolon Manna</div>
+                  <div class='winner-desc'>Dolon Manna</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Mili Sarkar</div>
+                  <div class='winner-desc'>Mili Sarkar</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-D (30-35 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Shyam Sundar Golder</div>
+                  <div class='winner-desc'>Shyam Sundar Golder</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Mohan Kr. Singh</div>
+                  <div class='winner-desc'>Mohan Kr. Singh</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-E (35-45 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Shampa Malakar</div>
+                  <div class='winner-desc'>Shampa Malakar</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tina Khatun</div>
+                  <div class='winner-desc'>Tina Khatun</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Shrabani Sett</div>
+                  <div class='winner-desc'>Shrabani Sett</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-E (35-45 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Laxmi Kanta Adak</div>
+                  <div class='winner-desc'>Laxmi Kanta Adak</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Shyamal Banerjee</div>
+                  <div class='winner-desc'>Shyamal Banerjee</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-F (Above 45 YEARS) FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Debjani Biswas</div>
+                  <div class='winner-desc'>Debjani Biswas</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Amita Majumder</div>
+                  <div class='winner-desc'>Amita Majumder</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR GROUP-F (Above 45 YEARS) MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pijush Kanti Pan</div>
+                  <div class='winner-desc'>2 nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Partha Ghosh</div>
+                  <div class='winner-desc'>3 rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pallab Dasgupta</div>
+                  <div class='winner-desc'>5 th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR ARTISTIC SINGLE – FEMALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Anusha Majumder</div>
+                  <div class='winner-desc'>Anusha Majumder</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">SENIOR ARTISTIC SINGLE – MALE</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Avay Sarkar</div>
+                  <div class='winner-desc'>3 rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sourya Bagchi</div>
+                  <div class='winner-desc'>6 th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">ARTISTIC PAIR (MALE)</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sayan Roy</div>
+                  <div class='winner-desc'>Sayan Roy</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Ratul Saha</div>
+                  <div class='winner-desc'>Ratul Saha</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">RHYTHMIC (FEMALE)</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Anusha Majumder</div>
+                  <div class='winner-desc'>2 nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sneha Sinha</div>
+                  <div class='winner-desc'>2 nd</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">RHYTHMIC (MALE)</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sayan Roy</div>
+                  <div class='winner-desc'>1 st</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Saibal Guchait</div>
+                  <div class='winner-desc'>1 st</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

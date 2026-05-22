@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>40th National Yoga Championship | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .results-header { text-align: center; margin-bottom: 24px; }
+    .results-header h2 { font-size: 1.5rem; color: #e11d48; font-weight: 800; margin-bottom: 8px; }
+    .results-header p { color: #475569; font-size: 1.1rem; font-weight: 600; }
+    .standings-banner {
+      background: #192135;
+      border-radius: 16px; padding: 24px; margin-bottom: 32px; color: white;
+      display: flex; flex-wrap: wrap; justify-content: space-around; gap: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+    }
+    .standing-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .standing-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+    .standing-value { font-size: 1.25rem; font-weight: 800; color: #f8fafc; font-family: 'Signika', sans-serif; }
+    .standing-value.winner { color: #fef08a; font-size: 1.5rem; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; margin-top: 32px; }
+    .category-card { background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .category-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); }
+    .category-title { background: #111827; color: #ffffff; padding: 16px 20px; font-size: 1.05rem; font-weight: 700; text-align: center; margin: 0; line-height: 1.4; border-bottom: 3px solid #e11d48; font-family: 'Inter', sans-serif; text-transform: uppercase; }
+    .winners-list { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .winner-item { display: flex; align-items: center; gap: 16px; padding: 12px; background: #ffffff; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+    .winner-rank { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 800; font-size: 0.95rem; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+    .rank-1 { background: #fef08a; color: #854d0e; box-shadow: 0 0 15px rgba(234, 179, 8, 0.3); }
+    .rank-2 { background: #e2e8f0; color: #334155; }
+    .rank-3 { background: #ffedd5; color: #9a3412; }
+    .winner-info { flex: 1; }
+    .winner-name { font-family: 'Signika', sans-serif; font-weight: 700; color: #1e293b; font-size: 1.15rem; margin-bottom: 2px; text-transform: capitalize; }
+    .winner-desc { font-size: 0.85rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">40th National Yoga Championship</h1>
+        <p class="page-copy">40th National Yoga Championship Held at : Dakshin Kanara Dist., Karnataka Date: January 10-14, 2016</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <div class="standings-banner">
+          <div class="standing-item">
+            <span class="standing-label">Overall Winner</span>
+            <span class="standing-value winner">West Bengal            1st</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">1st Runners Up</span>
+            <span class="standing-value">Haryana            2nd Runners up : Maharastha 8 to</span>
+          </div></div>
+
+        <div class="category-grid">
+          
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tanishq Dey</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Ankur Saha</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Debojyoti Dey</div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">27</div>
+                  <div class='winner-desc'>Brajanath Basak</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">28</div>
+                  <div class='winner-desc'>Tapas Paul</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">29</div>
+                  <div class='winner-desc'>Sanat Halder</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">25 to 35 Men</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Brajanath Basak</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tapas Paul</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sanat Halder</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Ritu Mondal</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Diya Karmakar</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">5th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sania Mukherjee</div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">30</div>
+                  <div class='winner-desc'>Madhumanti Dey</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">31</div>
+                  <div class='winner-desc'>Rakhi Chatterjee</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">5th</div>
+                <div class="winner-info">
+                  <div class="winner-name">32</div>
+                  <div class='winner-desc'>Manasi Manna</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">25 to 35 Women</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Madhumanti Dey</div>
+                  <div class='winner-desc'>1st</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rakhi Chatterjee</div>
+                  <div class='winner-desc'>5th</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Manasi Manna</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">11 to 14 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rohan Karmakar</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Prabuddha Dutta</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rohan Biswas</div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">11 to 14 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">33</div>
+                  <div class='winner-desc'>Pallab Das Gupta</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">34</div>
+                  <div class='winner-desc'>Pijush Kanti Pan</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">35</div>
+                  <div class='winner-desc'>Manas Mukherjee</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Above 35 Yrs Men</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pallab Das Gupta</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pijush Kanti Pan</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Manas Mukherjee</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Above 35 Yrs Women</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Papia Ganguly</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sonali Ghosh (Dutta)</div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">11 to 14 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sakshi Dutta</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tamalika Dutta</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Riya Pal</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">11 to 14 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">36</div>
+                  <div class='winner-desc'>Papia Ganguly</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">37</div>
+                  <div class='winner-desc'>Sonali Ghosh (Dutta)</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">4th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Artistic JR Boys Single</div>
+                  <div class='winner-desc'>Artistic JR Boys Single</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Artistic JR Boys Single</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rohan Karmakar</div>
+                  <div class='winner-desc'>1st</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Prabuddha Dutta</div>
+                  <div class='winner-desc'>5th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">14  to 17 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Subhrajyoti Banik</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Saibal Guchait</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Subhasis Mondal</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">14  to 17 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">39</div>
+                  <div class='winner-desc'>Prabuddha Dutta</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">4th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Artistic JR Girls Single</div>
+                  <div class='winner-desc'>Artistic JR Girls Single</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">6th</div>
+                <div class="winner-info">
+                  <div class="winner-name">40</div>
+                  <div class='winner-desc'>Riya Pal</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Artistic JR Girls Single</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">40th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Riya Pal</div>
+                  <div class='winner-desc'>5th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">14 to 17 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Anusha Majumder</div>
+                  
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Dayeta Sarkar</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">14 to 17 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">41</div>
+                  <div class='winner-desc'>Tania Nag</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">42</div>
+                  <div class='winner-desc'>Rakhi Chatterjee</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Artistic SR Women Single</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">41th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tania Nag</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">42th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rakhi Chatterjee</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Artistic JR Pair</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">43th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Riya Pal</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">44th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Dayeta Sarkar</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">17 to 21 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Vivekananda Pal</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Raju Kumar Das</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Biplab Suraj</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">17 to 21 Boys</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">43</div>
+                  <div class='winner-desc'>Riya Pal</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">44</div>
+                  <div class='winner-desc'>Dayeta Sarkar</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">4th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rhythmic Yoga JR</div>
+                  <div class='winner-desc'>Rhythmic Yoga JR</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Rhythmic Yoga JR</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">45th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Riya Pal</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">46th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Dayeta Sarkar</div>
+                  <div class='winner-desc'>2nd</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">17 to 21 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Adwiti Das</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sulagna Sen</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">17 to 21 Girls</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">4th</div>
+                <div class="winner-info">
+                  <div class="winner-name">46</div>
+                  <div class='winner-desc'>Dayeta Sarkar</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">6th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rhythmic Yoga JR</div>
+                  <div class='winner-desc'>Rhythmic Yoga JR</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Rhythmic Yoga JR</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">47th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rohan Karmakar</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">48th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Prabuddha Dutta</div>
+                  <div class='winner-desc'>6th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">21 to 25 Men</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Mohan Kumar Sing</div>
+                  <div class='winner-desc'>1st</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Chiranjit Mal</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Snehashis Malodas</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">21 to 25 Men</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">48</div>
+                  <div class='winner-desc'>Prabuddha Dutta</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rhythmic Yoga SR</div>
+                  <div class='winner-desc'>Rhythmic Yoga SR</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">21 to 25 Women</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tania Nag</div>
+                  <div class='winner-desc'>4th</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">21 to 25 Women</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">4th</div>
+                <div class="winner-info">
+                  <div class="winner-name">50</div>
+                  <div class='winner-desc'>Sulagna Sen</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">Rhythmic Yoga SR</h3>
+            <div class="winners-list">
+
+              <div class="winner-item">
+                <div class="winner-rank ">49th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tania Nag</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+              <div class="winner-item">
+                <div class="winner-rank ">50th</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sulagna Sen</div>
+                  <div class='winner-desc'>3rd</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

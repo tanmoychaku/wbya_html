@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results (National Yoga Championship) | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .result-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .result-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #e11d48; /* Rose-600 */
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .result-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .result-edition {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #e11d48;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    
+    .result-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    
+    .result-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    
+    .result-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.4;
+    }
+    
+    .result-meta-icon {
+      color: #94a3b8;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    
+    .result-action {
+      margin-top: auto;
+      padding: 10px 16px;
+      background: #f1f5f9;
+      color: #0f172a;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .result-card:hover .result-action {
+      background: #e11d48;
+      color: #ffffff;
+    }
+    
+    .result-action::after {
+      content: "→";
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .result-card:hover .result-action::after {
+      transform: translateX(4px);
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">Championship</p>
+          <h1 class="section-title">National Yoga Championship Results</h1>
+          <p class="section-description">Historical results and rankings from previous National Yoga Championships.</p>
+        </header>
+        
+        <div class="results-grid">
+          
+          <a href="results-47th-senior-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">47th Edition</div>
+            <h2 class="result-title">Senior National Yogasana Sports Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>March 25 to 28, 2023</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Pali, Rajasthan</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+
+          <a href="results-47th-sub-junior-junior-national-yogasana-sports-championship-2022.html" class="result-card">
+            <div class="result-edition">47th Edition</div>
+            <h2 class="result-title">Junior National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 28 to 31, 2022</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Ferozepur, Punjab</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-46th-senior-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">46th Edition</div>
+            <h2 class="result-title">Senior National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>March 26 to 29, 2022</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>IDPS, Tadepalligudem West Godavari District (Andhra Pradesh)</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+
+          <a href="results-46th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">46th Edition</div>
+            <h2 class="result-title">Sub-Junior &amp; Junior National Yogasana Sports Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December, 2021</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Online – Live</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-45th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">45th Edition</div>
+            <h2 class="result-title">Sub-Junior, Junior &amp; Senior National Yogasana Sports Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January, 2021</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Online – Live</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-44th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">44th Edition</div>
+            <h2 class="result-title">Sub-Junior &amp; Junior National Yogasana Sports Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>June, 2020</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Online – Live</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+
+          <a href="results-44th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">44th Edition</div>
+            <h2 class="result-title">Senior National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 9 to 12, 2019</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Jaipur (Rajasthan)</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-43rd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">43rd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 18 to 22, 2018</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Patiala (Punjab)</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-42nd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">42nd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 25 to 28, 2017</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Hrit College, Ghaziabad (Uttar Pradesh)</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          
+          <a href="results-41st-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">41st Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 12 onwards, 2016</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Details inside...</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+
+
+          <a href="results-40th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">40th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 10 to 14, 2016</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Dakshin Kanara Dist., Karnataka</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-39th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">39th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 26 to 29, 2014</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Hydrabad, Telengana</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-38th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">38th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 23 to 27, 2013</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Mega Sports Complex (Khelgaon), Jharkhand</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-37th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">37th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>February 09 to 13, 2013</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Hoshierpur, Punjab</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-36th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">36th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 30 to December 3, 2011</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Srikshetra, Karnataka</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-35th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">35th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 04 to 07, 2010</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Maragaon, Goa</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-34th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">34th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>February 04 to 07, 2010</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Yamunanagar, Haryana</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-33rd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">33rd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 11 to 14, 2009</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Madurai, Tamilnadu</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-32nd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">32nd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 13 to 16, 2008</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Ranchi, Jharkhand</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-31st-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">31st Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 24 to 27, 2006</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Chennai, Tamilnadu</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-30th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">30th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 12 to 15, 2006</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Hisar, Haryana</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-27th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">27th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 25 to 28, 2002</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Patiala, Punjab</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-26th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">26th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 01 to 04, 2001</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Ranchi, Jharkhand</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-25th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">25th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 27 to 30, 2000</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Palani, Tamilnadu</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-24th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">24th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 28 to 31, 1999</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Davangere, Karnataka</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-19th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">19th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 20 to 23, 1995</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Jind, Haryana</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-18th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">18th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 27 to 30, 1993</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Madurai, Tamilnadu</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-17th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">17th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 25 to 28, 1992</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Cuttack, Orissa</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-16th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">16th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 24 to 27, 1991</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Davangere, Karnataka</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-14th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">14th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>December 28 to 31, 1989</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Bhadreswar, West Bengal</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-13th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">13th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 05 to 08, 1989</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Bhiwani, Haryana</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-12th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">12th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 07 to 10, 1988</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Ranchi, Bihar</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-10th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">10th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 01 to 03, 1986</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Chandigarh, Punjab</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-9th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">9th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 18 to 21, 1985</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Burnpur, West Bengal</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-8th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">8th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>August 05 to 07, 1983</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Chandigarh</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-7th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">7th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>June 18 to 20, 1982</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Jamshedpur, Bihar</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-6th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">6th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 10 to 11, 1981</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Calcutta, West Bengal</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-5th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">5th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 26 to 27, 1979</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Bangalore, Karnataka</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-4th-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">4th Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>January 31 to February 1, 1979</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Banaras, UP</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-3rd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">3rd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 15 to 16, 1976</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Patiala, Punjab</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-2nd-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">2nd Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November 15 to 16, 1975</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Jamshedpur, Bihar</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+          <a href="results-1st-national-yogasana-sports-championship.html" class="result-card">
+            <div class="result-edition">1st Edition</div>
+            <h2 class="result-title">National Yoga Championship</h2>
+            <div class="result-meta-list">
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>November, 1974</span>
+              </div>
+              <div class="result-meta-item">
+                <svg class="result-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Patna, Bihar</span>
+              </div>
+            </div>
+            <div class="result-action">View Full Results</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+
+/* Chronology Table Styles */
+.chronology-section {
+  padding: 4rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.chronology-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+}
+
+.chronology-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chronology-table th {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--primary);
+}
+
+.chronology-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.chronology-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.chronology-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: scale(1.002);
+}
+
+.championship-name {
+  font-weight: 600;
+  color: var(--text) !important;
+}
+
+.championship-date {
+  color: var(--primary) !important;
+}
+
+.winner-gold {
+  color: #FFD700 !important;
+  font-weight: 600;
+}
+
+.winner-silver {
+  color: #C0C0C0 !important;
+  font-weight: 500;
+}
+
+.winner-bronze {
+  color: #CD7F32 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .chronology-section {
+    padding: 2rem 5%;
+  }
+  .chronology-table td, .chronology-table th {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Chronology Table Styles */
+.chronology-section {
+  padding: 4rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.chronology-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+}
+
+.chronology-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chronology-table th {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--primary);
+}
+
+.chronology-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.chronology-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.chronology-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: scale(1.002);
+}
+
+.championship-name {
+  font-weight: 600;
+  color: var(--text) !important;
+}
+
+.championship-date {
+  color: var(--primary) !important;
+}
+
+.winner-gold {
+  color: #FFD700 !important;
+  font-weight: 600;
+}
+
+.winner-silver {
+  color: #C0C0C0 !important;
+  font-weight: 500;
+}
+
+.winner-bronze {
+  color: #CD7F32 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .chronology-section {
+    padding: 2rem 5%;
+  }
+  .chronology-table td, .chronology-table th {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
