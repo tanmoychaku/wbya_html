@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9th Asian Yoga Championship | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .breadcrumbs {
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #64748b;
+      font-family: 'Inter', sans-serif;
+    }
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumbs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumbs li:not(:last-child)::after {
+      content: "/";
+      color: #cbd5e1;
+    }
+    .breadcrumbs a {
+      color: #e11d48;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover {
+      color: #be123c;
+      text-decoration: underline;
+    }
+
+    .standings-banner {
+      background: #192135;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 48px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .standing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .standing-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    .standing-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #f8fafc;
+      font-family: 'Signika', sans-serif;
+    }
+    .standing-value.winner {
+      color: #fef08a;
+      font-size: 1.5rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+      margin-bottom: 56px;
+    }
+    
+    .athlete-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(31, 38, 135, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .athlete-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(31, 38, 135, 0.08);
+    }
+    
+    .athlete-img-box {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .athlete-info {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .athlete-name {
+      font-family: 'Signika', sans-serif;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.45rem;
+      margin: 0 0 4px 0;
+      line-height: 1.2;
+    }
+    .athlete-group {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #e11d48;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    
+    .achievements-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .achievement-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+    }
+    .rank-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .rank-1 {
+      background: #fef08a;
+      color: #854d0e;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.25);
+    }
+    .rank-2 {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .rank-3 {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+    .rank-other {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    .achievement-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">9th Asian Yoga Championship</h1>
+        <p class="page-copy">9th Asian Yoga Sports Championship | September 5 to 8, 2019 | Yeosu, South Korea</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results-asian-yoga-championship.html">Asian Yoga Championship Results</a></li>
+            <li aria-current="page">9th Edition</li>
+          </ol>
+        </nav>
+
+        <!-- Overall Standings -->
+        <div class="standings-banner">
+          <div class="standing-item">
+            <span class="standing-label">Overall Winner</span>
+            <span class="standing-value winner">India 🇮🇳</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">1st Runners Up</span>
+            <span class="standing-value">Vietnam 🇻🇳</span>
+          </div>
+        </div>
+
+        <!-- Athletes Results Grid -->
+        <div class="results-grid">          <!-- Srija Saha -->
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/srija_saha.jpg" alt="Srija Saha" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Srija Saha</h3>
+              <span class="athlete-group">8 – 11 Years Girls Group</span>
+              
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="rank-badge rank-1">1st</div>
+                  <div class="achievement-text">8 – 11 Years Girls Group (Yogasana)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="rank-badge rank-3">3rd</div>
+                  <div class="achievement-text">Rhythmic Yoga Pair (Junior)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="rank-badge rank-other">6th</div>
+                  <div class="achievement-text">Artistic Single Yoga (Junior)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Dayeta Sarkar -->
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/dayeta_sarkar_9th.jpg" alt="Dayeta Sarkar" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Dayeta Sarkar</h3>
+              <span class="athlete-group">17 – 21 Years Women Group</span>
+              
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="rank-badge rank-1">1st</div>
+                  <div class="achievement-text">Rhythmic Yoga Pair (Senior)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="rank-badge rank-2">2nd</div>
+                  <div class="achievement-text">17 – 21 Years Women Group (Yogasana)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="rank-badge rank-other">5th</div>
+                  <div class="achievement-text">Artistic Single Yoga (Senior)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pallab Dasgupta -->
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/pallab_dasgupta_9th.jpg" alt="Pallab Dasgupta" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Pallab Dasgupta</h3>
+              <span class="athlete-group">Above 35 Years Men Group</span>
+              
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="rank-badge rank-2">2nd</div>
+                  <div class="achievement-text">Above 35 Years Men Group (Yogasana)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pijush Kanti Pan -->
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/pijush_kanti_pan.jpg" alt="Pijush Kanti Pan" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Pijush Kanti Pan</h3>
+              <span class="athlete-group">Above 35 Years Men Group</span>
+              
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="rank-badge rank-3">3rd</div>
+                  <div class="achievement-text">Above 35 Years Men Group (Yogasana)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

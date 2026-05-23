@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1st Asian Yoga Championship | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .breadcrumbs {
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #64748b;
+      font-family: 'Inter', sans-serif;
+    }
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumbs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumbs li:not(:last-child)::after {
+      content: "/";
+      color: #cbd5e1;
+    }
+    .breadcrumbs a {
+      color: #e11d48;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover {
+      color: #be123c;
+      text-decoration: underline;
+    }
+
+    .standings-banner {
+      background: #192135;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 48px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .standing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .standing-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    .standing-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #f8fafc;
+      font-family: 'Signika', sans-serif;
+    }
+    .standing-value.winner {
+      color: #fef08a;
+      font-size: 1.5rem;
+    }
+
+    .spotlight-section {
+      margin-top: 24px;
+      margin-bottom: 48px;
+    }
+    .spotlight-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 32px;
+      font-family: 'Signika', sans-serif;
+      text-align: center;
+      position: relative;
+    }
+    .spotlight-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #e11d48;
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+    .spotlight-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(31, 38, 135, 0.06);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .spotlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(31, 38, 135, 0.10);
+    }
+    .spotlight-img-container {
+      width: 240px;
+      height: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      flex-shrink: 0;
+      background: transparent;
+    }
+    .spotlight-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .spotlight-card:hover .spotlight-img {
+      transform: scale(1.05);
+    }
+    .spotlight-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .athlete-badge {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #e11d48;
+      background: #ffe4e6;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'Inter', sans-serif;
+    }
+    .athlete-name {
+      font-family: 'Signika', sans-serif;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 2.25rem;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .athlete-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      align-self: flex-start;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+    .athlete-rank-val {
+      color: #e11d48;
+      font-size: 1.25rem;
+      margin-left: 6px;
+    }
+    .athlete-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .athlete-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      color: #475569;
+      font-family: 'Inter', sans-serif;
+    }
+    .athlete-meta-icon {
+      color: #64748b;
+      flex-shrink: 0;
+    }
+    .athlete-meta-text strong {
+      color: #1e293b;
+    }
+    
+    @media (max-width: 768px) {
+      .spotlight-card {
+        flex-direction: column;
+        padding: 24px;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+      }
+      .spotlight-img-container {
+        width: 100%;
+        max-width: 220px;
+        height: 250px;
+      }
+      .spotlight-details {
+        align-items: center;
+      }
+      .athlete-badge, .athlete-rank-badge {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">1st Asian Yoga Championship</h1>
+        <p class="page-copy">1st Asian Yoga Sports Championship | January 22 to 23, 2011 | Pattaya, Thailand</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results-asian-yoga-championship.html">Asian Yoga Championship Results</a></li>
+            <li aria-current="page">1st Edition</li>
+          </ol>
+        </nav>
+
+        <!-- Overall Standings -->
+        <div class="standings-banner">
+          <div class="standing-item">
+            <span class="standing-label">Overall Winner</span>
+            <span class="standing-value winner">India 🇮🇳</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">1st Runners Up</span>
+            <span class="standing-value">Hong Kong 🇭🇰</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">2nd Runners Up</span>
+            <span class="standing-value">Malaysia 🇲🇾</span>
+          </div>
+        </div>
+
+        <!-- Spotlight Section -->
+        <div class="spotlight-section">
+          <h2 class="spotlight-title">Official Standings & Representative Spotlight</h2>
+          
+          <div class="spotlight-card">
+            <div class="spotlight-img-container">
+              <img src="assets/images/soumit_biswas_1st_asian.jpg" alt="Soumit Biswas" class="spotlight-img" />
+            </div>
+            
+            <div class="spotlight-details">
+              <span class="athlete-badge">Featured Athlete</span>
+              <h3 class="athlete-name">Soumit Biswas</h3>
+              
+              <div class="athlete-rank-badge">
+                Standings: <span class="athlete-rank-val">5th Place</span>
+              </div>
+              
+              <div class="athlete-meta-list">
+                <div class="athlete-meta-item">
+                  <svg class="athlete-meta-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                  <span class="athlete-meta-text">Representing: <strong>India 🇮🇳 (West Bengal)</strong></span>
+                </div>
+                
+                <div class="athlete-meta-item">
+                  <svg class="athlete-meta-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  <span class="athlete-meta-text">Category: <strong>17 – 35 Years Men Group</strong></span>
+                </div>
+                
+                <div class="athlete-meta-item">
+                  <svg class="athlete-meta-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  <span class="athlete-meta-text">Discipline: <strong>Yogasana</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results (World Yoga Championship) | West Bengal Yoga Association</title>
+  <meta name="description" content="Official results of the West Bengal contingent at various World Yoga Championships." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .breadcrumbs {
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #64748b;
+      font-family: 'Inter', sans-serif;
+    }
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    .breadcrumbs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumbs li:not(:last-child)::after {
+      content: "/";
+      color: #cbd5e1;
+    }
+    .breadcrumbs a {
+      color: #e11d48;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover {
+      color: #be123c;
+      text-decoration: underline;
+    }
+
+    .grid-section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      font-family: 'Signika', sans-serif;
+      text-align: center;
+      position: relative;
+    }
+    .grid-section-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #e11d48;
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+    
+    .event-header {
+      text-align: center;
+      margin-top: 64px;
+      margin-bottom: 32px;
+    }
+    .event-title {
+      font-family: 'Signika', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+    .event-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: #64748b;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+      margin-bottom: 56px;
+      justify-content: center;
+    }
+    
+    .athlete-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(31, 38, 135, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .athlete-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(31, 38, 135, 0.08);
+    }
+    
+    .athlete-img-box {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .athlete-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
+      transition: transform 0.3s ease;
+    }
+    .athlete-card:hover .athlete-img {
+      transform: scale(1.05);
+    }
+
+    .empty-placeholder {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-style: dashed;
+      border-width: 2px;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .empty-placeholder-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px;
+    }
+    .placeholder-icon {
+      width: 48px;
+      height: 48px;
+      opacity: 0.45;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      color: #e2e8f0;
+    }
+    .athlete-card:hover .placeholder-icon {
+      opacity: 0.7;
+      transform: translateY(-2px);
+    }
+    .placeholder-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    
+    .athlete-info {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .athlete-name {
+      font-family: 'Signika', sans-serif;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.45rem;
+      margin: 0 0 4px 0;
+      line-height: 1.2;
+    }
+    
+    .achievements-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .achievement-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+    }
+    .medal-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .medal-gold {
+      background: #fef08a;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.25);
+    }
+    .medal-silver {
+      background: #e2e8f0;
+    }
+    .medal-bronze {
+      background: #ffedd5;
+    }
+    .medal-star {
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 1rem;
+    }
+    .achievement-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.3;
+    }
+    
+    @media (max-width: 768px) {
+      .results-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .athlete-img-box {
+        height: 280px;
+      }
+      .event-title {
+        font-size: 1.5rem;
+      }
+      .event-subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">World Yoga Championship</h1>
+        <p class="page-copy">Achievements of the West Bengal contingent at various World Yoga Sports Championships across the globe.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Results (World Yoga Championship)</li>
+          </ol>
+        </nav>
+
+        <!-- 2018 Buenos Aires -->
+        <div class="event-header">
+          <h2 class="event-title">World Yoga Championship</h2>
+          <p class="event-subtitle">6th May, 2018 | Buenos Aires, Argentina</p>
+        </div>
+        
+        <div class="results-grid">
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/sowel_ahmed_gazi.jpg" alt="Sowel Ahmed Gazi" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Sowel Ahmed Gazi</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">World Athletic Yoga Championship (Men) Junior Group - Gold Medal</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">World Artistic Single Yoga Championship (Men) Junior Group - Gold Medal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/pallab_dasgupta_world_2018.jpg" alt="Pallab Dasgupta" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Pallab Dasgupta</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-bronze">🥉</div>
+                  <div class="achievement-text">World Yoga Artistic Professional Championship (Men) - Bronze Medal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2015 Malaysia -->
+        <div class="event-header">
+          <h2 class="event-title">World Yoga Championship</h2>
+          <p class="event-subtitle">December 2015 | Kuala Lumpur, Malaysia</p>
+        </div>
+        
+        <div class="results-grid">
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/riya_pal.jpg" alt="Riya Pal" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Riya Pal</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">World Yogasana Championship (Girls) Sub Junior (8-12 Years) - Gold Medal</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-bronze">🥉</div>
+                  <div class="achievement-text">Artistic Yoga Sport World Champions (Women) Junior - Bronze Medal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2003 Portugal -->
+        <div class="event-header">
+          <h2 class="event-title">12th World Yoga Sports Championship</h2>
+          <p class="event-subtitle">July 2003 | Santa Maria Da Feira, Portugal</p>
+        </div>
+        
+        <div class="results-grid">
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/rupa_manna.jpg" alt="Rupa Manna" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Rupa Manna</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">Gold Medalist</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Artistic Pair Yoga Sport World Champion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/sayona_das_12th.jpg" alt="Sayona Das" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Sayona Das</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">Gold Medalist (Artistic Pair)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-silver">🥈</div>
+                  <div class="achievement-text">Silver Medalist (Artistic Single)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-bronze">🥉</div>
+                  <div class="achievement-text">Bronze Medalist (Olympic Yoga)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/kumkum_sinha.jpg" alt="Kumkum Sinha" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Kumkum Sinha</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Women Athletic Yoga World Champion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/jhantu_roy.jpg" alt="Jhantu Roy" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Jhantu Roy</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Men Athletic Yoga World Champion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2002 Brazil -->
+        <div class="event-header">
+          <h2 class="event-title">11th World Championship of Yoga Sports</h2>
+          <p class="event-subtitle">September 2002 | Rio Janeiro, Brazil</p>
+        </div>
+        
+        <div class="results-grid">
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/sayona_das.jpg" alt="Sayona Das" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Sayona Das</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Women Athletic Yoga World Champion</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-gold">🥇</div>
+                  <div class="achievement-text">Gold Medalist (Yogasana)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-silver">🥈</div>
+                  <div class="achievement-text">Silver Medalist (Artistic)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/saurav_sekhar_kundu.jpg" alt="Saurav Sekhar Kundu" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Saurav Sekhar Kundu</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Men Athletic Yoga World Champion</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-silver">🥈</div>
+                  <div class="achievement-text">Silver Medalist</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏅</div>
+                  <div class="achievement-text">World Cup Contortion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box">
+              <img src="assets/images/kumkum_sinha.jpg" alt="Kumkum Sinha" class="athlete-img" />
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Kumkum Sinha</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Women Athletic Yoga World Champion</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-bronze">🥉</div>
+                  <div class="achievement-text">Bronze Medalist (Yogasana)</div>
+                </div>
+                <div class="achievement-item">
+                  <div class="medal-icon medal-silver">🥈</div>
+                  <div class="achievement-text">Silver Medalist (Artistic)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="athlete-card">
+            <div class="athlete-img-box empty-placeholder">
+              <div class="empty-placeholder-inner">
+                <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                <span class="placeholder-text">Photo Not Available</span>
+              </div>
+            </div>
+            <div class="athlete-info">
+              <h3 class="athlete-name">Bandana Kumari</h3>
+              <div class="achievements-list">
+                <div class="achievement-item">
+                  <div class="medal-icon medal-star">🏆</div>
+                  <div class="achievement-text">Women Athletic Yoga World Champion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
