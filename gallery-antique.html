@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antique Pictures | West Bengal Yoga Association</title>
+  <meta name="description" content="Photo gallery for Antique Pictures of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #475569;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 16px;
+      text-align: center;
+      max-width: 800px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-prev {
+      left: 16px;
+    }
+    .lightbox-next {
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Photo Gallery</span>
+        <h1 class="page-title">Antique Pictures</h1>
+        <p class="page-copy">Memorable moments of West Bengal Yoga Association in Antique Pictures.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_1.jpg" alt="Mr. Santosh Sanyal and others" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Santosh Sanyal and others</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_2.jpg" alt="Mr. Nilmani Das (Working President, WBYA) with prize holders." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Nilmani Das (Working President, WBYA) with prize holders.</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_3.jpg" alt="Mr. Santosh Sanyal, Smt. Jhuma Chatterjee, Mr. Kamal Bhandari, Smt. Smriti Sharma and others" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Santosh Sanyal, Smt. Jhuma Chatterjee, Mr. Kamal Bhandari, Smt. Smriti Sharma and others</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_4.jpg" alt="Mr. Santosh Sanyal, Mr. Kamal Bhandari and others" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Santosh Sanyal, Mr. Kamal Bhandari and others</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_5.jpg" alt="Mr. Santosh Sanyal, Smt. Labonyo Palit with prize holders" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Santosh Sanyal, Smt. Labonyo Palit with prize holders</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_6.jpg" alt="Mr. Santosh Sanyal and others" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Mr. Santosh Sanyal and others</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_7.jpg" alt="State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_8.jpg" alt="State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_9.jpg" alt="Prize Holders – State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize Holders – State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_10.jpg" alt="State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_11.jpg" alt="State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(11)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_12.jpg" alt="Prize Holders – State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize Holders – State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(12)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_13.jpg" alt="Prize Holders – State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize Holders – State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(13)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_14.jpg" alt="14th National Yoga Championship – Held at Bhadreshwar ( West Bengal) on Dec. 28-31, 1989" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">14th National Yoga Championship – Held at Bhadreshwar ( West Bengal) on Dec. 28-31, 1989</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(14)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_15.jpg" alt="Winning Team – 34th National Yoga Championship held at Yamunanagar, Haryana" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 34th National Yoga Championship held at Yamunanagar, Haryana</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(15)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_16.jpg" alt="Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(16)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_17.jpg" alt="Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(17)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_18.jpg" alt="Winning Team – 37th National Yoga Champioship – held at Hosierpur, Punjab" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 37th National Yoga Champioship – held at Hosierpur, Punjab</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(18)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_19.jpg" alt="WBYA Official with winners trophy – 38th National Yoga Championship – held at Ranchi, Jharkhand" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">WBYA Official with winners trophy – 38th National Yoga Championship – held at Ranchi, Jharkhand</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(19)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_20.jpg" alt="Winning Team – 38th National Yoga Championship – held at Ranchi, Jharkhand" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 38th National Yoga Championship – held at Ranchi, Jharkhand</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(20)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_21.jpg" alt="Winning Team – 39th National Yoga Championship – held at Hyderabad" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 39th National Yoga Championship – held at Hyderabad</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(21)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_22.jpg" alt="Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(22)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_23.jpg" alt="WBYA Official – 40th National Yoga Championship – Dakshin Kanara Dist., Karnataka" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">WBYA Official – 40th National Yoga Championship – Dakshin Kanara Dist., Karnataka</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(23)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_24.jpg" alt="Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(24)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_25.jpg" alt="WBYA team (Beach Festival)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">WBYA team (Beach Festival)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(25)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_26.jpg" alt="WBYA team (Beach Festival)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">WBYA team (Beach Festival)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(26)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_27.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(27)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_28.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(28)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_29.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(29)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_30.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(30)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_31.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(31)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_32.jpg" alt="4th Netaji Subhash State Games" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">4th Netaji Subhash State Games</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(32)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_33.jpg" alt="5th Netaji Subhash State Games" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">5th Netaji Subhash State Games</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(33)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_34.jpg" alt="42nd State Yoga Championship – 2015" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">42nd State Yoga Championship – 2015</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(34)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_35.jpg" alt="42nd State Yoga Championship – 2015" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">42nd State Yoga Championship – 2015</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(35)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_36.jpg" alt="43rd State Yoga Championship – 2016" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">43rd State Yoga Championship – 2016</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(36)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_37.jpg" alt="Celebrated International Day of Yoga at Kreeda Bharati" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at Kreeda Bharati</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(37)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_38.jpg" alt="Celebrated International Day of Yoga at Kreeda Bharati" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at Kreeda Bharati</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(38)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_39.jpg" alt="Celebrated International Day of Yoga at Kreeda Bharati" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at Kreeda Bharati</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(39)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_40.jpg" alt="felicitated from Governor at  Kreeda Bharati (International Day of Yoga)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">felicitated from Governor at  Kreeda Bharati (International Day of Yoga)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(40)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_41.jpg" alt="Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(41)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_42.jpg" alt="Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math, Howrah" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math, Howrah</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(42)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_antique/img_43.jpg" alt="Celebrated International Day of Yoga at Netaji Indoor Stadium" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga at Netaji Indoor Stadium</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const imagesData = [
+      { src: 'assets/images/gallery_antique/img_1.jpg', caption: "Mr. Santosh Sanyal and others" },
+      { src: 'assets/images/gallery_antique/img_2.jpg', caption: "Mr. Nilmani Das (Working President, WBYA) with prize holders." },
+      { src: 'assets/images/gallery_antique/img_3.jpg', caption: "Mr. Santosh Sanyal, Smt. Jhuma Chatterjee, Mr. Kamal Bhandari, Smt. Smriti Sharma and others" },
+      { src: 'assets/images/gallery_antique/img_4.jpg', caption: "Mr. Santosh Sanyal, Mr. Kamal Bhandari and others" },
+      { src: 'assets/images/gallery_antique/img_5.jpg', caption: "Mr. Santosh Sanyal, Smt. Labonyo Palit with prize holders" },
+      { src: 'assets/images/gallery_antique/img_6.jpg', caption: "Mr. Santosh Sanyal and others" },
+      { src: 'assets/images/gallery_antique/img_7.jpg', caption: "State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_8.jpg', caption: "State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_9.jpg', caption: "Prize Holders – State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_10.jpg', caption: "State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_11.jpg', caption: "State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_12.jpg', caption: "Prize Holders – State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_13.jpg', caption: "Prize Holders – State Yoga Championship" },
+      { src: 'assets/images/gallery_antique/img_14.jpg', caption: "14th National Yoga Championship – Held at Bhadreshwar ( West Bengal) on Dec. 28-31, 1989" },
+      { src: 'assets/images/gallery_antique/img_15.jpg', caption: "Winning Team – 34th National Yoga Championship held at Yamunanagar, Haryana" },
+      { src: 'assets/images/gallery_antique/img_16.jpg', caption: "Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka" },
+      { src: 'assets/images/gallery_antique/img_17.jpg', caption: "Winning Team – 36th National Yoga Championship – held at Srikshetra, Karnataka" },
+      { src: 'assets/images/gallery_antique/img_18.jpg', caption: "Winning Team – 37th National Yoga Champioship – held at Hosierpur, Punjab" },
+      { src: 'assets/images/gallery_antique/img_19.jpg', caption: "WBYA Official with winners trophy – 38th National Yoga Championship – held at Ranchi, Jharkhand" },
+      { src: 'assets/images/gallery_antique/img_20.jpg', caption: "Winning Team – 38th National Yoga Championship – held at Ranchi, Jharkhand" },
+      { src: 'assets/images/gallery_antique/img_21.jpg', caption: "Winning Team – 39th National Yoga Championship – held at Hyderabad" },
+      { src: 'assets/images/gallery_antique/img_22.jpg', caption: "Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka" },
+      { src: 'assets/images/gallery_antique/img_23.jpg', caption: "WBYA Official – 40th National Yoga Championship – Dakshin Kanara Dist., Karnataka" },
+      { src: 'assets/images/gallery_antique/img_24.jpg', caption: "Winning Team – 40th National Yoga Championship – held at Dakshin Kanara Dist., Karnataka" },
+      { src: 'assets/images/gallery_antique/img_25.jpg', caption: "WBYA team (Beach Festival)" },
+      { src: 'assets/images/gallery_antique/img_26.jpg', caption: "WBYA team (Beach Festival)" },
+      { src: 'assets/images/gallery_antique/img_27.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_antique/img_28.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_antique/img_29.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_antique/img_30.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_antique/img_31.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_antique/img_32.jpg', caption: "4th Netaji Subhash State Games" },
+      { src: 'assets/images/gallery_antique/img_33.jpg', caption: "5th Netaji Subhash State Games" },
+      { src: 'assets/images/gallery_antique/img_34.jpg', caption: "42nd State Yoga Championship – 2015" },
+      { src: 'assets/images/gallery_antique/img_35.jpg', caption: "42nd State Yoga Championship – 2015" },
+      { src: 'assets/images/gallery_antique/img_36.jpg', caption: "43rd State Yoga Championship – 2016" },
+      { src: 'assets/images/gallery_antique/img_37.jpg', caption: "Celebrated International Day of Yoga at Kreeda Bharati" },
+      { src: 'assets/images/gallery_antique/img_38.jpg', caption: "Celebrated International Day of Yoga at Kreeda Bharati" },
+      { src: 'assets/images/gallery_antique/img_39.jpg', caption: "Celebrated International Day of Yoga at Kreeda Bharati" },
+      { src: 'assets/images/gallery_antique/img_40.jpg', caption: "felicitated from Governor at  Kreeda Bharati (International Day of Yoga)" },
+      { src: 'assets/images/gallery_antique/img_41.jpg', caption: "Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math" },
+      { src: 'assets/images/gallery_antique/img_42.jpg', caption: "Celebrated International Day of Yoga at R K Mission Vivekananda University, Belur Math, Howrah" },
+      { src: 'assets/images/gallery_antique/img_43.jpg', caption: "Celebrated International Day of Yoga at Netaji Indoor Stadium" },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = imagesData.length - 1;
+      if (currentIndex >= imagesData.length) currentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imagesData[currentIndex].src;
+      caption.textContent = imagesData[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+    
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  </script>
+</body>
+</html>

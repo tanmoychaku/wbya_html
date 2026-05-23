@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery 2016-2017 | West Bengal Yoga Association</title>
+  <meta name="description" content="Photo gallery for Photo Gallery 2016-2017 of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #475569;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 16px;
+      text-align: center;
+      max-width: 800px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-prev {
+      left: 16px;
+    }
+    .lightbox-next {
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Photo Gallery</span>
+        <h1 class="page-title">Photo Gallery 2016-2017</h1>
+        <p class="page-copy">Memorable moments of West Bengal Yoga Association in 2016-2017.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_1.jpg" alt="West Bengal Yoga Team (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_2.jpg" alt="2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_3.jpg" alt="Our Official (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Our Official (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_4.jpg" alt="Marchpast (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Marchpast (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_5.jpg" alt="Marchpast 2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Marchpast 2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_6.jpg" alt="Sowel Ahmed Gazi – 1st (2nd Federation Yoga Sports Cup –) 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Sowel Ahmed Gazi – 1st (2nd Federation Yoga Sports Cup –) 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_7.jpg" alt="Rohan Karmakar -1st Artistic Single (2nd Federation Yoga Sports Cup – 2017) -1st (International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Rohan Karmakar -1st Artistic Single (2nd Federation Yoga Sports Cup – 2017) -1st (International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_8.jpg" alt="Anusha Majumdar -1st (2nd Federation Yoga Sports Cup – 2017 & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Anusha Majumdar -1st (2nd Federation Yoga Sports Cup – 2017 & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_9.jpg" alt="Dayeta Sarkar -1st (International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Dayeta Sarkar -1st (International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_10.jpg" alt="Madhubanti Dey -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Madhubanti Dey -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_11.jpg" alt="Manash Mukherjee -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Manash Mukherjee -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(11)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_12.jpg" alt="Rakhi Chatterjee & Anusha Majumdar -1st -Artistic & Rhythmic (2nd Federation Yoga Sports Cup – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Rakhi Chatterjee & Anusha Majumdar -1st -Artistic & Rhythmic (2nd Federation Yoga Sports Cup – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(12)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_13.jpg" alt="Shiben Mandal -1st (International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Shiben Mandal -1st (International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(13)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_14.jpg" alt="Chitra Banerjee -1st (International Yoga Sports Championship – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Chitra Banerjee -1st (International Yoga Sports Championship – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(14)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_15.jpg" alt="Winners Team in 2nd Federation Yoga Sports Cup – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winners Team in 2nd Federation Yoga Sports Cup – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(15)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_16.jpg" alt="Winner Trophy (2nd Federation Yoga Sports Cup – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winner Trophy (2nd Federation Yoga Sports Cup – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(16)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_17.jpg" alt="Winner Team (2nd Federation Yoga Sports Cup – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winner Team (2nd Federation Yoga Sports Cup – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(17)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_18.jpg" alt="Winner Team (2nd Federation Yoga Sports Cup – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winner Team (2nd Federation Yoga Sports Cup – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(18)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_19.jpg" alt="Winner Team (2nd Federation Yoga Sports Cup – 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winner Team (2nd Federation Yoga Sports Cup – 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(19)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_20.jpg" alt="42nd National Yoga Sports Championship 2017 at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">42nd National Yoga Sports Championship 2017 at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(20)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_21.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(21)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_22.jpg" alt="Sowel Ahmed Gazi – Gold Medalist (11 to 14 years boys – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Sowel Ahmed Gazi – Gold Medalist (11 to 14 years boys – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(22)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_23.jpg" alt="Nabomita Dasgupta – Gold Medalist (11 to 14 yrs Girls group – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Nabomita Dasgupta – Gold Medalist (11 to 14 yrs Girls group – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(23)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_24.jpg" alt="Supriya Panda – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Supriya Panda – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(24)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_25.jpg" alt="Sanchaita Chakraborty – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Sanchaita Chakraborty – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(25)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_26.jpg" alt="Manash Mukherjee – Gold Medalist (Above 35 yrs Men group – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Manash Mukherjee – Gold Medalist (Above 35 yrs Men group – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(26)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_27.jpg" alt="Chitra Banerjee – Gold Medalist (Professional Yoga -Female – 42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Chitra Banerjee – Gold Medalist (Professional Yoga -Female – 42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(27)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_28.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(28)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_29.jpg" alt="Our official with winner trophy (42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Our official with winner trophy (42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(29)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_30.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(30)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_31.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(31)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_32.jpg" alt="Whole official in a frame (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Whole official in a frame (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(32)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_33.jpg" alt="Our official (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Our official (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(33)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_34.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(34)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_35.jpg" alt="West Bengal Yoga Team with winner trophy (42nd National Yoga Sports Championship 2017)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team with winner trophy (42nd National Yoga Sports Championship 2017)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(35)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_36.jpg" alt="West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(36)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_37.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(37)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_38.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(38)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_39.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(39)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_40.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(40)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_41.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(41)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_42.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(42)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_43.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(43)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_44.jpg" alt="Pre-National Camp 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(44)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_45.jpg" alt="Inaugural ceremony of 44th State Yoga Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Inaugural ceremony of 44th State Yoga Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(45)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_46.jpg" alt="Inaugural ceremony of 44th State Yoga Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Inaugural ceremony of 44th State Yoga Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(46)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_47.jpg" alt="Inaugural ceremony of 44th State Yoga Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Inaugural ceremony of 44th State Yoga Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(47)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_48.jpg" alt="Inaugural ceremony of 44th State Yoga Championship – 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Inaugural ceremony of 44th State Yoga Championship – 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(48)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_49.jpg" alt="Website opening ceremony during 44th State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Website opening ceremony during 44th State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(49)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_50.jpg" alt="Judges clinic during 44th State Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges clinic during 44th State Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(50)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_51.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(51)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_52.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(52)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_53.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(53)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_54.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(54)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_55.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(55)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_56.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(56)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_57.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(57)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_58.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(58)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_59.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(59)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_60.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(60)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_61.jpg" alt="Participants of 44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Participants of 44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(61)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_62.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(62)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_63.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(63)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_64.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(64)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_65.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(65)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_66.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(66)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_67.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(67)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_68.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(68)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_69.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(69)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_70.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(70)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_71.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(71)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_72.jpg" alt="Honorable Judges of 44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Honorable Judges of 44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(72)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_73.jpg" alt="44th State Yoga Championship 2017" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">44th State Yoga Championship 2017</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(73)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_74.jpg" alt="District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(74)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_75.jpg" alt="Nadia District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Nadia District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(75)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_76.jpg" alt="Hooghly District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Hooghly District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(76)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_77.jpg" alt="Howrah District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Howrah District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(77)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_78.jpg" alt="Murshidabad District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Murshidabad District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(78)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_79.jpg" alt="Paschim Burdaman District Yoga Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Paschim Burdaman District Yoga Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(79)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_80.jpg" alt="Judges Clinic (WBYA)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic (WBYA)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(80)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_81.jpg" alt="Judges Clinic (WBYA)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic (WBYA)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(81)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_82.jpg" alt="Olympic Day Run – organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(82)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_83.jpg" alt="Olympic Day Run – organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(83)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_84.jpg" alt="1st Federation Yoga Sports Cup from March 24 to 26, 2017 held at Thiruvananthapuram, Kerala" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Federation Yoga Sports Cup from March 24 to 26, 2017 held at Thiruvananthapuram, Kerala</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(84)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_85.jpg" alt="1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(85)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_86.jpg" alt="1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(86)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_87.jpg" alt="1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(87)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_88.jpg" alt="1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(88)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_89.jpg" alt="Winners Team in 1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winners Team in 1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(89)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_90.jpg" alt="Winners Team in 1st Federation Yoga Sports Cup" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winners Team in 1st Federation Yoga Sports Cup</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(90)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_91.jpg" alt="Yoga Fest / Utsav – 2017 from March 17 to 19 at Ramakrishna Mission Vivekananda University, Belur Math" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 from March 17 to 19 at Ramakrishna Mission Vivekananda University, Belur Math</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(91)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_92.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(92)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_93.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(93)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_94.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(94)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_95.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(95)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_96.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(96)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_97.jpg" alt="Yoga Fest / Utsav – 2017 at Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(97)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_98.jpg" alt="Yoga Fest / Utsav – 2017 at Ramakrishna Mission Vivekananda University" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yoga Fest / Utsav – 2017 at Ramakrishna Mission Vivekananda University</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(98)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_99.jpg" alt="Convocation – Diploma on Yoga & national Participants" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Convocation – Diploma on Yoga & national Participants</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(99)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_100.jpg" alt="Convocation – Diploma on Yoga & national Participants" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Convocation – Diploma on Yoga & national Participants</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(100)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_101.jpg" alt="Convocation – Diploma on Yoga & national Participants" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Convocation – Diploma on Yoga & national Participants</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(101)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_102.jpg" alt="Felicitated to Vice-President of Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitated to Vice-President of Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(102)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_103.jpg" alt="41st National Yoga Championship from November 12 to 16, 2016 at Ranchi, Jharkhand" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st National Yoga Championship from November 12 to 16, 2016 at Ranchi, Jharkhand</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(103)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_104.jpg" alt="1st Runners-up Team in 41st National Yoga Sports Championship at Ranchi" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">1st Runners-up Team in 41st National Yoga Sports Championship at Ranchi</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(104)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_105.jpg" alt="West Bengal Yoga-Sports Team" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga-Sports Team</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(105)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_106.jpg" alt="West Bengal Yoga-Sports Team during march-past" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga-Sports Team during march-past</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(106)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_107.jpg" alt="West Bengal Yoga-Sports Team" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga-Sports Team</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(107)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2016_2017/img_108.jpg" alt="West Bengal Yoga-Sports Team" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga-Sports Team</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const imagesData = [
+      { src: 'assets/images/gallery_2016_2017/img_1.jpg', caption: "West Bengal Yoga Team (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_2.jpg', caption: "2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_3.jpg', caption: "Our Official (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_4.jpg', caption: "Marchpast (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_5.jpg', caption: "Marchpast 2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_6.jpg', caption: "Sowel Ahmed Gazi – 1st (2nd Federation Yoga Sports Cup –) 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_7.jpg', caption: "Rohan Karmakar -1st Artistic Single (2nd Federation Yoga Sports Cup – 2017) -1st (International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_8.jpg', caption: "Anusha Majumdar -1st (2nd Federation Yoga Sports Cup – 2017 & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_9.jpg', caption: "Dayeta Sarkar -1st (International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_10.jpg', caption: "Madhubanti Dey -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_11.jpg', caption: "Manash Mukherjee -1st (2nd Federation Yoga Sports Cup & International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_12.jpg', caption: "Rakhi Chatterjee & Anusha Majumdar -1st -Artistic & Rhythmic (2nd Federation Yoga Sports Cup – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_13.jpg', caption: "Shiben Mandal -1st (International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_14.jpg', caption: "Chitra Banerjee -1st (International Yoga Sports Championship – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_15.jpg', caption: "Winners Team in 2nd Federation Yoga Sports Cup – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_16.jpg', caption: "Winner Trophy (2nd Federation Yoga Sports Cup – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_17.jpg', caption: "Winner Team (2nd Federation Yoga Sports Cup – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_18.jpg', caption: "Winner Team (2nd Federation Yoga Sports Cup – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_19.jpg', caption: "Winner Team (2nd Federation Yoga Sports Cup – 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_20.jpg', caption: "42nd National Yoga Sports Championship 2017 at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_21.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_22.jpg', caption: "Sowel Ahmed Gazi – Gold Medalist (11 to 14 years boys – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_23.jpg', caption: "Nabomita Dasgupta – Gold Medalist (11 to 14 yrs Girls group – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_24.jpg', caption: "Supriya Panda – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_25.jpg', caption: "Sanchaita Chakraborty – Gold Medalist (21 to 25 yrs female group – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_26.jpg', caption: "Manash Mukherjee – Gold Medalist (Above 35 yrs Men group – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_27.jpg', caption: "Chitra Banerjee – Gold Medalist (Professional Yoga -Female – 42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_28.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_29.jpg', caption: "Our official with winner trophy (42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_30.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_31.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_32.jpg', caption: "Whole official in a frame (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_33.jpg', caption: "Our official (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_34.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_35.jpg', caption: "West Bengal Yoga Team with winner trophy (42nd National Yoga Sports Championship 2017)" },
+      { src: 'assets/images/gallery_2016_2017/img_36.jpg', caption: "West Bengal Yoga Team (42nd National Yoga Sports Championship 2017) at Ghaziabad (Uttar Pradesh)" },
+      { src: 'assets/images/gallery_2016_2017/img_37.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_38.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_39.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_40.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_41.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_42.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_43.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_44.jpg', caption: "Pre-National Camp 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_45.jpg', caption: "Inaugural ceremony of 44th State Yoga Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_46.jpg', caption: "Inaugural ceremony of 44th State Yoga Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_47.jpg', caption: "Inaugural ceremony of 44th State Yoga Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_48.jpg', caption: "Inaugural ceremony of 44th State Yoga Championship – 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_49.jpg', caption: "Website opening ceremony during 44th State Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_50.jpg', caption: "Judges clinic during 44th State Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_51.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_52.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_53.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_54.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_55.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_56.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_57.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_58.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_59.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_60.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_61.jpg', caption: "Participants of 44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_62.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_63.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_64.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_65.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_66.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_67.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_68.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_69.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_70.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_71.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_72.jpg', caption: "Honorable Judges of 44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_73.jpg', caption: "44th State Yoga Championship 2017" },
+      { src: 'assets/images/gallery_2016_2017/img_74.jpg', caption: "District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_75.jpg', caption: "Nadia District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_76.jpg', caption: "Hooghly District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_77.jpg', caption: "Howrah District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_78.jpg', caption: "Murshidabad District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_79.jpg', caption: "Paschim Burdaman District Yoga Championship" },
+      { src: 'assets/images/gallery_2016_2017/img_80.jpg', caption: "Judges Clinic (WBYA)" },
+      { src: 'assets/images/gallery_2016_2017/img_81.jpg', caption: "Judges Clinic (WBYA)" },
+      { src: 'assets/images/gallery_2016_2017/img_82.jpg', caption: "Olympic Day Run – organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2016_2017/img_83.jpg', caption: "Olympic Day Run – organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2016_2017/img_84.jpg', caption: "1st Federation Yoga Sports Cup from March 24 to 26, 2017 held at Thiruvananthapuram, Kerala" },
+      { src: 'assets/images/gallery_2016_2017/img_85.jpg', caption: "1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_86.jpg', caption: "1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_87.jpg', caption: "1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_88.jpg', caption: "1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_89.jpg', caption: "Winners Team in 1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_90.jpg', caption: "Winners Team in 1st Federation Yoga Sports Cup" },
+      { src: 'assets/images/gallery_2016_2017/img_91.jpg', caption: "Yoga Fest / Utsav – 2017 from March 17 to 19 at Ramakrishna Mission Vivekananda University, Belur Math" },
+      { src: 'assets/images/gallery_2016_2017/img_92.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_93.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_94.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_95.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_96.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_97.jpg', caption: "Yoga Fest / Utsav – 2017 at Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_98.jpg', caption: "Yoga Fest / Utsav – 2017 at Ramakrishna Mission Vivekananda University" },
+      { src: 'assets/images/gallery_2016_2017/img_99.jpg', caption: "Convocation – Diploma on Yoga & national Participants" },
+      { src: 'assets/images/gallery_2016_2017/img_100.jpg', caption: "Convocation – Diploma on Yoga & national Participants" },
+      { src: 'assets/images/gallery_2016_2017/img_101.jpg', caption: "Convocation – Diploma on Yoga & national Participants" },
+      { src: 'assets/images/gallery_2016_2017/img_102.jpg', caption: "Felicitated to Vice-President of Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2016_2017/img_103.jpg', caption: "41st National Yoga Championship from November 12 to 16, 2016 at Ranchi, Jharkhand" },
+      { src: 'assets/images/gallery_2016_2017/img_104.jpg', caption: "1st Runners-up Team in 41st National Yoga Sports Championship at Ranchi" },
+      { src: 'assets/images/gallery_2016_2017/img_105.jpg', caption: "West Bengal Yoga-Sports Team" },
+      { src: 'assets/images/gallery_2016_2017/img_106.jpg', caption: "West Bengal Yoga-Sports Team during march-past" },
+      { src: 'assets/images/gallery_2016_2017/img_107.jpg', caption: "West Bengal Yoga-Sports Team" },
+      { src: 'assets/images/gallery_2016_2017/img_108.jpg', caption: "West Bengal Yoga-Sports Team" },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = imagesData.length - 1;
+      if (currentIndex >= imagesData.length) currentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imagesData[currentIndex].src;
+      caption.textContent = imagesData[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+    
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  </script>
+</body>
+</html>

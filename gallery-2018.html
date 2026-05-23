@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery 2018 | West Bengal Yoga Association</title>
+  <meta name="description" content="Photo gallery for Photo Gallery 2018 of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #475569;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 16px;
+      text-align: center;
+      max-width: 800px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-prev {
+      left: 16px;
+    }
+    .lightbox-next {
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Photo Gallery</span>
+        <h1 class="page-title">Photo Gallery 2018</h1>
+        <p class="page-copy">Memorable moments of West Bengal Yoga Association in 2018.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_1.jpg" alt="43rd National Yoga Sports Championship, 2018 held at Patiala (Punjab) on November 18-22, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">43rd National Yoga Sports Championship, 2018 held at Patiala (Punjab) on November 18-22, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_2.jpg" alt="West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_3.jpg" alt="Ritu Mondal – Gold Medalist (11 to 14 yrs Girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Ritu Mondal – Gold Medalist (11 to 14 yrs Girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_4.jpg" alt="West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_5.jpg" alt="Rohan Biswas – Gold Medalist – (14 to 17 Yrs Boys)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Rohan Biswas – Gold Medalist – (14 to 17 Yrs Boys)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_6.jpg" alt="Madhubanti Dey – Gold Medalist – (25 to 35 Yrs Women)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Madhubanti Dey – Gold Medalist – (25 to 35 Yrs Women)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_7.jpg" alt="Winners Team in 43rd National Yoga Sports Championship, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winners Team in 43rd National Yoga Sports Championship, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_8.jpg" alt="Asha Sarkar – Gold Medalist (Above 35 Yrs Women)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Asha Sarkar – Gold Medalist (Above 35 Yrs Women)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_9.jpg" alt="Shiben Mondal – Gold Medalist – Professional Group (Male)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Shiben Mondal – Gold Medalist – Professional Group (Male)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_10.jpg" alt="Winners Team in 43rd National Yoga Sports Championship, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winners Team in 43rd National Yoga Sports Championship, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_11.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(11)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_12.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(12)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_13.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(13)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_14.jpg" alt="" class="gallery-img" loading="lazy" />
+            </div>
+            
+          </div>
+          <div class="gallery-item" onclick="openLightbox(14)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_15.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(15)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_16.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(16)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_17.jpg" alt="Annual General Meeting Held on 7th October, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting Held on 7th October, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(17)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_18.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(18)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_19.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(19)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_20.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(20)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_21.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(21)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_22.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(22)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_23.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(23)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_24.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(24)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_25.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(25)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_26.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(26)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_27.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(27)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_28.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(28)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_29.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(29)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_30.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(30)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_31.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(31)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_32.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(32)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_33.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(33)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_34.jpg" alt="45th State Yoga Championship – 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">45th State Yoga Championship – 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(34)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_35.jpg" alt="Judges Clinic was held on 28th July, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic was held on 28th July, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(35)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_36.jpg" alt="Judges Clinic 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(36)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_37.jpg" alt="Judges Clinic 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(37)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_38.jpg" alt="Judges Clinic 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(38)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_39.jpg" alt="Judges Clinic 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(39)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_40.jpg" alt="Judges Clinic 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(40)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_41.jpg" alt="Refreshers’ Course for State Judges held on 08.07.2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges held on 08.07.2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(41)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_42.jpg" alt="Refreshers’ Course for State Judges" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(42)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_43.jpg" alt="Refreshers’ Course for State Judges" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(43)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_44.jpg" alt="Refreshers’ Course for State Judges" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(44)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_45.jpg" alt="Refreshers’ Course for State Judges" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(45)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_46.jpg" alt="Refreshers’ Course for State Judges" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Refreshers’ Course for State Judges</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(46)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_47.jpg" alt="Opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(47)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_48.jpg" alt="opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(48)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_49.jpg" alt="opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(49)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_50.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association on 24.06.2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association on 24.06.2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(50)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_51.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(51)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_52.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(52)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_53.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(53)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_54.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(54)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_55.jpg" alt="Olympic Day Run – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(55)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_56.jpg" alt="National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(56)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_57.jpg" alt="National Yoga Referee’s Refresher Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(57)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_58.jpg" alt="National Yoga Referee’s Refresher Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(58)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_59.jpg" alt="National Yoga Referee’s Refresher Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(59)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_60.jpg" alt="National Yoga Referee’s Refresher Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(60)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_61.jpg" alt="National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(61)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_62.jpg" alt="Final Examination of Yoga Diploma Course – 1st April, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course – 1st April, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(62)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_63.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(63)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_64.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(64)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_65.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(65)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_66.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(66)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_67.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(67)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_68.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(68)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_69.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(69)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_70.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(70)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_71.jpg" alt="Final Examination of Yoga Diploma Course" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(71)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_72.jpg" alt="Final Examination of Yoga Diploma Course – 1st April, 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Final Examination of Yoga Diploma Course – 1st April, 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(72)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_73.jpg" alt="Prize Distribution (District Level Yoga Talent Search Tournament)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize Distribution (District Level Yoga Talent Search Tournament)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(73)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_74.jpg" alt="Prize Distribution (District Level Yoga Talent Search Tournament)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize Distribution (District Level Yoga Talent Search Tournament)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(74)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_75.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(75)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_76.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(76)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_77.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(77)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_78.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(78)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_79.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(79)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_80.jpg" alt="State Level Yoga Talent Search Tournament" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(80)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_81.jpg" alt="State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(81)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_82.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(82)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_83.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(83)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_84.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(84)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_85.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(85)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_86.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(86)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_87.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(87)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_88.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(88)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_89.jpg" alt="Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(89)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_90.jpg" alt="State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(90)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_91.jpg" alt="District Level Yoga Talent Search Tournament (Bankura)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Bankura)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(91)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_92.jpg" alt="District Level Yoga Talent Search Tournament (Bankura)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Bankura)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(92)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_93.jpg" alt="District Level Yoga Talent Search Tournament (Bankura)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Bankura)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(93)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_94.jpg" alt="District Level Yoga Talent Search Tournament (Chandernagar)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Chandernagar)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(94)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_95.jpg" alt="District Level Yoga Talent Search Tournament (Chandernagar)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Chandernagar)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(95)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_96.jpg" alt="District Level Yoga Talent Search Tournament (Chandernagar)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Chandernagar)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(96)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_97.jpg" alt="District Level Yoga Talent Search Tournament (Hooghly)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Hooghly)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(97)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_98.jpg" alt="District Level Yoga Talent Search Tournament (Hooghly)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Hooghly)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(98)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_99.jpg" alt="District Level Yoga Talent Search Tournament (Hooghly)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Hooghly)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(99)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_100.jpg" alt="District Level Yoga Talent Search Tournament (Howrah)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Howrah)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(100)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_101.jpg" alt="District Level Yoga Talent Search Tournament (Howrah)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Howrah)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(101)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_102.jpg" alt="District Level Yoga Talent Search Tournament (Howrah)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Howrah)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(102)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_103.jpg" alt="District Level Yoga Talent Search Tournament (Nadia)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Nadia)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(103)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_104.jpg" alt="District Level Yoga Talent Search Tournament (Nadia)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Nadia)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(104)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_105.jpg" alt="District Level Yoga Talent Search Tournament (Nadia)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Nadia)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(105)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_106.jpg" alt="District Level Yoga Talent Search Tournament (Paschim Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Paschim Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(106)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_107.jpg" alt="District Level Yoga Talent Search Tournament (Paschim Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Paschim Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(107)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_108.jpg" alt="District Level Yoga Talent Search Tournament (Paschim Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Paschim Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(108)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_109.jpg" alt="District Level Yoga Talent Search Tournament (Purba Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Purba Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(109)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_110.jpg" alt="District Level Yoga Talent Search Tournament (Purba Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Purba Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(110)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_111.jpg" alt="District Level Yoga Talent Search Tournament (Purba Bardhaman)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Purba Bardhaman)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(111)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_112.jpg" alt="District Level Yoga Talent Search Tournament (Purba Medinipur)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Purba Medinipur)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(112)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_113.jpg" alt="District Level Yoga Talent Search Tournament (Purba Medinipur)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (Purba Medinipur)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(113)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_114.jpg" alt="District Level Yoga Talent Search Tournament (South 24 Parganas)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (South 24 Parganas)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(114)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_115.jpg" alt="District Level Yoga Talent Search Tournament (South 24 Parganas)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (South 24 Parganas)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(115)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_116.jpg" alt="District Level Yoga Talent Search Tournament (South 24 Parganas)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">District Level Yoga Talent Search Tournament (South 24 Parganas)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(116)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_117.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(117)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_118.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(118)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_119.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(119)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_120.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(120)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_121.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(121)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_122.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(122)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_123.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(123)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_124.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(124)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_125.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(125)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_126.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(126)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_127.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(127)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2018/img_128.jpg" alt="6th Netaji Subhash State Games 2018" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">6th Netaji Subhash State Games 2018</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const imagesData = [
+      { src: 'assets/images/gallery_2018/img_1.jpg', caption: "43rd National Yoga Sports Championship, 2018 held at Patiala (Punjab) on November 18-22, 2018" },
+      { src: 'assets/images/gallery_2018/img_2.jpg', caption: "West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)" },
+      { src: 'assets/images/gallery_2018/img_3.jpg', caption: "Ritu Mondal – Gold Medalist (11 to 14 yrs Girls)" },
+      { src: 'assets/images/gallery_2018/img_4.jpg', caption: "West Bengal Yoga Team (43rd National Yoga Sports Championship, 2018)" },
+      { src: 'assets/images/gallery_2018/img_5.jpg', caption: "Rohan Biswas – Gold Medalist – (14 to 17 Yrs Boys)" },
+      { src: 'assets/images/gallery_2018/img_6.jpg', caption: "Madhubanti Dey – Gold Medalist – (25 to 35 Yrs Women)" },
+      { src: 'assets/images/gallery_2018/img_7.jpg', caption: "Winners Team in 43rd National Yoga Sports Championship, 2018" },
+      { src: 'assets/images/gallery_2018/img_8.jpg', caption: "Asha Sarkar – Gold Medalist (Above 35 Yrs Women)" },
+      { src: 'assets/images/gallery_2018/img_9.jpg', caption: "Shiben Mondal – Gold Medalist – Professional Group (Male)" },
+      { src: 'assets/images/gallery_2018/img_10.jpg', caption: "Winners Team in 43rd National Yoga Sports Championship, 2018" },
+      { src: 'assets/images/gallery_2018/img_11.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2018/img_12.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2018/img_13.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2018/img_14.jpg', caption: "" },
+      { src: 'assets/images/gallery_2018/img_15.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2018/img_16.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2018/img_17.jpg', caption: "Annual General Meeting Held on 7th October, 2018" },
+      { src: 'assets/images/gallery_2018/img_18.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2018/img_19.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2018/img_20.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2018/img_21.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2018/img_22.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2018/img_23.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_24.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_25.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_26.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_27.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_28.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_29.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_30.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_31.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_32.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_33.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_34.jpg', caption: "45th State Yoga Championship – 2018" },
+      { src: 'assets/images/gallery_2018/img_35.jpg', caption: "Judges Clinic was held on 28th July, 2018" },
+      { src: 'assets/images/gallery_2018/img_36.jpg', caption: "Judges Clinic 2018" },
+      { src: 'assets/images/gallery_2018/img_37.jpg', caption: "Judges Clinic 2018" },
+      { src: 'assets/images/gallery_2018/img_38.jpg', caption: "Judges Clinic 2018" },
+      { src: 'assets/images/gallery_2018/img_39.jpg', caption: "Judges Clinic 2018" },
+      { src: 'assets/images/gallery_2018/img_40.jpg', caption: "Judges Clinic 2018" },
+      { src: 'assets/images/gallery_2018/img_41.jpg', caption: "Refreshers’ Course for State Judges held on 08.07.2018" },
+      { src: 'assets/images/gallery_2018/img_42.jpg', caption: "Refreshers’ Course for State Judges" },
+      { src: 'assets/images/gallery_2018/img_43.jpg', caption: "Refreshers’ Course for State Judges" },
+      { src: 'assets/images/gallery_2018/img_44.jpg', caption: "Refreshers’ Course for State Judges" },
+      { src: 'assets/images/gallery_2018/img_45.jpg', caption: "Refreshers’ Course for State Judges" },
+      { src: 'assets/images/gallery_2018/img_46.jpg', caption: "Refreshers’ Course for State Judges" },
+      { src: 'assets/images/gallery_2018/img_47.jpg', caption: "Opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" },
+      { src: 'assets/images/gallery_2018/img_48.jpg', caption: "opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" },
+      { src: 'assets/images/gallery_2018/img_49.jpg', caption: "opening Ceremony of Yoga Diploma Course 2018-19 was held on 30th June, 2018" },
+      { src: 'assets/images/gallery_2018/img_50.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association on 24.06.2018" },
+      { src: 'assets/images/gallery_2018/img_51.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2018/img_52.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2018/img_53.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2018/img_54.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2018/img_55.jpg', caption: "Olympic Day Run – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2018/img_56.jpg', caption: "National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018" },
+      { src: 'assets/images/gallery_2018/img_57.jpg', caption: "National Yoga Referee’s Refresher Course" },
+      { src: 'assets/images/gallery_2018/img_58.jpg', caption: "National Yoga Referee’s Refresher Course" },
+      { src: 'assets/images/gallery_2018/img_59.jpg', caption: "National Yoga Referee’s Refresher Course" },
+      { src: 'assets/images/gallery_2018/img_60.jpg', caption: "National Yoga Referee’s Refresher Course" },
+      { src: 'assets/images/gallery_2018/img_61.jpg', caption: "National Yoga Referee’s Refresher Course at Ghaziabad from 25th to 27th May, 2018" },
+      { src: 'assets/images/gallery_2018/img_62.jpg', caption: "Final Examination of Yoga Diploma Course – 1st April, 2018" },
+      { src: 'assets/images/gallery_2018/img_63.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_64.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_65.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_66.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_67.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_68.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_69.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_70.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_71.jpg', caption: "Final Examination of Yoga Diploma Course" },
+      { src: 'assets/images/gallery_2018/img_72.jpg', caption: "Final Examination of Yoga Diploma Course – 1st April, 2018" },
+      { src: 'assets/images/gallery_2018/img_73.jpg', caption: "Prize Distribution (District Level Yoga Talent Search Tournament)" },
+      { src: 'assets/images/gallery_2018/img_74.jpg', caption: "Prize Distribution (District Level Yoga Talent Search Tournament)" },
+      { src: 'assets/images/gallery_2018/img_75.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_76.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_77.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_78.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_79.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_80.jpg', caption: "State Level Yoga Talent Search Tournament" },
+      { src: 'assets/images/gallery_2018/img_81.jpg', caption: "State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_82.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_83.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_84.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_85.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_86.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_87.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_88.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_89.jpg', caption: "Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_90.jpg', caption: "State Level Yoga Talent Search Tournament and Felicitation Programme to the National & Federation Cup Participants – Officials" },
+      { src: 'assets/images/gallery_2018/img_91.jpg', caption: "District Level Yoga Talent Search Tournament (Bankura)" },
+      { src: 'assets/images/gallery_2018/img_92.jpg', caption: "District Level Yoga Talent Search Tournament (Bankura)" },
+      { src: 'assets/images/gallery_2018/img_93.jpg', caption: "District Level Yoga Talent Search Tournament (Bankura)" },
+      { src: 'assets/images/gallery_2018/img_94.jpg', caption: "District Level Yoga Talent Search Tournament (Chandernagar)" },
+      { src: 'assets/images/gallery_2018/img_95.jpg', caption: "District Level Yoga Talent Search Tournament (Chandernagar)" },
+      { src: 'assets/images/gallery_2018/img_96.jpg', caption: "District Level Yoga Talent Search Tournament (Chandernagar)" },
+      { src: 'assets/images/gallery_2018/img_97.jpg', caption: "District Level Yoga Talent Search Tournament (Hooghly)" },
+      { src: 'assets/images/gallery_2018/img_98.jpg', caption: "District Level Yoga Talent Search Tournament (Hooghly)" },
+      { src: 'assets/images/gallery_2018/img_99.jpg', caption: "District Level Yoga Talent Search Tournament (Hooghly)" },
+      { src: 'assets/images/gallery_2018/img_100.jpg', caption: "District Level Yoga Talent Search Tournament (Howrah)" },
+      { src: 'assets/images/gallery_2018/img_101.jpg', caption: "District Level Yoga Talent Search Tournament (Howrah)" },
+      { src: 'assets/images/gallery_2018/img_102.jpg', caption: "District Level Yoga Talent Search Tournament (Howrah)" },
+      { src: 'assets/images/gallery_2018/img_103.jpg', caption: "District Level Yoga Talent Search Tournament (Nadia)" },
+      { src: 'assets/images/gallery_2018/img_104.jpg', caption: "District Level Yoga Talent Search Tournament (Nadia)" },
+      { src: 'assets/images/gallery_2018/img_105.jpg', caption: "District Level Yoga Talent Search Tournament (Nadia)" },
+      { src: 'assets/images/gallery_2018/img_106.jpg', caption: "District Level Yoga Talent Search Tournament (Paschim Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_107.jpg', caption: "District Level Yoga Talent Search Tournament (Paschim Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_108.jpg', caption: "District Level Yoga Talent Search Tournament (Paschim Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_109.jpg', caption: "District Level Yoga Talent Search Tournament (Purba Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_110.jpg', caption: "District Level Yoga Talent Search Tournament (Purba Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_111.jpg', caption: "District Level Yoga Talent Search Tournament (Purba Bardhaman)" },
+      { src: 'assets/images/gallery_2018/img_112.jpg', caption: "District Level Yoga Talent Search Tournament (Purba Medinipur)" },
+      { src: 'assets/images/gallery_2018/img_113.jpg', caption: "District Level Yoga Talent Search Tournament (Purba Medinipur)" },
+      { src: 'assets/images/gallery_2018/img_114.jpg', caption: "District Level Yoga Talent Search Tournament (South 24 Parganas)" },
+      { src: 'assets/images/gallery_2018/img_115.jpg', caption: "District Level Yoga Talent Search Tournament (South 24 Parganas)" },
+      { src: 'assets/images/gallery_2018/img_116.jpg', caption: "District Level Yoga Talent Search Tournament (South 24 Parganas)" },
+      { src: 'assets/images/gallery_2018/img_117.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_118.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_119.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_120.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_121.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_122.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_123.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_124.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_125.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_126.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_127.jpg', caption: "6th Netaji Subhash State Games 2018" },
+      { src: 'assets/images/gallery_2018/img_128.jpg', caption: "6th Netaji Subhash State Games 2018" },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = imagesData.length - 1;
+      if (currentIndex >= imagesData.length) currentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imagesData[currentIndex].src;
+      caption.textContent = imagesData[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+    
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  </script>
+</body>
+</html>

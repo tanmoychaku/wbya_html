@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Gallery 2019-2020 | West Bengal Yoga Association</title>
+  <meta name="description" content="Video Gallery 2019-2020 of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .video-gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    
+    .video-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    .video-caption {
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.5;
+      font-weight: 500;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Video Gallery</span>
+        <h1 class="page-title">Video Gallery 2019-2020</h1>
+        <p class="page-copy">Watch memorable performances and highlights from our Yoga Championships.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="video-gallery-container">
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/89aHLZ5RFO4?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">44 th Senior National Yoga Championship, 2019, Held at : Jaipur (Rajasthan), Date: November 9-12, 2019 | Artistic Yoga Senior (18 to 35) Pair – 1st – Anusha Majumder & Sneha Sinha</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/B12QBPclb6U?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">44 th Senior National Yoga Championship, 2019, Held at : Jaipur (Rajasthan), Date: November 9-12, 2019 | Rhythmic Yoga Senior (18 to 35) – 1st – Anusha Majumder & Sneha Sinha</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/p0bkiI9sh2k?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">9th Asian Yoga Sports Championship – 2019, Held at : Yeosu (South Korea) , Date: September 5 to 8, 2019 | Rhythmic Yoga Junior – 3rd – Srija Saha</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Mca1d0co-bs?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">9th Asian Yoga Sports Championship – 2019, Held at : Yeosu (South Korea) , Date: September 5 to 8, 2019 | Rhythmic Yoga Senior – 1st – Dayeta Sarkar</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/katE2WsOyss?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">46th  State Yoga Championship 2019, Held at : Midnapore Sports Complex, Date: June 13-16, 2019 | Free Flow Yoga Dance Competition – 1st – Hooghly District Yoga Association</div>
+          </div>
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/CVkPHtRJT4c?feature=oembed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-caption">46th  State Yoga Championship 2019, Held at : Midnapore Sports Complex, Date: June 13-16, 2019 | Sowel Ahmed Gazi – 1st  Artistic Single – (8 – 18 Junior)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

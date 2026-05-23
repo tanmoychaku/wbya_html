@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery 2023 | West Bengal Yoga Association</title>
+  <meta name="description" content="Photo gallery for Photo Gallery 2023 of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #475569;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 16px;
+      text-align: center;
+      max-width: 800px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-prev {
+      left: 16px;
+    }
+    .lightbox-next {
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Photo Gallery</span>
+        <h1 class="page-title">Photo Gallery 2023</h1>
+        <p class="page-copy">Memorable moments of West Bengal Yoga Association in 2023.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_1.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23 held on 25th to 28th March, 2023 at Pali, Rajasthan on" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23 held on 25th to 28th March, 2023 at Pali, Rajasthan on</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_2.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_3.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_4.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_5.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_6.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_7.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_8.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_9.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_10.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_11.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(11)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_12.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(12)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_13.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(13)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_14.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(14)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_15.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(15)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_16.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(16)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_17.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(17)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_18.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(18)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_19.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(19)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_20.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(20)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_21.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(21)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_22.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(22)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_23.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(23)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_24.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(24)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_25.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(25)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_26.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(26)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2023/img_27.jpg" alt="47th Senior National Yogasana Sports Championship 2022-23" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Senior National Yogasana Sports Championship 2022-23</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const imagesData = [
+      { src: 'assets/images/gallery_2023/img_1.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23 held on 25th to 28th March, 2023 at Pali, Rajasthan on" },
+      { src: 'assets/images/gallery_2023/img_2.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_3.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_4.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_5.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_6.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_7.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_8.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_9.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_10.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_11.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_12.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_13.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_14.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_15.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_16.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_17.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_18.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_19.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_20.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_21.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_22.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_23.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_24.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_25.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_26.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+      { src: 'assets/images/gallery_2023/img_27.jpg', caption: "47th Senior National Yogasana Sports Championship 2022-23" },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = imagesData.length - 1;
+      if (currentIndex >= imagesData.length) currentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imagesData[currentIndex].src;
+      caption.textContent = imagesData[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+    
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  </script>
+</body>
+</html>

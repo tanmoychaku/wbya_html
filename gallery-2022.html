@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery 2022 | West Bengal Yoga Association</title>
+  <meta name="description" content="Photo gallery for Photo Gallery 2022 of West Bengal Yoga Association." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+    }
+    
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f5f9;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #475569;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-caption {
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 16px;
+      text-align: center;
+      max-width: 800px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: white;
+      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      padding: 24px;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover {
+      color: #cbd5e1;
+    }
+    .lightbox-prev {
+      left: 16px;
+    }
+    .lightbox-next {
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Photo Gallery</span>
+        <h1 class="page-title">Photo Gallery 2022</h1>
+        <p class="page-copy">Memorable moments of West Bengal Yoga Association in 2022.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery-item" onclick="openLightbox(0)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_1.jpg" alt="47th Sub-Junior & Junior National Yogasana Sports Championship, At Firozpur, Punjab held on 28th to 31st October, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Sub-Junior & Junior National Yogasana Sports Championship, At Firozpur, Punjab held on 28th to 31st October, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(1)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_2.jpg" alt="47th Sub-Junior & Junior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Sub-Junior & Junior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(2)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_3.jpg" alt="47th Sub-Junior & Junior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">47th Sub-Junior & Junior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(3)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_4.jpg" alt="Practice time – 47th Sub-Junior & Junior National Yogasana Sports Championship At Firozpur, Punjab" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Practice time – 47th Sub-Junior & Junior National Yogasana Sports Championship At Firozpur, Punjab</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(4)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_5.jpg" alt="Sayan Das – Gold Medalist (8 to 10 Yrs boys)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Sayan Das – Gold Medalist (8 to 10 Yrs boys)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(5)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_6.jpg" alt="Samriddhi Das – Gold Medalist (8 to 10 Yrs girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Samriddhi Das – Gold Medalist (8 to 10 Yrs girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(6)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_7.jpg" alt="Rankita Mondal – Gold Medalist (10 to 12 Yrs girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Rankita Mondal – Gold Medalist (10 to 12 Yrs girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(7)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_8.jpg" alt="Oindreela Bor – Gold Medalist (12 to 14 Yrs girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Oindreela Bor – Gold Medalist (12 to 14 Yrs girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(8)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_9.jpg" alt="Soumik Pan – Gold Medalist (14 to 16 Yrs boys)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Soumik Pan – Gold Medalist (14 to 16 Yrs boys)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(9)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_10.jpg" alt="Tanisha Das – Gold Medalist (14 to 16 Yrs girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Tanisha Das – Gold Medalist (14 to 16 Yrs girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(10)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_11.jpg" alt="Ritu Mondal – Gold Medalist (16 to 18 Yrs girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Ritu Mondal – Gold Medalist (16 to 18 Yrs girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(11)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_12.jpg" alt="Srija Saha – Gold Medalist (Artistic Solo – Girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Srija Saha – Gold Medalist (Artistic Solo – Girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(12)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_13.jpg" alt="Ritu Mondal – Gold Medalist (Artistic Solo – Girls)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Ritu Mondal – Gold Medalist (Artistic Solo – Girls)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(13)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_14.jpg" alt="Free Flow Yoga Dance" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Free Flow Yoga Dance</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(14)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_15.jpg" alt="Free Flow Yoga Dance" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Free Flow Yoga Dance</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(15)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_16.jpg" alt="Gold medalists – Free Flow Yoga Dance" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Gold medalists – Free Flow Yoga Dance</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(16)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_17.jpg" alt="After Free Flow Yoga Dance competition" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">After Free Flow Yoga Dance competition</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(17)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_18.jpg" alt="Prize giving ceremony – 47th Sub-Junior & Junior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Prize giving ceremony – 47th Sub-Junior & Junior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(18)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_19.jpg" alt="Winner team of 47th Sub-Junior & Junior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Winner team of 47th Sub-Junior & Junior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(19)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_20.jpg" alt="Pre-National Camp for 47th Sub-Junior & Junior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp for 47th Sub-Junior & Junior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(20)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_21.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(21)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_22.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(22)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_23.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(23)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_24.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(24)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_25.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(25)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_26.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(26)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_27.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(27)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_28.jpg" alt="Pre-National Camp" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Camp</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(28)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_29.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(29)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_30.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(30)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_31.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(31)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_32.jpg" alt="49th State Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(32)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_33.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(33)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_34.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(34)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_35.jpg" alt="49th State Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(35)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_36.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(36)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_37.jpg" alt="49th State Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(37)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_38.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(38)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_39.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(39)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_40.jpg" alt="49th State Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(40)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_41.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(41)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_42.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(42)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_43.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(43)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_44.jpg" alt="49th State Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th State Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(44)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_45.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(45)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_46.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(46)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_47.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(47)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_48.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(48)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_49.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(49)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_50.jpg" alt="Judges Clinic" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Judges Clinic</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(50)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_51.jpg" alt="Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(51)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_52.jpg" alt="Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(52)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_53.jpg" alt="Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(53)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_54.jpg" alt="Purba Bardhaman District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Purba Bardhaman District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(54)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_55.jpg" alt="Purba Bardhaman District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Purba Bardhaman District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(55)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_56.jpg" alt="Purba Bardhaman District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Purba Bardhaman District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(56)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_57.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(57)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_58.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(58)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_59.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(59)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_60.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(60)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_61.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(61)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_62.jpg" alt="Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(62)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_63.jpg" alt="All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sanghatition – Organised by Jatiya" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sanghatition – Organised by Jatiya</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(63)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_64.jpg" alt="All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(64)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_65.jpg" alt="All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(65)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_66.jpg" alt="All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(66)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_67.jpg" alt="All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(67)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_68.jpg" alt="48th Howrah District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Howrah District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(68)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_69.jpg" alt="" class="gallery-img" loading="lazy" />
+            </div>
+            
+          </div>
+          <div class="gallery-item" onclick="openLightbox(69)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_70.jpg" alt="48th Howrah District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Howrah District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(70)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_71.jpg" alt="48th Howrah District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Howrah District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(71)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_72.jpg" alt="48th Howrah District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Howrah District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(72)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_73.jpg" alt="48th Howrah District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Howrah District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(73)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_74.jpg" alt="48th Nadia District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Nadia District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(74)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_75.jpg" alt="48th Nadia District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Nadia District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(75)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_76.jpg" alt="48th Nadia District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Nadia District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(76)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_77.jpg" alt="48th Nadia District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Nadia District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(77)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_78.jpg" alt="48th Nadia District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Nadia District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(78)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_79.jpg" alt="Murshidabad District Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Murshidabad District Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(79)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_80.jpg" alt="Murshidabad District Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Murshidabad District Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(80)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_81.jpg" alt="Murshidabad District Yogasana Sports Championship, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Murshidabad District Yogasana Sports Championship, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(81)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_82.jpg" alt="Birbhum District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Birbhum District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(82)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_83.jpg" alt="Birbhum District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Birbhum District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(83)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_84.jpg" alt="Birbhum District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Birbhum District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(84)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_85.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(85)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_86.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(86)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_87.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(87)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_88.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(88)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_89.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(89)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_90.jpg" alt="Olympic Day Run 2022 – Organised by Bengal Olympic Association" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Olympic Day Run 2022 – Organised by Bengal Olympic Association</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(90)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_91.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(91)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_92.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(92)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_93.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(93)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_94.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(94)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_95.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(95)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_96.jpg" alt="41st South 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">41st South 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(96)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_97.jpg" alt="Udayrajpur Vivekananda Sangha, Madhyamgram, Noth 24 Parganas celebrated  International Yoga Day" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Udayrajpur Vivekananda Sangha, Madhyamgram, Noth 24 Parganas celebrated  International Yoga Day</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(97)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_98.jpg" alt="Garifa Swamiji Sangha, North 24 Parganas celebrated International Yoga Day 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Garifa Swamiji Sangha, North 24 Parganas celebrated International Yoga Day 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(98)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_99.jpg" alt="Celebrated International Day of Yoga 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Celebrated International Day of Yoga 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(99)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_100.jpg" alt="International Yoga Day celebration at CHANDANNAGAR COLLEGE… The Department of PHILOSOPHY….." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">International Yoga Day celebration at CHANDANNAGAR COLLEGE… The Department of PHILOSOPHY…..</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(100)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_101.jpg" alt="International Yoga Day celebration at YOGA DARSHAN, SERAMPORE, Hooghly" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">International Yoga Day celebration at YOGA DARSHAN, SERAMPORE, Hooghly</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(101)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_102.jpg" alt="International Yoga Day celebration at Kotrung Tarun Sangha, Hindmotor, Hooghly" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">International Yoga Day celebration at Kotrung Tarun Sangha, Hindmotor, Hooghly</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(102)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_103.jpg" alt="8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022.</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(103)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_104.jpg" alt="8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022.</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(104)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_105.jpg" alt="8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022.</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(105)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_106.jpg" alt="8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022.</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(106)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_107.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(107)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_108.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(108)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_109.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(109)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_110.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(110)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_111.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(111)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_112.jpg" alt="48th Hooghly District Yogasana Sports Championship 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">48th Hooghly District Yogasana Sports Championship 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(112)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_113.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(113)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_114.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(114)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_115.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(115)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_116.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(116)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_117.jpg" alt="Annual General Meeting" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Annual General Meeting</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(117)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_118.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(118)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_119.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(119)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_120.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(120)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_121.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(121)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_122.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(122)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_123.jpg" alt="49th North 24 Pargana District Yogasana Sports Competition 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">49th North 24 Pargana District Yogasana Sports Competition 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(123)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_124.jpg" alt="8th Netaji Subhas State Games 2022 held at Maulana Abul Kalam Azad University of Technology, Kalyani on 15th May, 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022 held at Maulana Abul Kalam Azad University of Technology, Kalyani on 15th May, 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(124)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_125.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(125)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_126.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(126)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_127.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(127)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_128.jpg" alt="" class="gallery-img" loading="lazy" />
+            </div>
+            
+          </div>
+          <div class="gallery-item" onclick="openLightbox(128)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_129.jpg" alt="" class="gallery-img" loading="lazy" />
+            </div>
+            
+          </div>
+          <div class="gallery-item" onclick="openLightbox(129)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_130.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(130)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_131.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(131)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_132.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(132)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_133.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(133)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_134.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(134)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_135.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(135)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_136.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(136)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_137.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(137)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_138.jpg" alt="8th Netaji Subhas State Games 2022" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">8th Netaji Subhas State Games 2022</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(138)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_139.jpg" alt="46th Senior National Yogasana Sports Championship, held on 26th to 29th March, 2022 at Tadepalligudem West Godavari District (Andhra Pradesh)" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship, held on 26th to 29th March, 2022 at Tadepalligudem West Godavari District (Andhra Pradesh)</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(139)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_140.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(140)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_141.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(141)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_142.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(142)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_143.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(143)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_144.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(144)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_145.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(145)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_146.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(146)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_147.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(147)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_148.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(148)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_149.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(149)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_150.jpg" alt="46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(150)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_151.jpg" alt="Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(151)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_152.jpg" alt="Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(152)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_153.jpg" alt="Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(153)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_154.jpg" alt="Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship</div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox(154)">
+            <div class="gallery-img-box">
+              <img src="assets/images/gallery_2022/img_155.jpg" alt="Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-caption">Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</div>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const imagesData = [
+      { src: 'assets/images/gallery_2022/img_1.jpg', caption: "47th Sub-Junior & Junior National Yogasana Sports Championship, At Firozpur, Punjab held on 28th to 31st October, 2022" },
+      { src: 'assets/images/gallery_2022/img_2.jpg', caption: "47th Sub-Junior & Junior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_3.jpg', caption: "47th Sub-Junior & Junior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_4.jpg', caption: "Practice time – 47th Sub-Junior & Junior National Yogasana Sports Championship At Firozpur, Punjab" },
+      { src: 'assets/images/gallery_2022/img_5.jpg', caption: "Sayan Das – Gold Medalist (8 to 10 Yrs boys)" },
+      { src: 'assets/images/gallery_2022/img_6.jpg', caption: "Samriddhi Das – Gold Medalist (8 to 10 Yrs girls)" },
+      { src: 'assets/images/gallery_2022/img_7.jpg', caption: "Rankita Mondal – Gold Medalist (10 to 12 Yrs girls)" },
+      { src: 'assets/images/gallery_2022/img_8.jpg', caption: "Oindreela Bor – Gold Medalist (12 to 14 Yrs girls)" },
+      { src: 'assets/images/gallery_2022/img_9.jpg', caption: "Soumik Pan – Gold Medalist (14 to 16 Yrs boys)" },
+      { src: 'assets/images/gallery_2022/img_10.jpg', caption: "Tanisha Das – Gold Medalist (14 to 16 Yrs girls)" },
+      { src: 'assets/images/gallery_2022/img_11.jpg', caption: "Ritu Mondal – Gold Medalist (16 to 18 Yrs girls)" },
+      { src: 'assets/images/gallery_2022/img_12.jpg', caption: "Srija Saha – Gold Medalist (Artistic Solo – Girls)" },
+      { src: 'assets/images/gallery_2022/img_13.jpg', caption: "Ritu Mondal – Gold Medalist (Artistic Solo – Girls)" },
+      { src: 'assets/images/gallery_2022/img_14.jpg', caption: "Free Flow Yoga Dance" },
+      { src: 'assets/images/gallery_2022/img_15.jpg', caption: "Free Flow Yoga Dance" },
+      { src: 'assets/images/gallery_2022/img_16.jpg', caption: "Gold medalists – Free Flow Yoga Dance" },
+      { src: 'assets/images/gallery_2022/img_17.jpg', caption: "After Free Flow Yoga Dance competition" },
+      { src: 'assets/images/gallery_2022/img_18.jpg', caption: "Prize giving ceremony – 47th Sub-Junior & Junior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_19.jpg', caption: "Winner team of 47th Sub-Junior & Junior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_20.jpg', caption: "Pre-National Camp for 47th Sub-Junior & Junior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_21.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_22.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_23.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_24.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_25.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_26.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_27.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_28.jpg', caption: "Pre-National Camp" },
+      { src: 'assets/images/gallery_2022/img_29.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_30.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_31.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_32.jpg', caption: "49th State Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_33.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_34.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_35.jpg', caption: "49th State Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_36.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_37.jpg', caption: "49th State Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_38.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_39.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_40.jpg', caption: "49th State Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_41.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_42.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_43.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_44.jpg', caption: "49th State Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_45.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_46.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_47.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_48.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_49.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_50.jpg', caption: "Judges Clinic" },
+      { src: 'assets/images/gallery_2022/img_51.jpg', caption: "Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" },
+      { src: 'assets/images/gallery_2022/img_52.jpg', caption: "Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" },
+      { src: 'assets/images/gallery_2022/img_53.jpg', caption: "Handbook of WBYA published by Mr. Gautam Sinha, General Secretary, West Bengal Yoga Association and Senior Vice-President of Bengal Olympic Association on 31st July’22 at the Association Office with Handbook writer Mr. Santosh Kr. Pal, President, West Bengal Yoga Association" },
+      { src: 'assets/images/gallery_2022/img_54.jpg', caption: "Purba Bardhaman District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_55.jpg', caption: "Purba Bardhaman District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_56.jpg', caption: "Purba Bardhaman District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_57.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_58.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_59.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_60.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_61.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_62.jpg', caption: "Yogasana Competition on the occasion of the Azadi Ka Amrit Mahotsav organized by Ramakrishna Mission Vidyalaya, Narendrapur held on 24th July 2022" },
+      { src: 'assets/images/gallery_2022/img_63.jpg', caption: "All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sanghatition – Organised by Jatiya" },
+      { src: 'assets/images/gallery_2022/img_64.jpg', caption: "All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" },
+      { src: 'assets/images/gallery_2022/img_65.jpg', caption: "All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" },
+      { src: 'assets/images/gallery_2022/img_66.jpg', caption: "All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" },
+      { src: 'assets/images/gallery_2022/img_67.jpg', caption: "All Bengal Yogasana Competition – Jatiya Kriya & Shakti Sangha" },
+      { src: 'assets/images/gallery_2022/img_68.jpg', caption: "48th Howrah District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_69.jpg', caption: "" },
+      { src: 'assets/images/gallery_2022/img_70.jpg', caption: "48th Howrah District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_71.jpg', caption: "48th Howrah District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_72.jpg', caption: "48th Howrah District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_73.jpg', caption: "48th Howrah District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_74.jpg', caption: "48th Nadia District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_75.jpg', caption: "48th Nadia District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_76.jpg', caption: "48th Nadia District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_77.jpg', caption: "48th Nadia District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_78.jpg', caption: "48th Nadia District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_79.jpg', caption: "Murshidabad District Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_80.jpg', caption: "Murshidabad District Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_81.jpg', caption: "Murshidabad District Yogasana Sports Championship, 2022" },
+      { src: 'assets/images/gallery_2022/img_82.jpg', caption: "Birbhum District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_83.jpg', caption: "Birbhum District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_84.jpg', caption: "Birbhum District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_85.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_86.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_87.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_88.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_89.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_90.jpg', caption: "Olympic Day Run 2022 – Organised by Bengal Olympic Association" },
+      { src: 'assets/images/gallery_2022/img_91.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_92.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_93.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_94.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_95.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_96.jpg', caption: "41st South 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_97.jpg', caption: "Udayrajpur Vivekananda Sangha, Madhyamgram, Noth 24 Parganas celebrated  International Yoga Day" },
+      { src: 'assets/images/gallery_2022/img_98.jpg', caption: "Garifa Swamiji Sangha, North 24 Parganas celebrated International Yoga Day 2022" },
+      { src: 'assets/images/gallery_2022/img_99.jpg', caption: "Celebrated International Day of Yoga 2022" },
+      { src: 'assets/images/gallery_2022/img_100.jpg', caption: "International Yoga Day celebration at CHANDANNAGAR COLLEGE… The Department of PHILOSOPHY….." },
+      { src: 'assets/images/gallery_2022/img_101.jpg', caption: "International Yoga Day celebration at YOGA DARSHAN, SERAMPORE, Hooghly" },
+      { src: 'assets/images/gallery_2022/img_102.jpg', caption: "International Yoga Day celebration at Kotrung Tarun Sangha, Hindmotor, Hooghly" },
+      { src: 'assets/images/gallery_2022/img_103.jpg', caption: "8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." },
+      { src: 'assets/images/gallery_2022/img_104.jpg', caption: "8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." },
+      { src: 'assets/images/gallery_2022/img_105.jpg', caption: "8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." },
+      { src: 'assets/images/gallery_2022/img_106.jpg', caption: "8th International Day of Yoga performed by West Bengal Yoga Association at Indian Coast Guard, Head Quarter- North Region on 21st June, 2022." },
+      { src: 'assets/images/gallery_2022/img_107.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_108.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_109.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_110.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_111.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_112.jpg', caption: "48th Hooghly District Yogasana Sports Championship 2022" },
+      { src: 'assets/images/gallery_2022/img_113.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2022/img_114.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2022/img_115.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2022/img_116.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2022/img_117.jpg', caption: "Annual General Meeting" },
+      { src: 'assets/images/gallery_2022/img_118.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_119.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_120.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_121.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_122.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_123.jpg', caption: "49th North 24 Pargana District Yogasana Sports Competition 2022" },
+      { src: 'assets/images/gallery_2022/img_124.jpg', caption: "8th Netaji Subhas State Games 2022 held at Maulana Abul Kalam Azad University of Technology, Kalyani on 15th May, 2022" },
+      { src: 'assets/images/gallery_2022/img_125.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_126.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_127.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_128.jpg', caption: "" },
+      { src: 'assets/images/gallery_2022/img_129.jpg', caption: "" },
+      { src: 'assets/images/gallery_2022/img_130.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_131.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_132.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_133.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_134.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_135.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_136.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_137.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_138.jpg', caption: "8th Netaji Subhas State Games 2022" },
+      { src: 'assets/images/gallery_2022/img_139.jpg', caption: "46th Senior National Yogasana Sports Championship, held on 26th to 29th March, 2022 at Tadepalligudem West Godavari District (Andhra Pradesh)" },
+      { src: 'assets/images/gallery_2022/img_140.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_141.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_142.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_143.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_144.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_145.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_146.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_147.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_148.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_149.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_150.jpg', caption: "46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_151.jpg', caption: "Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_152.jpg', caption: "Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_153.jpg', caption: "Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_154.jpg', caption: "Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" },
+      { src: 'assets/images/gallery_2022/img_155.jpg', caption: "Pre-National Coaching Camp for 46th Senior National Yogasana Sports Championship" },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = imagesData.length - 1;
+      if (currentIndex >= imagesData.length) currentIndex = 0;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imagesData[currentIndex].src;
+      caption.textContent = imagesData[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+    
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  </script>
+</body>
+</html>
