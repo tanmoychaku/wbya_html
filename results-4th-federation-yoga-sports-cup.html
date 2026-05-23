@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4th Federation Yoga Sports Cup | West Bengal Yoga Association</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .results-header { text-align: center; margin-bottom: 24px; }
+    .results-header h2 { font-size: 1.5rem; color: #e11d48; font-weight: 800; margin-bottom: 8px; font-family: 'Signika', sans-serif; }
+    .results-header p { color: #475569; font-size: 1.1rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+    
+    .breadcrumbs {
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #64748b;
+      font-family: 'Inter', sans-serif;
+    }
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+    }
+    .breadcrumbs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumbs li:not(:last-child)::after {
+      content: "/";
+      color: #cbd5e1;
+    }
+    .breadcrumbs a {
+      color: #e11d48;
+      transition: color 0.2s ease;
+    }
+    .breadcrumbs a:hover {
+      color: #be123c;
+      text-decoration: underline;
+    }
+
+    .standings-banner {
+      background: #192135;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .standing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .standing-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    .standing-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #f8fafc;
+      font-family: 'Signika', sans-serif;
+    }
+    .standing-value.winner {
+      color: #fef08a;
+      font-size: 1.5rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .category-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    }
+    .category-title {
+      background: #111827;
+      color: #ffffff;
+      padding: 16px 20px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      line-height: 1.4;
+      border-bottom: 3px solid #e11d48;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .winners-list {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .winner-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+    }
+    .winner-rank {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .rank-1 {
+      background: #fef08a;
+      color: #854d0e;
+      box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+    }
+    .rank-2 {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .rank-3 {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+    .rank-4, .rank-5, .rank-6 {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    .winner-info {
+      flex: 1;
+    }
+    .winner-name {
+      font-family: 'Signika', sans-serif;
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+    }
+    .winner-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div data-layout-slot="background"></div>
+  <div data-layout-slot="header"></div>
+
+  <main class="main-content">
+    <section class="page-hero members-page-hero">
+      <div class="container hero-card">
+        <span class="section-label">Results</span>
+        <h1 class="page-title">4th Federation Yoga Sports Cup</h1>
+        <p class="page-copy">4th Federation Yoga Sports Cup, 2020 Held at: Online – Live Date: August 2020</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results-federation-yoga-sports-championship.html">Federation Cup Results</a></li>
+            <li aria-current="page">4th Edition</li>
+          </ol>
+        </nav>
+
+        <div class="standings-banner">
+          <div class="standing-item">
+            <span class="standing-label">Overall Winner</span>
+            <span class="standing-value winner">West Bengal</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">1st Runners Up</span>
+            <span class="standing-value">Rajasthan</span>
+          </div>
+          <div class="standing-item">
+            <span class="standing-label">2nd Runners Up</span>
+            <span class="standing-value">Maharashtra</span>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Boys</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sayan Banerjee</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Harish Sharma</div>
+                  <div class="winner-desc">Rajasthan</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Aditya Joshi</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+          <div class="category-card">
+            <h3 class="category-title">8 to 11 Girls</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sohini Chakraborty</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Sunita Choudhary</div>
+                  <div class="winner-desc">Rajasthan</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Shruti Kulkarni</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+          <div class="category-card">
+            <h3 class="category-title">11 to 17 Boys</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Prabuddha Dutta</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Vikram Singh</div>
+                  <div class="winner-desc">Rajasthan</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Tanmay Shinde</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+          <div class="category-card">
+            <h3 class="category-title">11 to 17 Girls</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Nabomita Dasgupta</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Rekha Sharma</div>
+                  <div class="winner-desc">Rajasthan</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Snehal More</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+          <div class="category-card">
+            <h3 class="category-title">17 to 25 Men</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Vivekananda Pal</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pranav Patil</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Arpan Roy</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+          <div class="category-card">
+            <h3 class="category-title">17 to 25 Women</h3>
+            <div class="winners-list">
+        
+              <div class="winner-item">
+                <div class="winner-rank rank-1">1st</div>
+                <div class="winner-info">
+                  <div class="winner-name">Supriti Pal</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-2">2nd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Madhubanti Dey</div>
+                  <div class="winner-desc">West Bengal</div>
+                </div>
+              </div>
+            
+              <div class="winner-item">
+                <div class="winner-rank rank-3">3rd</div>
+                <div class="winner-info">
+                  <div class="winner-name">Pooja Deshmukh</div>
+                  <div class="winner-desc">Maharashtra</div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-layout-slot="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

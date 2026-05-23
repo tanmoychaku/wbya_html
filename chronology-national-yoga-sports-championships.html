@@ -1,218 +1,1416 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>West Bengal Yoga Association Shared Layout</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chronology of National Yoga Sports Championships | West Bengal Yoga Association</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .result-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .result-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #e11d48;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .result-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .result-edition {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #e11d48;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    
+    .result-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    
+    .result-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    
+    .result-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.4;
+    }
+    
+    .result-meta-icon {
+      color: #94a3b8;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    
+    .result-action {
+      margin-top: auto;
+      padding: 10px 16px;
+      background: #f1f5f9;
+      color: #0f172a;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .result-card:hover .result-action {
+      background: #e11d48;
+      color: #ffffff;
+    }
+    
+    .result-action::after {
+      content: "→";
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .result-card:hover .result-action::after {
+      transform: translateX(4px);
+    }
+    
+    .result-standings-box {
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #ffffff; /* Solid white background as requested */
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+  </style>
 </head>
 <body>
-  <template id="site-background-template">
-    <div class="sacred-page-bg" aria-hidden="true">
-      <iframe class="sacred-bg-frame top-left" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
-      <iframe class="sacred-bg-frame top-right" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
-      <iframe class="sacred-bg-frame bottom-left" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
-      <iframe class="sacred-bg-frame bottom-right" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
-      <iframe class="sacred-bg-frame center" src="background.html" title="Decorative yoga animation" tabindex="-1"></iframe>
-    </div>
-  </template>
+<div data-layout-slot="background"></div>
+<div data-layout-slot="header"></div>
+<main class="main-content">
+<section class="section">
+<div class="container">
+<header class="section-header">
+<p class="section-eyebrow">Championship</p>
+<h1 class="section-title">Chronology of National Yoga Sports Championships</h1>
+<p class="section-description">Complete historical record of all National Yoga Sports Championships from 1974 onwards, including venues, dates, and overall standings.</p>
+</header>
+<div class="results-grid">
+<a class="result-card" href="results-47th-senior-national-yogasana-sports-championship.html">
+<div class="result-edition">47th Edition</div>
+<h2 class="result-title">47th Senior National Yogasana Sports Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Mar. 25–28, 2023</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Pali (Rajasthan)</span>
+</div>
 
-  <template id="site-header-template">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="index.html">
-          <img class="brand-logo" src="https://www.westbengalyogaassociation.org/wp-content/uploads/2016/04/logo-wbyoga-association.png" alt="West Bengal Yoga Association logo" />
-          <div>
-            <div class="brand-title">West Bengal Yoga Association</div>
-            <div class="brand-subtitle">Registered under Society Act &middot; Kolkata</div>
-          </div>
-        </a>
 
-        <nav class="nav" id="primaryNav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="http://www.westbengalyogaassociation.org/wp-content/uploads/2017/07/Constitution.pdf" target="_blank" rel="noopener">Constitution</a>
-          
-          <div class="nav-item has-submenu">
-            <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Members</button>
-            <div class="sub-menu" aria-label="Members submenu">
-              <a href="office-bearers.html">Office Bearers</a>
-              <a href="affiliated-units.html">Affiliated Units</a>
-              <a href="associate-members.html">Associate Members</a>
-              <a href="life-members.html">Life Members</a>
-              <a href="registered-players.html">Registered Players</a>
-              <a href="our-pride.html">Our Pride</a>
-            </div>
-          </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-47th-junior-national-yogasana-sports-championship.html">
+<div class="result-edition">47th Edition</div>
+<h2 class="result-title">47th Sub-Junior & Junior National Yogasana Sports Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Oct. 28–31, 2022</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Ferozepur (Punjab)</span>
+</div>
 
-          <div class="nav-item has-submenu">
-            <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Championship</button>
-            <div class="sub-menu" aria-label="Championship submenu">
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">State Yoga Championship</button>
-                <div class="sub-menu">
-                  <a href="http://www.westbengalyogaassociation.org/wp-content/uploads/2023/09/Syllabus-Guidlines.pdf" target="_blank" rel="noopener">Syllabus and Guidelines</a>
-                  <a href="championship/syllabus-videos.html">Syllabus and Guidelines (Videos)</a>
-                  <a href="championship/rules-regulation.html">Rules &amp; Regulation (State Yoga Championship)</a>
-                  <a href="championship/judges-guideline.html">JUDGE’S GUIDELINE</a>
-                  <a href="http://www.westbengalyogaassociation.org/wp-content/uploads/2019/02/Score-Slip-19.pdf" target="_blank" rel="noopener">Score Slip</a>
-                  <a href="http://www.westbengalyogaassociation.org/wp-content/uploads/2019/02/Master-sheet-19.pdf" target="_blank" rel="noopener">Master Sheet</a>
-                  <a href="championship/results-state-yoga.html">Results (State Yoga Championship)</a>
-                  <a href="championship/chronology-state-yoga.html">Chronology of State Yoga Championships</a>
-                </div>
-              </div>
-              
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Netaji Subhas State Games</button>
-                <div class="sub-menu">
-                  <a href="results-netaji-subhas-state-games.html">Results (Netaji Subhas State Games)</a>
-                </div>
-              </div>
 
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">National Yoga Championship</button>
-                <div class="sub-menu">
-                  <a href="results-national-yoga-championship.html">Results (National Yoga Championship)</a>
-                  <a href="https://www.westbengalyogaassociation.org/championship/national-yoga-championship/chronology-national-yoga-sports-championships/">Chronology of National Yoga Sports Championships…</a>
-                </div>
-              </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-46th-senior-national-yogasana-sports-championship.html">
+<div class="result-edition">46th Edition</div>
+<h2 class="result-title">46th Senior National Yogasana Sports Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Mar. 26–29, 2022</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>IDPS, Tadepalligudem, West Godavari (Andhra Pradesh)</span>
+</div>
 
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Federation Yoga Sports Cup</button>
-                <div class="sub-menu">
-                  <a href="https://www.westbengalyogaassociation.org/championship/federation-yoga-sports-cup/result-federation-yoga-sports-championship/">Result (Federation Yoga Sports Cup)</a>
-                  <a href="https://www.westbengalyogaassociation.org/championship/federation-yoga-sports-cup/chronology-of-federation-yoga-sports-cups/">Chronology of Federation Yoga Sports Cups</a>
-                </div>
-              </div>
 
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Asian Yoga Championship</button>
-                <div class="sub-menu">
-                  <a href="https://www.westbengalyogaassociation.org/championship/asian-yoga-championship/results-asian-yoga-championship/">Results (Asian Yoga Sports Championship)</a>
-                </div>
-              </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-46th-national-yogasana-sports-championship.html">
+<div class="result-edition">46th Edition</div>
+<h2 class="result-title">46th Sub-Junior & Junior National Yogasana Sports Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Dec. 2021</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Online – Live</span>
+</div>
 
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">World Yoga Championship</button>
-                <div class="sub-menu">
-                  <a href="https://www.westbengalyogaassociation.org/championship/world-yoga-championship/results-world-yoga-championship/">Results (World Yoga Championship)</a>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="nav-item has-submenu">
-            <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Yoga Diploma</button>
-            <div class="sub-menu" aria-label="Yoga Diploma submenu">
-              <a href="https://www.westbengalyogaassociation.org/yoga-diploma/diploma-on-yoga/">Diploma on Yoga</a>
-              <a href="https://www.westbengalyogaassociation.org/yoga-diploma/results-yoga-diploma/">Results (Yoga Diploma)</a>
-            </div>
-          </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-45th-national-yogasana-sports-championship.html">
+<div class="result-edition">45th Edition</div>
+<h2 class="result-title">45th Sub-Junior, Junior & Senior National Yogasana Sports Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Jan. 2021</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Online – Live</span>
+</div>
 
-          <div class="nav-item has-submenu">
-            <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Report</button>
-            <div class="sub-menu" aria-label="Report submenu">
-              <a href="https://www.westbengalyogaassociation.org/2017-18/">Report 2017-18</a>
-            </div>
-          </div>
 
-          <div class="nav-item has-submenu">
-            <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Gallery</button>
-            <div class="sub-menu" aria-label="Gallery submenu">
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Photo Gallery</button>
-                <div class="sub-menu">
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/golden-jubilee-1972-2022-celebration-of-west-bengal-yoga-association/">Golden Jubilee (1972 – 2022) Celebration of West Bengal Yoga Association</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/2023-2/">2023</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/2022-2/">2022</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/2021-2/">2021</a>
-                  <a href="https://www.westbengalyogaassociation.org/2019-2/">2019</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/2018-2/">2018</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/photo-gallery/">2016-2017</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/photo-gallery-2/antique/">Antique Pictures</a>
-                </div>
-              </div>
-              <div class="nav-item has-submenu">
-                <button class="nav-link submenu-toggle" type="button" aria-expanded="false">Video Gallery</button>
-                <div class="sub-menu">
-                  <a href="https://www.westbengalyogaassociation.org/gallery/2019-2020/">2019-2020</a>
-                  <a href="https://www.westbengalyogaassociation.org/gallery/2014-2018/">2014-2018</a>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-44th-national-yogasana-sports-championship.html">
+<div class="result-edition">44th Edition</div>
+<h2 class="result-title">44th Senior National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 9–12, 2019</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Jaipur (Rajasthan)</span>
+</div>
 
-          <a href="https://www.westbengalyogaassociation.org/contact-us/">Contact Us</a>
-        </nav>
 
-        <a class="btn header-cta" href="index.html#contact">Member Login</a>
-        <button class="mobile-menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">&#9776;</button>
-      </div>
-    </header>
-  </template>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-43rd-national-yogasana-sports-championship.html">
+<div class="result-edition">43rd Edition</div>
+<h2 class="result-title">43rd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 18–22, 2018</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Patiala (Punjab)</span>
+</div>
 
-  <template id="site-footer-template">
-    <footer id="colophon" class="site-footer clearfix">
-      <div class="footer-widgets-wrapper">
-        <div class="container">
-          <div class="footer-widgets-area clearfix">
-            <div class="footer-widget-card">
-              <aside class="widget widget_text">
-                <h3 class="footer-widget-title"><span>West Bengal Yoga Association</span></h3>
-                <div class="footer-text">
-                  <span class="footer-address-line">15/3 Raja Subodh Mallick Square</span>
-                  <span class="footer-address-line">Kolkata - 700013.</span>
-                  <span class="footer-address-line">West Bengal, India</span>
-                  <br />
-                  Email: <a href="mailto:wbyogaassociation@gmail.com">wbyogaassociation@gmail.com</a><br />
-                  <a href="mailto:wbyoga@gmail.com">wbyoga@gmail.com</a>
-                </div>
-              </aside>
-            </div>
 
-            <div class="footer-widget-card">
-              <aside class="widget widget_text">
-                <h3 class="footer-widget-title"><span>Our Location</span></h3>
-                <div class="footer-map-card">
-                  <iframe
-                    loading="lazy"
-                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4381.526141158769!2d88.35755335086104!3d22.563777927222556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRaja+Subodh+Mallick+Square+Kolkata+%E2%80%93+700013.!5e0!3m2!1sen!2sin!4v1460457151172"
-                    allowfullscreen=""
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="West Bengal Yoga Association location map">
-                  </iframe>
-                </div>
-              </aside>
-            </div>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-42nd-national-yogasana-sports-championship.html">
+<div class="result-edition">42nd Edition</div>
+<h2 class="result-title">42nd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Oct. 25–28, 2017</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Hrit College, Ghaziabad (Uttar Pradesh)</span>
+</div>
 
-            <div class="footer-widget-card">
-              <aside class="widget widget_text">
-                <h3 class="footer-widget-title"><span>Affiliated by</span></h3>
-                <div class="footer-text affiliation-list">
-                  <div class="affiliation-item"><span class="affiliation-icon">&#10003;</span><span>Yoga Federation of India</span></div>
-                  <div class="affiliation-item"><span class="affiliation-icon">&#9733;</span><span>Bengal Olympic Association</span></div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="footer-socket-wrapper clearfix">
-        <div class="container">
-          <div class="footer-socket-area">
-            <div>Copyright &copy; 2017 West Bengal Yoga Association. All rights reserved.</div>
-            <nav class="footer-menu" aria-label="Footer navigation">
-              <ul id="menu-footer" class="menu">
-                <li class="menu-item"><a href="index.html">Home</a></li>
-                <li class="menu-item"><a href="about.html">About</a></li>
-                <li class="menu-item"><a href="office-bearers.html">Office Bearers</a></li>
-                <li class="menu-item"><a href="index.html#contact">Contact Us</a></li>
-                <li class="menu-item"><a href="https://www.westbengalyogaassociation.org/judges-course-2025-openning/">Judges Course 2025 Opening</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </template>
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-41st-national-yogasana-sports-championship.html">
+<div class="result-edition">41st Edition</div>
+<h2 class="result-title">41st National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 12–16, 2016</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Mega Sports Complex, Ranchi (Jharkhand)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-40th-national-yogasana-sports-championship.html">
+<div class="result-edition">40th Edition</div>
+<h2 class="result-title">40th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Jan. 10–14, 2016</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Dakshin Kanara Dist. (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-39th-national-yogasana-sports-championship.html">
+<div class="result-edition">39th Edition</div>
+<h2 class="result-title">39th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Dec. 26–29, 2014</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Hyderabad (Telangana)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-38th-national-yogasana-sports-championship.html">
+<div class="result-edition">38th Edition</div>
+<h2 class="result-title">38th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 23–27, 2013</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Mega Sports Complex, Jharkhand</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-37th-national-yogasana-sports-championship.html">
+<div class="result-edition">37th Edition</div>
+<h2 class="result-title">37th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Feb. 09–13, 2013</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Hoshiarpur (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-36th-national-yogasana-sports-championship.html">
+<div class="result-edition">36th Edition</div>
+<h2 class="result-title">36th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 30 – Dec. 3, 2011</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Srikshetra (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-35th-national-yogasana-sports-championship.html">
+<div class="result-edition">35th Edition</div>
+<h2 class="result-title">35th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Dec. 04–07, 2010</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Maragaon (Goa)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-34th-national-yogasana-sports-championship.html">
+<div class="result-edition">34th Edition</div>
+<h2 class="result-title">34th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Feb. 04–07, 2010</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Yamunanagar (Haryana)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-33rd-national-yogasana-sports-championship.html">
+<div class="result-edition">33rd Edition</div>
+<h2 class="result-title">33rd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Jan. 11–14, 2009</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Madurai (Tamilnadu)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-32nd-national-yogasana-sports-championship.html">
+<div class="result-edition">32nd Edition</div>
+<h2 class="result-title">32nd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Jan. 13–16, 2008</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Ranchi (Jharkhand)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-31st-national-yogasana-sports-championship.html">
+<div class="result-edition">31st Edition</div>
+<h2 class="result-title">31st National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 24–27, 2006</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Chennai (Tamilnadu)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-30th-national-yogasana-sports-championship.html">
+<div class="result-edition">30th Edition</div>
+<h2 class="result-title">30th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Jan. 12–15, 2006</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Kolkata (West Bengal)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">29th Edition</div>
+<h2 class="result-title">29th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 2002</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Kochi (Kerala)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Haryana</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">28th Edition</div>
+<h2 class="result-title">28th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 2001</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Jalandhar (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Punjab</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="results-27th-national-yogasana-sports-championship.html">
+<div class="result-edition">27th Edition</div>
+<h2 class="result-title">27th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 2000</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Kolkata (West Bengal)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Haryana</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-26th-national-yogasana-sports-championship.html">
+<div class="result-edition">26th Edition</div>
+<h2 class="result-title">26th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1999</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>New Delhi</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Delhi</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-25th-national-yogasana-sports-championship.html">
+<div class="result-edition">25th Edition</div>
+<h2 class="result-title">25th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1998</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bangalore (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Karnataka</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-24th-national-yogasana-sports-championship.html">
+<div class="result-edition">24th Edition</div>
+<h2 class="result-title">24th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1997</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bhilai (Madhya Pradesh)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Madhya Pradesh</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">23rd Edition</div>
+<h2 class="result-title">23rd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1996</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Chandigarh (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Punjab</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">22nd Edition</div>
+<h2 class="result-title">22nd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1995</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Vadodara (Gujarat)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Gujarat</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">21st Edition</div>
+<h2 class="result-title">21st National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1994</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Agra (Uttar Pradesh)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Uttar Pradesh</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">20th Edition</div>
+<h2 class="result-title">20th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1993</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bangalore (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Karnataka</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="results-19th-national-yogasana-sports-championship.html">
+<div class="result-edition">19th Edition</div>
+<h2 class="result-title">19th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1992</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Madurai (Tamilnadu)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Tamilnadu</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-18th-national-yogasana-sports-championship.html">
+<div class="result-edition">18th Edition</div>
+<h2 class="result-title">18th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1991</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Chandigarh (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Punjab</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-17th-national-yogasana-sports-championship.html">
+<div class="result-edition">17th Edition</div>
+<h2 class="result-title">17th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1990</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Kolkata (West Bengal)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Maharashtra</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-16th-national-yogasana-sports-championship.html">
+<div class="result-edition">16th Edition</div>
+<h2 class="result-title">16th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1989</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bombay (Maharashtra)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Maharashtra</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">15th Edition</div>
+<h2 class="result-title">15th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1988</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Mysore (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Karnataka</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="results-14th-national-yogasana-sports-championship.html">
+<div class="result-edition">14th Edition</div>
+<h2 class="result-title">14th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1987</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Amritsar (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Punjab</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-13th-national-yogasana-sports-championship.html">
+<div class="result-edition">13th Edition</div>
+<h2 class="result-title">13th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1986</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bhopal (Madhya Pradesh)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Madhya Pradesh</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="results-12th-national-yogasana-sports-championship.html">
+<div class="result-edition">12th Edition</div>
+<h2 class="result-title">12th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1985</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bhubaneswar (Orissa)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Orissa</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">11th Edition</div>
+<h2 class="result-title">11th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1984</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Chandigarh (Punjab)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Punjab</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="results-10th-national-yogasana-sports-championship.html">
+<div class="result-edition">10th Edition</div>
+<h2 class="result-title">10th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1983</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Allahabad (Uttar Pradesh)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Uttar Pradesh</span>
+</div>
+</div></div>
+<div class="result-action">View Full Results</div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">9th Edition</div>
+<h2 class="result-title">9th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1982</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Jaipur (Rajasthan)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Rajasthan</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">8th Edition</div>
+<h2 class="result-title">8th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1981</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Mysore (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Karnataka</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">7th Edition</div>
+<h2 class="result-title">7th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1980</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bhopal (Madhya Pradesh)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Maharashtra</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">6th Edition</div>
+<h2 class="result-title">6th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1979</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bombay (Maharashtra)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: Maharashtra</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: West Bengal</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">5th Edition</div>
+<h2 class="result-title">5th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1978</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Ahmadabad (Gujarat)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Gujarat</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">4th Edition</div>
+<h2 class="result-title">4th National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1977</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Kolkata (West Bengal)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Bihar</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">3rd Edition</div>
+<h2 class="result-title">3rd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1976</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Patna (Bihar)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Bihar</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">2nd Edition</div>
+<h2 class="result-title">2nd National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1975</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Bangalore (Karnataka)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Karnataka</span>
+</div>
+</div></div>
+</a>
+<a class="result-card" href="#" style="pointer-events: none; cursor: default;">
+<div class="result-edition">1st Edition</div>
+<h2 class="result-title">1st National Yoga Championship</h2>
+<div class="result-meta-list">
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+<span>Nov. 1974</span>
+</div>
+<div class="result-meta-item">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Patna (Bihar)</span>
+</div>
+
+
+<div class="result-standings-box">
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #f59e0b;" viewbox="0 0 24 24" width="16"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+<span style="font-weight: 700; color: #16a34a;">Overall Winner: West Bengal</span>
+</div>
+<div class="result-meta-item" style="margin-top: 0;">
+<svg class="result-meta-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color: #64748b;" viewbox="0 0 24 24" width="16"><path d="M12 15l-2 5l9-5l-9-5l2 5z"></path></svg>
+<span style="font-weight: 600; color: #475569;">1st Runners Up: Bihar</span>
+</div>
+</div></div>
+</a>
+</div>
+</div>
+</section>
+</main>
+<div data-layout-slot="footer"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
