@@ -1,69 +1,52 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>46th Sub-Junior & Junior National Yogasana Sports Championship | West Bengal Yoga Association</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/styles.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>46th Sub-Junior &amp; Junior National Yogasana Sports Championship | West Bengal Yoga Association</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
   <style>
     .overall-standings {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 20px;
-      padding: 32px;
+      background: #171d2d;
+      border-radius: 12px;
+      padding: 24px 32px;
       margin-bottom: 48px;
-      box-shadow: 0 12px 40px rgba(31, 38, 135, 0.07);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
       gap: 24px;
+      color: white;
     }
 
     .standing-item {
       text-align: center;
-      padding: 16px 32px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.5);
-      box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 12px rgba(0,0,0,0.03);
-      position: relative;
-    }
-
-    .standing-item.winner {
-      background: linear-gradient(135deg, #fef3c7, #fde68a);
-      border: 1px solid #fcd34d;
-      transform: scale(1.05);
-      z-index: 10;
-      box-shadow: 0 8px 24px rgba(252, 211, 77, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .standing-label {
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #64748b;
-      margin-bottom: 8px;
-    }
-
-    .standing-item.winner .standing-label {
-      color: #b45309;
+      color: #9ca3af;
     }
 
     .standing-state {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #0f172a;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f3f4f6;
     }
 
     .standing-item.winner .standing-state {
-      color: #92400e;
+      color: #fde047;
+      font-size: 1.5rem;
     }
 
     .category-grid {
@@ -73,41 +56,25 @@
     }
     
     .category-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 16px;
+      background: #ffffff;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .category-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.08);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
     }
     
     .category-title {
-      background: #e11d48; /* Rose-600 */
+      background: #171d2d;
       color: white;
-      padding: 16px 20px;
+      padding: 16px;
       font-size: 1.1rem;
       font-weight: 700;
       margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .category-title::before {
-      content: "";
-      display: block;
-      width: 8px;
-      height: 8px;
-      background: #fff;
-      border-radius: 50%;
-      opacity: 0.8;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 4px solid #e11d48;
     }
     
     .winners-list {
@@ -122,45 +89,45 @@
       align-items: center;
       gap: 16px;
       padding: 12px 16px;
-      background: #f8fafc;
-      border-radius: 12px;
-      border-left: 4px solid transparent;
-      transition: background 0.2s ease;
-    }
-    
-    .winner-item:hover {
-      background: #f1f5f9;
+      background: #ffffff;
+      border: 1px solid #f3f4f6;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     
     .winner-rank {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #cbd5e1;
-      min-width: 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     
-    .rank-1 { color: #fbbf24; } /* Gold */
-    .rank-2 { color: #94a3b8; } /* Silver */
-    .rank-3 { color: #b45309; } /* Bronze */
-    
-    .winner-item:has(.rank-1) { border-left-color: #fbbf24; background: #fffbeb; }
-    .winner-item:has(.rank-2) { border-left-color: #94a3b8; background: #f8fafc; }
-    .winner-item:has(.rank-3) { border-left-color: #b45309; background: #fff7ed; }
+    .rank-1 { background: #fef08a; color: #854d0e; }
+    .rank-2 { background: #e2e8f0; color: #334155; }
+    .rank-3 { background: #ffedd5; color: #9a3412; }
+    .rank-other { background: #f3f4f6; color: #6b7280; }
     
     .winner-info {
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .winner-name {
       font-weight: 700;
-      color: #1e293b;
-      font-size: 1.05rem;
+      color: #1f2937;
+      font-size: 1rem;
       text-transform: capitalize;
     }
 
     .winner-district {
-      font-size: 0.85rem;
-      color: #64748b;
+      font-size: 0.8rem;
+      color: #6b7280;
       margin-top: 2px;
     }
 
@@ -172,38 +139,315 @@
   </style>
 </head>
 <body>
-  <div data-layout-slot="background"></div>
-  <div data-layout-slot="header"></div>
+<div data-layout-slot="background"></div>
+<div data-layout-slot="header"></div>
+<main class="main-content">
+<section class="page-hero members-page-hero">
+<div class="container hero-card">
+<span class="section-label">Results</span>
+<h1 class="page-title">46th Sub-Junior &amp; Junior National Yogasana Sports Championship</h1>
+<p class="page-copy">Held Live – Online, 25th to 28th December, 2021.</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-head">
+<div>
+<span class="section-label">Scoreboard</span>
+<h2 class="section-title">Tournament Winners</h2>
+</div>
+</div>
+ <div class="overall-standings">
+<div class="standing-item winner">
+<div class="standing-label">Winner</div>
+<div class="standing-state">West Bengal</div>
+</div>
+<div class="standing-item">
+<div class="standing-label">1st Runners Up</div>
+<div class="standing-state">Haryana</div>
+</div>
+<div class="standing-item">
+<div class="standing-label">2nd Runners Up</div>
+<div class="standing-state">Karnataka</div>
+</div>
+</div>
+<div class="category-grid">
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP–A (8-10 YEARS) BOYS</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-1">1st</div>
+<div class="winner-info">
+<div class="winner-name">Deepanshu Sinha</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-3">3rd</div>
+<div class="winner-info">
+<div class="winner-name">Saikat Ghosh</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">4th</div>
+<div class="winner-info">
+<div class="winner-name">Prem Thaner</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP–A (8-10 YEARS) GIRLS</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-1">1st</div>
+<div class="winner-info">
+<div class="winner-name">Nitisha Patra</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Sampriti Chatterjee</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Swastika Pal</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP–B (10-12 Years, Boys)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Swattik Koley</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-3">3rd</div>
+<div class="winner-info">
+<div class="winner-name">Supriyo Sarkar</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">5th</div>
+<div class="winner-info">
+<div class="winner-name">Shibam Debnath</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP–B (10-12 Years, Girls)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-1">1st</div>
+<div class="winner-info">
+<div class="winner-name">Poushali Kangsabanik</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Shrestha Rana</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-3">3rd</div>
+<div class="winner-info">
+<div class="winner-name">Pritha Karmakar</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP-C (12-14 YEARS BOYS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-other">5th</div>
+<div class="winner-info">
+<div class="winner-name">Ritam Das</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">SUB JUNIOR GROUP-C (12-14 YEARS GIRLS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-other">5th</div>
+<div class="winner-info">
+<div class="winner-name">Sampriti Saha</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">6th</div>
+<div class="winner-info">
+<div class="winner-name">Aditi Yadav</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">JUNIOR GROUP–A (14-16 YEARS, BOYS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Soumik Pan</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">4th</div>
+<div class="winner-info">
+<div class="winner-name">Bipratip Banerjee</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">5th</div>
+<div class="winner-info">
+<div class="winner-name">Ajoy Soren</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">JUNIOR GROUP–A (14-16 YEARS, GIRLS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Payel Saha</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-3">3rd</div>
+<div class="winner-info">
+<div class="winner-name">Tanisha Das</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-other">4th</div>
+<div class="winner-info">
+<div class="winner-name">Jhuma Dey</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">JUNIOR GROUP-B (16 -18 YEARS BOYS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-1">1st</div>
+<div class="winner-info">
+<div class="winner-name">Koushik Bairagi</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Jyotishka Bain</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Avay Sarkar</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">JUNIOR GROUP-B (16 -18 YEARS GIRLS)</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-1">1st</div>
+<div class="winner-info">
+<div class="winner-name">Ritu Mondal</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Sudeshna Golder</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-3">3rd</div>
+<div class="winner-info">
+<div class="winner-name">Swarnali Ghosh</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">Artistic Solo – Male</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Ritam Das</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+<div class="winner-item">
+<div class="winner-rank rank-2">2nd</div>
+<div class="winner-info">
+<div class="winner-name">Koushik Bairagi</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category-card">
+<h3 class="category-title">Artistic Solo – Female</h3>
+<div class="winners-list">
+<div class="winner-item">
+<div class="winner-rank rank-other">6th</div>
+<div class="winner-info">
+<div class="winner-name">Ritu Mondal</div>
+<div class="winner-district">West Bengal</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-  <main class="main-content">
-    <section class="page-hero members-page-hero">
-      <div class="container hero-card">
-        <span class="section-label">Results</span>
-        <h1 class="page-title">46th Sub-Junior & Junior National Yogasana Sports Championship</h1>
-        <p class="page-copy"></p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="section-label">Scoreboard</span>
-            <h2 class="section-title">Tournament Winners</h2>
-          </div>
-        </div>
-        
-        
-
-        <div class="legacy-table-wrapper">
-          <div class="legacy-table-wrapper" style="overflow-x: auto; margin-bottom: 24px; padding: 16px;"><table border="5" style="border-color: #f5bd16; background-color: #f7f4be; width: 100%;"><tbody><tr><td colspan="10" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="734"></td></tr><tr><td rowspan="33" style="border-color: #f5ba3b; width: 2px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="21"> <p> </p></td><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #f7f692; text-align: left; vertical-align: middle;" width="695"><h4 style="text-align: center;"><span style="color: #800000;"><strong>46th Sub-Junior &amp; Junior National Yogasana Sports Championship</strong></span></h4></td><td rowspan="33" style="border-color: #f5ba3b; width: 2px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="18"></td></tr><tr><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #f7f692; text-align: left; vertical-align: middle;" width="695"><p style="text-align: center;"><span style="color: #800000;">Live – Online</span></p></td></tr><tr><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #f7f692; text-align: left; vertical-align: middle;" width="695"><p style="text-align: center;"><span style="color: #800000;"><strong>25th to 28th December, 2021</strong></span></p></td></tr><tr><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #f7f692; text-align: left; vertical-align: middle;" width="695"><p style="text-align: center;"><span style="color: #800000;"><strong>Winner :  West Bengal           </strong>1<sup>st</sup> Runners Up : Haryana          2<sup>nd</sup> Runners Up : Karnataka</span></p></td></tr><tr><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: left; vertical-align: middle;" width="342"><em><span style="color: #003366;">SUB JUNIOR GROUP–A (8-10 YEARS) BOYS</span></em></td><td rowspan="27" style="border-color: #f5ba3b; width: 2px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="17"></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: left; vertical-align: middle;" width="335"><p style="text-align: center;"><span style="color: #003366;"><em>SUB JUNIOR GROUP–A (8-10 YEARS) GIRLS</em></span></p></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="52"><p style="text-align: center;"><span style="color: #800000;">1</span></p></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="183"><span style="color: #800000;">Deepanshu Sinha</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="107"><span style="color: #800000;">1<sup>st</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="40"><p style="text-align: center;"><span style="color: #800000;">1</span></p></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="183"><span style="color: #800000;">Nitisha Patra</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="111"><p style="text-align: center;"><span style="color: #800000;">1<sup>st</sup></span></p></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">2</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="183"><p style="text-align: left;"><span style="color: #000000;">Saikat Ghosh</span></p></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">3<sup>rd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="40"><p style="text-align: center;"><span style="color: #000000;">2</span></p></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="183"><span style="color: #000000;">Sampriti Chatterjee</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="111"><p style="text-align: center;"><span style="color: #000000;">2<sup>nd</sup></span></p></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">3</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="183"><p style="text-align: left;"><span style="color: #000000;">Prem Thaner</span></p></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">4<sup>th</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="40"><p style="text-align: center;"><span style="color: #000000;">3</span></p></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="183"><span style="color: #000000;">Swastika Pal</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: left; vertical-align: middle;" width="111"><p style="text-align: center;"><span style="color: #000000;">2<sup>nd</sup></span></p></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"><span style="color: #003366;"><em>SUB JUNIOR GROUP–B (10-12 Years, Boys)</em></span></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"><span style="color: #003366;"><em>SUB JUNIOR GROUP–B (10-12 Years, Girls)</em></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">1</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Swattik Koley</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #800000;">1</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #800000;">Poushali Kangsabanik</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #800000;">1<sup>st</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">2</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Supriyo Sarkar</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">3<sup>rd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">2</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Shrestha Rana</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">2<sup>nd</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">3</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Shibam Debnath</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">5<sup>th</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">3</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Pritha Karmakar</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">3<sup>rd</sup></span></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"><em><span style="color: #003366;">SUB JUNIOR GROUP-C (12-14 YEARS BOYS)</span></em></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"><span style="color: #003366;"><em>SUB JUNIOR GROUP-C (12-14 YEARS GIRLS)</em></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">1</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Ritam Das</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">5<sup>th</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">1</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Sampriti Saha</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">5<sup>th</sup></span></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">2</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Aditi Yadav</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">6<sup>th</sup></span></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: left; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"><span style="color: #003366;"><em>JUNIOR GROUP–A (14-16 YEARS, BOYS)</em></span></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"><em><span style="color: #003366;">JUNIOR GROUP–A (14-16 YEARS, GIRLS)</span></em></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">1</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Soumik Pan</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">1</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Payel Saha</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">2<sup>nd</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">2</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Bipratip Banerjee</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">4<sup>th</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">2</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Tanisha Das</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">3<sup>rd</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">3</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Ajoy Soren</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">5<sup>th</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">3</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Jhuma Dey</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">4<sup>th</sup></span></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"><span style="color: #003366;"><em>JUNIOR GROUP-B (16 -18 YEARS BOYS)</em></span></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"><span style="color: #003366;"><em>JUNIOR GROUP-B (16 -18 YEARS GIRLS)</em></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #800000;">1</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #800000;">Koushik Bairagi</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #800000;">1<sup>st</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #800000;">1</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #800000;">Ritu Mondal</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #800000;">1<sup>st</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">2</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Jyotishka Bain</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">2</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Sudeshna Golder</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">2<sup>nd</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">3</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Avay Sarkar</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">3</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Swarnali Ghosh</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="111"><span style="color: #000000;">3<sup>rd</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td><td style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td></tr><tr><td colspan="3" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="342"><em><span style="color: #003366;">Artistic Solo – Male</span></em></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"><em><span style="color: #000000;">Artistic Solo – Female</span></em></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">1</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Ritam Das</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="40"><span style="color: #000000;">1</span></td><td colspan="2" style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="177"><span style="color: #000000;">Ritu Mondal</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="118"><span style="color: #000000;">6<sup>th</sup></span></td></tr><tr><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="52"><span style="color: #000000;">2</span></td><td style="border-color: #f5ba3b; width: 25px; vertical-align: middle; text-align: left;" width="183"><span style="color: #000000;">Koushik Bairagi</span></td><td style="border-color: #f5ba3b; width: 25px; text-align: center; vertical-align: middle;" width="107"><span style="color: #000000;">2<sup>nd</sup></span></td><td colspan="4" style="border-color: #f5ba3b; width: 25px; background-color: #f7e69e; text-align: center; vertical-align: middle;" width="335"></td></tr><tr><td colspan="8" style="border-color: #f5ba3b; width: 25px; background-color: #163b0c; text-align: center; vertical-align: middle;" width="695"></td></tr></tbody></table></div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <div data-layout-slot="footer"></div>
-  <script src="assets/js/main.js"></script>
+</div>
+</section>
+</main>
+<div data-layout-slot="footer"></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
